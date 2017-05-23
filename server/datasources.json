@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "video": {
+    "host": "https://that-one.herokuapp.com/",
+    "port": 0,
+    "url": "mongodb://heroku_mfstx9tp:eesh2l0mcgehm7ruam0icidhn4@ds143588.mlab.com:43588/heroku_mfstx9tp",
+    "database": "",
+    "password": "",
+    "name": "video",
+    "user": "",
+    "connector": "mongodb"
   }
 }
