@@ -3,14 +3,14 @@
     "name": "db",
     "connector": "memory"
   },
-  "video": {
-    "host": "ds143588.mlab.com",
-    "port": 43588,
-    "url": "mongodb://heroku_mfstx9tp:eesh2l0mcgehm7ruam0icidhn4@ds143588.mlab.com:43588/heroku_mfstx9tp",
-    "database": "",
-    "password": "",
-    "name": "video",
-    "user": "",
-    "connector": "mongodb"
-  }
+  "videoDS": {
+    "host": "YOUR_HOST",
+    "port": 0,
+    "url":  false,
+    "database": "videos",
+    "name": "videos",
+    "connector": "mongodb",
+    "user": "YOUR_USERNAME",
+    "password": "YOUR_PASSWORD"
+  }  
 }

@@ -37,11 +37,11 @@
     "public": false
   },
   "video": {
-    "dataSource": "video",
+    "dataSource": "videoDS",
     "public": true
   },
   "user": {
-    "dataSource": "video",
+    "dataSource": "videoDS",
     "public": true
   }
 }
