@@ -4,13 +4,13 @@
     "connector": "memory"
   },
   "videoDS": {
-    "host": "YOUR_HOST",
+    "host": "mongodb://localhost/",
     "port": 0,
     "url":  false,
-    "database": "videos",
-    "name": "videos",
+    "database": "dafuckmyli_ve",
+    "name": "dafuckmyli_ve",
     "connector": "mongodb",
-    "user": "YOUR_USERNAME",
-    "password": "YOUR_PASSWORD"
+    "user": "",
+    "password": ""
   }  
 }
