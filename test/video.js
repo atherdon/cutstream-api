@@ -9,7 +9,8 @@ chai.use(chaiHttp);
 
 describe('Vids', function(){
 
-	it('should show all vids on GET /api/video', function(done){
+	var message = 'should show all vids on GET /api/video';
+	it(message, function(done){
 
 		chai.request(server)
 			.get('/api/video')
@@ -22,7 +23,8 @@ describe('Vids', function(){
 
 	});
 
-	it('should show only the title of vids on GET /api/video/?filter[fields][title]=true', function(done){
+	var message2 = 'should show only the title of vids on GET /api/video/?filter[fields][title]=true';
+	it(message2, function(done){
 
 		chai.request(server)
 			.get('/api/video/?filter[fields][title]=true')
@@ -37,6 +39,6 @@ describe('Vids', function(){
 
 	});
 
-	
+
 
 });
