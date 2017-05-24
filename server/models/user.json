@@ -1,0 +1,24 @@
+{
+  "name": "user",
+  "plural": "user",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "videos": {
+      "type": "hasMany",
+      "model": "video",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -38,5 +38,9 @@
   "video": {
     "dataSource": "video",
     "public": true
+  },
+  "user": {
+    "dataSource": "video",
+    "public": true
   }
 }
