@@ -1,1 +1,1 @@
-automigrate.js
+'use strict';
