@@ -14,26 +14,26 @@
     ]
   },
   "User": {
-    "dataSource": "db",
+    "dataSource": "videoDS",
     "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "videoDS",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "videoDS",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "videoDS",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "videoDS",
     "public": false
   },
   "video": {
