@@ -54,50 +54,6 @@ database.autoupdate('VideoModel', function(err) {
 	if (err) throw err;
 
 	// video frames 
-	// var cg1 = new Video({
-	// 	_id   : 'G1aSAQ1CibQ',
-	// 	title : 'Logan Epic Kill',
-	// 	url   : 'https://youtu.be/G1aSAQ1CibQ?t=1m26s',
-	// 	desc  : 'LOGAN Official International Red Band Trailer #1 (2017) Hugh Jackman Wolverine Marvel Movie HD',
-	// 	start : 86,
-	// 	end   : 89,
-	// 	step  : 1,
-	// 	slug  : 'G1aSAQ1CibQ',
-	// });
-
-	// var cg2 = new Video({
-	// 	_id   : 'Lt-U_t2pUHI',
-	// 	title : 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
-	// 	url   : 'https://youtu.be/Lt-U_t2pUHI?t=41s',
-	// 	desc  : 'Witness the power of the Sorcerer Supreme',
-	// 	start : 41,
-	// 	end   : 51,
-	// 	step  : 1,
-	// 	slug  : 'Lt-U_t2pUHI',
-	// });
-
-	// var cg3 = new Video({
-	// 	_id   : 'Q88JeXtKMDY',
-	// 	title : 'Black Panther Featurette',
-	// 	url   : 'https://youtu.be/Q88JeXtKMDY?t=44s',
-	// 	desc  : 'Black Panther\'s role in a featurette for Marvel\'s "Captain America: Civil War"',
-	// 	start : 44,
-	// 	end   : 54,
-	// 	step  : 1,
-	// 	slug  : 'Q88JeXtKMDY',
-	// });
-
-	// var cg4 = new Video({
-	// 	_id   : 'nWHUjuJ8zxE',
-	// 	title : 'Jessica Jones Mirror Cracking',
-	// 	url   : 'https://youtu.be/nWHUjuJ8zxE?t=1m31s',
-	// 	desc  : 'She is a complex character, with problems',
-	// 	start : 91,
-	// 	end   : 97,
-	// 	step  : 1,
-	// 	slug  : 'nWHUjuJ8zxE',
-	// });
-
 	var adminVideos = [
 	{
 		title : 'Logan Epic Kill',
@@ -108,8 +64,8 @@ database.autoupdate('VideoModel', function(err) {
 		step  : 1,
 		slug  : 'G1aSAQ1CibQ',
 		userId: '5927a7118784ba0e44f63da0',
-created_at: new Date(),
-	  updated_at: new Date(),
+		created_at: new Date(),
+	  	updated_at: new Date(),
 	},
 	{
 		title : 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
@@ -121,7 +77,7 @@ created_at: new Date(),
 		slug  : 'Lt-U_t2pUHI',
 		userId: '5927a7118784ba0e44f63da0',
 		created_at: new Date(),
-	  updated_at: new Date(),
+	  	updated_at: new Date(),
 	},
 	{
 		title : 'Black Panther Featurette',
@@ -132,8 +88,8 @@ created_at: new Date(),
 		step  : 1,
 		slug  : 'Q88JeXtKMDY',
 		userId: '5927a7118784ba0e44f63da0',
-created_at: new Date(),
-	  updated_at: new Date(),
+		created_at: new Date(),
+	  	updated_at: new Date(),
 	},
 	{
 		title : 'Jessica Jones Mirror Cracking',
@@ -145,7 +101,7 @@ created_at: new Date(),
 		slug  : 'nWHUjuJ8zxE',
 		userId: '5927a7118784ba0e44f63da0',
 		created_at: new Date(),
-	  updated_at: new Date(),
+	  	updated_at: new Date(),
 	}
 	];
 
