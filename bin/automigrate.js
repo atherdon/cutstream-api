@@ -1,10 +1,10 @@
 'use strict';
 
 
-var path   = require('path');
+var path     = require('path');
 
-var app    = require(path.resolve(__dirname, '../server/server'));
-var server = app.datasources.videoDS;
+var app      = require(path.resolve(__dirname, '../server/server'));
+var database = app.datasources.videoDS;
 
 // server.automigrate('user', function(err) {
 //   if (err) throw err;
@@ -112,3 +112,12 @@ var server = app.datasources.videoDS;
  // "AccessToken": {
  //      "eZRy1Qv7YVx9xEcpLQMl9eruyEIEZd5UECmQOGWYCenAVysIUOCwWQOqLlkY9Gno": "{\"id\":\"eZRy1Qv7YVx9xEcpLQMl9eruyEIEZd5UECmQOGWYCenAVysIUOCwWQOqLlkY9Gno\",\"ttl\":1209600,\"created\":\"2017-05-21T22:58:46.468Z\",\"userId\":1}"
  //    },
+
+//creating loopback necessary tables if no exists
+var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
+
+database.automigrate(lbTables, function(er) {
+  if (er) throw er;
+  console.log('Loopback tables [' - lbTables - '] created in ', database.adapter.name);
+  database.disconnect();
+});
