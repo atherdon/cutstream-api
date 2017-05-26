@@ -116,8 +116,9 @@ var database = app.datasources.videoDS;
 //creating loopback necessary tables if no exists
 var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
 
-database.automigrate(lbTables, function(er) {
-  if (er) throw er;
-  console.log('Loopback tables [' - lbTables - '] created in ', database.adapter.name);
+database.automigrate(lbTables, function(err) {
+  if (err) throw err;
+
+  console.log( 'Loopback tables [' + lbTables.toString() + '] created in ' + database.adapter.name );
   database.disconnect();
 });

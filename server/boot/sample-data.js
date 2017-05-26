@@ -1,5 +1,6 @@
 'use strict';
 
+var async      = require('async');
 
 module.exports = function(app) {
 
@@ -34,29 +35,48 @@ module.exports = function(app) {
 	}
   ];
 
-	User.create(accounts, function(err, users) {
-		if (err) throw err;
+	accounts.forEach(function(element) {
+	    // console.log(element);
 
-		console.log('Created users:', users);
+	    User.findOrCreate({
+	      where: {
+	        name: element.name,
+	        email: element.email,
+	      }
+	    }, element,
+	    function (err, user) {
+	      if (err) throw err;
+	      // console.log("+ " + log.id);
+	      // callback();
+
+	      if (user.name == 'admin'){
+      		// create the admin role
+
+      			console.log(user);
+      			// commented due to laziness moving this code to automigrate.
+			    // Role.create({
+			    //   name: 'admin'
+			    // }, function(err, role) {
+			    //   if (err) throw err;
+
+			    //   console.log('Created role:', role);
+
+			    //   //make andy an admin
+			    //   role.principals.create({
+			    //     principalType: RoleMapping.USER,
+			    //     principalId: user.id 
+			    //   }, function(err, principal) {
+			    //     if (err) throw err;
+
+			    //     console.log('Created principal:', principal);
+			    //   });
+			    // });
+
+	      }
+
+
+	    });
+
 	});
-
-	//create the admin role
-    Role.create({
-      name: 'admin'
-    }, function(err, role) {
-      if (err) throw err;
-
-      console.log('Created role:', role);
-
-      //make andy an admin
-      role.principals.create({
-        principalType: RoleMapping.USER,
-        principalId: users[2].id
-      }, function(err, principal) {
-        if (err) throw err;
-
-        console.log('Created principal:', principal);
-      });
-    });
 
 };
