@@ -36,7 +36,7 @@
     "dataSource": "videoDS",
     "public": false
   },
-  "video": {
+  "VideoModel": {
     "dataSource": "videoDS",
     "public": true
   },

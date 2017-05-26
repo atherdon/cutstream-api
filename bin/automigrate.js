@@ -154,7 +154,7 @@ created_at: new Date(),
 
 		console.log('Created:', model);
 
-		server.disconnect();
+		database.disconnect();
 	});
 
 

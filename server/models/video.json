@@ -1,5 +1,5 @@
 {
-  "name": "video",
+  "name": "VideoModel",
   "plural": "video",
   "base": "PersistedModel",
   "idInjection": true,

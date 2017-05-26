@@ -30,7 +30,7 @@
   "relations": {
     "videos": {
       "type": "hasMany",
-      "model": "video",
+      "model": "VideoModel",
       "foreignKey": ""
     }
   },
