@@ -6,50 +6,6 @@ var path     = require('path');
 var app      = require(path.resolve(__dirname, '../server/server'));
 var database = app.datasources.videoDS;
 
-// server.automigrate('user', function(err) {
-//   if (err) throw err;
-
-//   var accounts = [
-//     {
-//       name: 'john',	
-//       email: 'john.doe@ibm.com',
-//       password: '$2a$10$1lmPRI0Xjd5fU8HGdPmDoOkZpIPJj2axcdJYIfc/3RUnBDDqQe31K',
-//       created_at: new Date(),
-//       updated_at: new Date(),
-//     },
-//     {
-// 	  name: 'jane',
-//       email: 'jane.doe@ibm.com',
-//       password: '$2a$10$1lmPRI0Xjd5fU8HGdPmDoOkZpIPJj2axcdJYIfc/3RUnBDDqQe31K',
-//       created_at: new Date(),
-//       updated_at: new Date(),
-//     },
-//     {
-// 	  name: 'andy',
-//       email: 'admin@ibm.com',
-//       password: '$2a$10$1lmPRI0Xjd5fU8HGdPmDoOkZpIPJj2axcdJYIfc/3RUnBDDqQe31K', //andy
-//       created_at: new Date(),
-//       updated_at: new Date(),
-
-//     },
-
-
-//   ];
-
-//   var count = accounts.length;
-//   accounts.forEach(function(account) {
-//     app.models.User.create(account, function(err, model) {
-//       if (err) throw err;
-
-//       console.log('Created:', model);
-
-//       count--;
-//       if (count === 0)
-//         server.disconnect();
-//     });
-//   });
-// });
-
 database.autoupdate('VideoModel', function(err) {
 	if (err) throw err;
 
@@ -64,8 +20,8 @@ database.autoupdate('VideoModel', function(err) {
 		step  : 1,
 		slug  : 'G1aSAQ1CibQ',
 		userId: '5927a7118784ba0e44f63da0',
-		created_at: new Date(),
-	  	updated_at: new Date(),
+		// created_at: new Date(),
+	  	// updated_at: new Date(),
 	},
 	{
 		title : 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
@@ -76,8 +32,8 @@ database.autoupdate('VideoModel', function(err) {
 		step  : 1,
 		slug  : 'Lt-U_t2pUHI',
 		userId: '5927a7118784ba0e44f63da0',
-		created_at: new Date(),
-	  	updated_at: new Date(),
+		// created_at: new Date(),
+	  	// updated_at: new Date(),
 	},
 	{
 		title : 'Black Panther Featurette',
@@ -88,8 +44,8 @@ database.autoupdate('VideoModel', function(err) {
 		step  : 1,
 		slug  : 'Q88JeXtKMDY',
 		userId: '5927a7118784ba0e44f63da0',
-		created_at: new Date(),
-	  	updated_at: new Date(),
+		// created_at: new Date(),
+	  	// updated_at: new Date(),
 	},
 	{
 		title : 'Jessica Jones Mirror Cracking',
@@ -100,8 +56,8 @@ database.autoupdate('VideoModel', function(err) {
 		step  : 1,
 		slug  : 'nWHUjuJ8zxE',
 		userId: '5927a7118784ba0e44f63da0',
-		created_at: new Date(),
-	  	updated_at: new Date(),
+		// created_at: new Date(),
+	  	// updated_at: new Date(),
 	}
 	];
 

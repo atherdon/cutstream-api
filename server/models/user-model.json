@@ -1,5 +1,5 @@
 {
-  "name": "user",
+  "name": "UserModel",
   "plural": "user",
   "base": "User",
   "idInjection": true,

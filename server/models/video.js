@@ -1,5 +1,12 @@
 'use strict';
 
+// var path      = require('path');
+// var app       = require(path.resolve(__dirname, '../server/server'));
+// var UserModel = app.models.UserModel;
+// console.log( UserModel );
+// console.log( path.resolve(__dirname, '../../server/server') );
+// console.log( app.models.VideoModel );
+
 module.exports = function(VideoModel) {
 
 	VideoModel.validatesPresenceOf(
@@ -48,8 +55,9 @@ module.exports = function(VideoModel) {
 	});
 
 	VideoModel.listVideosByUser = function(id, cb){
-
-		UserModel.exists(id, function(err, user)){
+		var UserModel = VideoModel.app.models.UserModel;
+		
+		UserModel.exists(id, function(err, user){
 			if(err){ cb(err); }
 
 			VideoModel.find({
