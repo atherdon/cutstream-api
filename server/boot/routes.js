@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(app) {
   var router = app.loopback.Router();
 
@@ -7,12 +9,18 @@ module.exports = function(app) {
     });
   });
 
-  router.get('/projects', function(req, res) {
+
+  router.get('/profile', function(req, res) {
     res.render('projects');
   });
 
+  router.get('/videos', function(req, res) {
+    res.render('videos');   
+  });
+
+
   router.post('/projects', function(req, res) {
-    var email = req.body.email;
+    var email    = req.body.email;
     var password = req.body.password;
 
     app.models.User.login({
@@ -28,16 +36,26 @@ module.exports = function(app) {
 
       token = token.toJSON();
 
-      res.render('projects', {
+      res.render('profile', {
         username: token.user.username,
         accessToken: token.id
       });
+
+
+      // res.render('videos', {
+      //   username: token.user.username,
+      //   accessToken: token.id
+      // });
+
     });
   });
 
+
   router.get('/logout', function(req, res) {
     var AccessToken = app.models.AccessToken;
-    var token = new AccessToken({id: req.query['access_token']});
+    var token       = new AccessToken({
+      id: req.query['access_token']
+    });
     token.destroy();
 
     res.redirect('/');

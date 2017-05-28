@@ -40,7 +40,7 @@
     "dataSource": "videoDS",
     "public": true
   },
-  "user": {
+  "UserModel": {
     "dataSource": "videoDS",
     "public": true
   }
