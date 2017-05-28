@@ -38,5 +38,33 @@ module.exports = function(VideoModel) {
 		next();
 	});
     
+	VideoModel.listVideos = function(cb){
+		VideoModel.find({}, cb);
+	};
+
+	VideoModel.remoteMethod('listVideos',{
+		returns: {arg: 'videos', type: 'array'},
+		http: {path: 'list-videos', verb: 'get'}
+	});
+
+	VideoModel.listVideosByUser = function(id, cb){
+
+		UserModel.exists(id, function(err, user)){
+			if(err){ cb(err); }
+
+			VideoModel.find({
+				fields: {
+					userId: id
+				}
+			}, cb);
+		});
+
+	};
+
+	VideoModel.remoteMethod('listVideosByUser', {
+		accepts: {arg: 'id', type: 'number'},
+		returns: {arg: 'videos', type: 'array'},
+		http: {path: '/view-videos', verb: 'get'}
+	});
 
 };

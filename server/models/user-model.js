@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = function(Usermodel) {
 
 	Usermodel.validatesPresenceOf('name');
-    Usermodel.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
+  Usermodel.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
     
 
 	Usermodel.observe("before save", function updateTimestamp(ctx, next) {
@@ -21,5 +21,6 @@ module.exports = function(Usermodel) {
   Usermodel.observe('update', function(ctx, next){
   	ctx.instance.updated_at = new Date();
   	next();
-  });    
+  }); 
+     
 };
