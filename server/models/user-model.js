@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path');
+
 module.exports = function(Usermodel) {
 
 	Usermodel.validatesPresenceOf('name');
