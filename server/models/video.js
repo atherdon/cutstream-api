@@ -3,7 +3,7 @@
 module.exports = function(VideoModel) {
 
 	VideoModel.validatesPresenceOf(
-		'title', 'url', 'start', 'end', 'step', 'created_at', 'updated_at'
+		'title', 'url', 'start', 'end', 'step'
 	);
 
 	// YouTube url custom validation
@@ -22,5 +22,21 @@ module.exports = function(VideoModel) {
         err();
       }
     }
+
+	VideoModel.observe("before save", function updateTimestamp(ctx, next) {
+
+		if( ctx.isNewInstance ){
+			ctx.instance.created_at = new Date();
+			ctx.instance.updated_at = new Date();
+		} 
+		
+		next();
+	});
+
+	VideoModel.observe('update', function(ctx, next){
+		ctx.instance.updated_at = new Date();
+		next();
+	});
+    
 
 };

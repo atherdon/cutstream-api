@@ -4,7 +4,7 @@ var async      = require('async');
 
 module.exports = function(app) {
 
-  var User        = app.models.user;
+  var User        = app.models.UserModel;
   var Role        = app.models.Role;
   var RoleMapping = app.models.RoleMapping;
 
@@ -15,22 +15,22 @@ module.exports = function(app) {
 	  name: 'john',	
 	  email: 'john.doe@ibm.com',
 	  password: 'john',
-	  created_at: new Date(),
-	  updated_at: new Date(),
+	  // created_at: new Date(),
+	  // updated_at: new Date(),
 	},
 	{
 	  name: 'jane',
 	  email: 'jane.doe@ibm.com',
 	  password: 'jane',
-	  created_at: new Date(),
-	  updated_at: new Date(),
+	  // created_at: new Date(),
+	  // updated_at: new Date(),
 	},
 	{
 	  name: 'admin',
 	  email: 'admin@ibm.com',
 	  password: 'admin',
-	  created_at: new Date(),
-	  updated_at: new Date(),
+	  // created_at: new Date(),
+	  // updated_at: new Date(),
 
 	}
   ];
