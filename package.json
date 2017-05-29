@@ -23,7 +23,7 @@
     "chai": "^4.0.0",
     "chai-http": "^3.0.0",
     "eslint": "^2.13.1",
-    "eslint-config-loopback": "^4.0.0",
+    "eslint-config-loopback": "^8.0.0",
     "nodemon": "^1.11.0",
     "nsp": "^2.1.0"
   },
