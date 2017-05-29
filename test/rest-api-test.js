@@ -46,6 +46,7 @@ chai.request(server)
     chai.request(server)
       .get('/api/video')
       .end( function(err, res){
+        
         res.should.have.status(401);
         // res.body.should.have.least(4);
         done();
@@ -61,6 +62,7 @@ chai.request(server)
       .field('name', 'admin')
       .field('email', 'admin')
       .end( function(err, res){
+
         res.should.have.status(200);
         res.body.should.have.least(4);
         assert.typeOf(res.body,'object');
