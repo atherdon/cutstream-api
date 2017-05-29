@@ -14,14 +14,14 @@ module.exports = function(app) {
 	{
 	  name: 'john',	
 	  email: 'john.doe@ibm.com',
-	  password: 'john',
+	  password: 'john1',
 	  // created_at: new Date(),
 	  // updated_at: new Date(),
 	},
 	{
 	  name: 'jane',
 	  email: 'jane.doe@ibm.com',
-	  password: 'jane',
+	  password: 'jane1',
 	  // created_at: new Date(),
 	  // updated_at: new Date(),
 	},
@@ -55,23 +55,23 @@ module.exports = function(app) {
       			// console.log(user);
       			
       			// commented due to laziness moving this code to automigrate.
-			    // Role.create({
-			    //   name: 'admin'
-			    // }, function(err, role) {
-			    //   if (err) throw err;
+			    Role.create({
+			      name: 'admin'
+			    }, function(err, role) {
+			      if (err) throw err;
 
-			    //   console.log('Created role:', role);
+			      console.log('Created role:', role);
 
-			    //   //make andy an admin
-			    //   role.principals.create({
-			    //     principalType: RoleMapping.USER,
-			    //     principalId: user.id 
-			    //   }, function(err, principal) {
-			    //     if (err) throw err;
+			      //make andy an admin
+			      role.principals.create({
+			        principalType: RoleMapping.USER,
+			        principalId: user.id 
+			      }, function(err, principal) {
+			        if (err) throw err;
 
-			    //     console.log('Created principal:', principal);
-			    //   });
-			    // });
+			        console.log('Created principal:', principal);
+			      });
+			    });
 
 	      }
 

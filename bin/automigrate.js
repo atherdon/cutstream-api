@@ -6,68 +6,103 @@ var path     = require('path');
 var app      = require(path.resolve(__dirname, '../server/server'));
 var database = app.datasources.videoDS;
 
+var async    = require('async');
+
+let accounts = require('sample-users-data');
+
+
+
+database.autoupdate('UserModel', function(err) {
+	if (err) throw err;
+
+	app.models.userModel
+
+
+
+});
+
+
+
+
 database.autoupdate('VideoModel', function(err) {
 	if (err) throw err;
 
-	// video frames 
-	var adminVideos = [
-	{
-		title : 'Logan Epic Kill',
-		url   : 'https://youtu.be/G1aSAQ1CibQ?t=1m26s',
-		desc  : 'LOGAN Official International Red Band Trailer #1 (2017) Hugh Jackman Wolverine Marvel Movie HD',
-		start : 86,
-		end   : 89,
-		step  : 1,
-		slug  : 'G1aSAQ1CibQ',
-		userId: '5927a7118784ba0e44f63da0',
-		// created_at: new Date(),
-	  	// updated_at: new Date(),
-	},
-	{
-		title : 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
-		url   : 'https://youtu.be/Lt-U_t2pUHI?t=41s',
-		desc  : 'Witness the power of the Sorcerer Supreme',
-		start : 41,
-		end   : 51,
-		step  : 1,
-		slug  : 'Lt-U_t2pUHI',
-		userId: '5927a7118784ba0e44f63da0',
-		// created_at: new Date(),
-	  	// updated_at: new Date(),
-	},
-	{
-		title : 'Black Panther Featurette',
-		url   : 'https://youtu.be/Q88JeXtKMDY?t=44s',
-		desc  : 'Black Panther\'s role in a featurette for Marvel\'s "Captain America: Civil War"',
-		start : 44,
-		end   : 54,
-		step  : 1,
-		slug  : 'Q88JeXtKMDY',
-		userId: '5927a7118784ba0e44f63da0',
-		// created_at: new Date(),
-	  	// updated_at: new Date(),
-	},
-	{
-		title : 'Jessica Jones Mirror Cracking',
-		url   : 'https://youtu.be/nWHUjuJ8zxE?t=1m31s',
-		desc  : 'She is a complex character, with problems',
-		start : 91,
-		end   : 97,
-		step  : 1,
-		slug  : 'nWHUjuJ8zxE',
-		userId: '5927a7118784ba0e44f63da0',
-		// created_at: new Date(),
-	  	// updated_at: new Date(),
-	}
-	];
+	app.models.UserModel.findOne({
+	      where: {
+	        name: 'admin',
+	        
+	      }
+	    }, function (err, user) {
 
-	app.models.VideoModel.create(adminVideos, function(err, model) {
-		if (err) throw err;
 
-		console.log('Created:', model);
+			console.log( user )	    	;
 
-		database.disconnect();
-	});
+	// // video frames 
+	// var adminVideos = [
+	// {
+	// 	title : 'Logan Epic Kill',
+	// 	url   : 'https://youtu.be/G1aSAQ1CibQ?t=1m26s',
+	// 	desc  : 'LOGAN Official International Red Band Trailer #1 (2017) Hugh Jackman Wolverine Marvel Movie HD',
+	// 	start : 86,
+	// 	end   : 89,
+	// 	step  : 1,
+	// 	slug  : 'G1aSAQ1CibQ',
+	// 	userId: user.id,
+	// 	// created_at: new Date(),
+	//   	// updated_at: new Date(),
+	// },
+	// {
+	// 	title : 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
+	// 	url   : 'https://youtu.be/Lt-U_t2pUHI?t=41s',
+	// 	desc  : 'Witness the power of the Sorcerer Supreme',
+	// 	start : 41,
+	// 	end   : 51,
+	// 	step  : 1,
+	// 	slug  : 'Lt-U_t2pUHI',
+	// 	userId: user.id,
+	// 	// created_at: new Date(),
+	//   	// updated_at: new Date(),
+	// },
+	// {
+	// 	title : 'Black Panther Featurette',
+	// 	url   : 'https://youtu.be/Q88JeXtKMDY?t=44s',
+	// 	desc  : 'Black Panther\'s role in a featurette for Marvel\'s "Captain America: Civil War"',
+	// 	start : 44,
+	// 	end   : 54,
+	// 	step  : 1,
+	// 	slug  : 'Q88JeXtKMDY',
+	// 	userId: user.id,
+	// 	// created_at: new Date(),
+	//   	// updated_at: new Date(),
+	// },
+	// {
+	// 	title : 'Jessica Jones Mirror Cracking',
+	// 	url   : 'https://youtu.be/nWHUjuJ8zxE?t=1m31s',
+	// 	desc  : 'She is a complex character, with problems',
+	// 	start : 91,
+	// 	end   : 97,
+	// 	step  : 1,
+	// 	slug  : 'nWHUjuJ8zxE',
+	// 	userId: user.id,
+	// 	// created_at: new Date(),
+	//   	// updated_at: new Date(),
+	// }
+	// ];
+
+	// app.models.VideoModel.create(adminVideos, function(err, model) {
+	// 	if (err) throw err;
+
+	// 	console.log('Created:', model);
+
+	// 	database.disconnect();
+	// });
+
+
+
+
+	    });
+
+
 
 
 

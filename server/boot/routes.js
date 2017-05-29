@@ -1,8 +1,12 @@
 'use strict';
 
+
+
 module.exports = function(app) {
   var router = app.loopback.Router();
-
+  var request = require('request');
+  
+  
   router.get('/index', function(req, res) {
     res.render('index', {
       loginFailed: false
@@ -23,7 +27,7 @@ module.exports = function(app) {
     var email    = req.body.email;
     var password = req.body.password;
     console.log(email, password);
-    
+
     app.models.UserModel.login({
       email: email,
       password: password
@@ -39,6 +43,7 @@ module.exports = function(app) {
 
       token = token.toJSON();
 
+      console.log( token );
       // res.render('profile', {
       //   username: token.user.username,
       //   accessToken: token.id
@@ -47,6 +52,7 @@ module.exports = function(app) {
 
       res.render('videos', {
         username: token.user.username,
+        userId: token.user.id,
         accessToken: token.id
       });
 

@@ -61,18 +61,32 @@ module.exports = function(VideoModel) {
 			if(err){ cb(err); }
 
 			VideoModel.find({
-				fields: {
+				where: {
 					userId: id
-				}
+				},
+				fields: [
+					'title', 'url', 'desc',
+					'start', 'end', 'step'
+				]				
+				
 			}, cb);
 		});
 
 	};
 
 	VideoModel.remoteMethod('listVideosByUser', {
-		accepts: {arg: 'id', type: 'number'},
-		returns: {arg: 'videos', type: 'array'},
-		http: {path: '/view-videos', verb: 'get'}
+		accepts: {
+			arg: 'id',
+			type: 'string'
+		},
+		returns: {
+			arg: 'videos',
+			type: 'array'
+		},
+		http: {
+			path: '/view-videos',
+			verb: 'get'
+		}
 	});
 
 };

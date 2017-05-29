@@ -24,17 +24,20 @@
 
       <tr>
         <td>
-        <a href="/api/video/list-videos<% if (typeof accessToken !==
-            'undefined') { %>?access_token=<%= accessToken %><% } %>">List projects</a>
+        <a href="/api/video/list-videos<% if (typeof userId !==
+            'undefined') { %>?id=<%= userId %><% } %><% if (typeof accessToken !== 'undefined') {
+            %>&access_token=<%= accessToken %><% } %>">
+            List Videos
+            </a>
         </td>
         <td>Anyone can list public project info (no balance property)</td>
-        <td>GET /api/video/list-videos</td>
+        <td>GET /api/video/list-videos/:UserID</td>
         <td>$everyone, $unauthenticated, $authenticated</td>
 
         <td>Guest, owner, administrator</td>
 
         <td>This endpoint is a remote method with a static ACL set to allow
-            access for all users (using the built-in role $everyone).</td>
+            access for all users (using the built-in role $everyone). NO </td>
       </tr>
 
       <tr>
