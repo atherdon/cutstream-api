@@ -3,4 +3,3 @@ node_js:
   - "7"
 before_install:
   - npm install --save-dev mocha
-  - node bin/automigrate.js
