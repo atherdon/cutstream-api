@@ -57,7 +57,7 @@ chai.request(server)
   it('should login non-admin and get the balance', function(done) {
 
     chai.request(server)
-      .post('/api/users/login')
+      .post('/api/user/login')
       .field('name', 'admin')
       .field('email', 'admin')
       .end( function(err, res){
@@ -131,6 +131,6 @@ describe('Unexpected Usage', function(){
     // json('post', '/api/users/foobar')
     //   .send({})
     //   .expect(404, done);
-      
+
   });
 });
