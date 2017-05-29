@@ -1,6 +1,6 @@
 'use strict';
 
-var async      = require('async');
+// var async      = require('async');
 
 module.exports = function(app) {
 
@@ -52,7 +52,8 @@ module.exports = function(app) {
 	      if (user.name == 'admin'){
       		// create the admin role
 
-      			console.log(user);
+      			// console.log(user);
+      			
       			// commented due to laziness moving this code to automigrate.
 			    // Role.create({
 			    //   name: 'admin'

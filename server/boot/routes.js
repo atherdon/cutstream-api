@@ -3,7 +3,7 @@
 module.exports = function(app) {
   var router = app.loopback.Router();
 
-  router.get('/', function(req, res) {
+  router.get('/index', function(req, res) {
     res.render('index', {
       loginFailed: false
     });
@@ -11,7 +11,7 @@ module.exports = function(app) {
 
 
   router.get('/profile', function(req, res) {
-    res.render('projects');
+    res.render('profile');
   });
 
   router.get('/videos', function(req, res) {
@@ -19,33 +19,36 @@ module.exports = function(app) {
   });
 
 
-  router.post('/projects', function(req, res) {
+  router.post('/videos', function(req, res) {
     var email    = req.body.email;
     var password = req.body.password;
-
-    app.models.User.login({
+    console.log(email, password);
+    
+    app.models.UserModel.login({
       email: email,
       password: password
     }, 'user', function(err, token) {
-      if (err)
+
+      if (err) {
         return res.render('index', {
           email: email,
           password: password,
           loginFailed: true
         });
+      }  
 
       token = token.toJSON();
 
-      res.render('profile', {
-        username: token.user.username,
-        accessToken: token.id
-      });
-
-
-      // res.render('videos', {
+      // res.render('profile', {
       //   username: token.user.username,
       //   accessToken: token.id
       // });
+
+
+      res.render('videos', {
+        username: token.user.username,
+        accessToken: token.id
+      });
 
     });
   });

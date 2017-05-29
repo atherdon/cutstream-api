@@ -5,7 +5,9 @@
     <title>LoopBack example access control</title>
   </head>
   <body>
-    <h1>Startkicker</h1>
+    <h1>
+    Startkicker
+    </h1>
     <table border=1 cellpadding=5>
       <tr>
         <th>Login</th>
@@ -14,7 +16,11 @@
         <th>Role ($ = built-in role)</th>
       </tr>
       <tr>
-        <td><a href="/projects">Guest</a></td>
+        <td>
+        <a href="/videos">
+        Guest
+        </a>
+        </td>
         <td></td>
         <td>Guest</td>
         <td>$unauthenticated, $everyone</td>
@@ -22,9 +28,9 @@
       <tr>
         <td>
 
-          <form action="/projects" method="post">
-            <input type="text" name="email" value="john@doe.com" placeholder="Email"><br>
-            <input type="password" name="password" value="opensesame" placeholder="Password"><br>
+          <form action="/videos" method="post">
+            <input type="text" name="email" value="john@doe.com" placeholder="Email"><br />
+            <input type="password" name="password" value="opensesame" placeholder="Password"><br />
             <input type="submit" value="Login">
           </form>
 
@@ -36,9 +42,9 @@
       <tr>
         <td>
 
-          <form action="/projects" method="post">
-            <input type="text" name="email" value="jane.doe@ibm.com" placeholder="Email"><br>
-            <input type="password" name="password" value="jane" placeholder="Password"><br>
+          <form action="/videos" method="post">
+            <input type="text" name="email" value="jane.doe@ibm.com" placeholder="Email"><br />
+            <input type="password" name="password" value="jane" placeholder="Password"><br />
             <input type="submit" value="Login">
           </form>
 
@@ -51,9 +57,9 @@
       <tr>
         <td>
 
-          <form action="/projects" method="post">
-            <input type="text" name="email" value="admin@ibm.com" placeholder="Email"><br>
-            <input type="password" name="password" value="admin" placeholder="Password"><br>
+          <form action="/videos" method="post">
+            <input type="text" name="email" value="admin@ibm.com" placeholder="Email"><br />
+            <input type="password" name="password" value="admin" placeholder="Password"><br />
             <input type="submit" value="Login">
           </form>
 

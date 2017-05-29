@@ -1,1 +1,68 @@
-videos.ejs
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+    LoopBack example access control
+    </title>
+  </head>
+  <body>
+  <h1>
+  Startkicker
+  <% if (typeof username !== 'undefined') { %> - Welcome <%=
+      username %><% } %>
+  </h1>
+    <table border=1 cellpadding=5>
+      <tr>
+        <th>Function</th>
+        <th>Description</th>
+        <th>Endpoint</th>
+        <th>Permissions</th>
+        <th>Roles</th>
+        <th>Information</th>
+      </tr>
+
+      <tr>
+        <td>
+        <a href="/api/video/list-videos<% if (typeof accessToken !==
+            'undefined') { %>?access_token=<%= accessToken %><% } %>">List projects</a>
+        </td>
+        <td>Anyone can list public project info (no balance property)</td>
+        <td>GET /api/video/list-videos</td>
+        <td>$everyone, $unauthenticated, $authenticated</td>
+
+        <td>Guest, owner, administrator</td>
+
+        <td>This endpoint is a remote method with a static ACL set to allow
+            access for all users (using the built-in role $everyone).</td>
+      </tr>
+
+      <tr>
+        <td><a href="/api/video<% if (typeof accessToken !== 'undefined') {
+            %>?access_token=<%= accessToken %><% } %>">View all
+            projects</a></td>
+        <td>Only administrators can view all projects</td>
+        <td>GET /api/video</td>
+        <td>admin</td>
+        <td>Administator</td>
+        <td>This REST endpoint is generated from the `lb model`
+          command.  We create a custom role named "admin" and a role mapping to
+          set Bob as a "admin". We then apply the ACL to restrict access to only
+          admins via the `lb acl` command.</td>
+      </tr>
+
+
+      
+
+
+      <tr>
+        <td colspan=6>
+        <a href="/logout<% if (typeof accessToken !==
+            'undefined') { %>?access_token=<%= accessToken %><% } %>">Log
+            out</a>
+            </td>
+      </tr>
+
+    </table>
+  </body>
+</html>

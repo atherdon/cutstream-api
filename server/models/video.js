@@ -51,12 +51,12 @@ module.exports = function(VideoModel) {
 
 	VideoModel.remoteMethod('listVideos',{
 		returns: {arg: 'videos', type: 'array'},
-		http: {path: 'list-videos', verb: 'get'}
+		http: {path: '/list-videos', verb: 'get'}
 	});
 
 	VideoModel.listVideosByUser = function(id, cb){
 		var UserModel = VideoModel.app.models.UserModel;
-		
+
 		UserModel.exists(id, function(err, user){
 			if(err){ cb(err); }
 
