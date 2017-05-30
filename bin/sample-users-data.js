@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (cb){
+module.exports = function getSampleData (){
 
 	var accounts = [	
 		{
@@ -22,6 +22,6 @@ module.exports = function (cb){
 		}
   	];
 
-  	return cb(accounts);
+  	return accounts;
 
 }
