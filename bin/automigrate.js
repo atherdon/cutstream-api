@@ -1,21 +1,110 @@
 'use strict';
 
 
-var path     = require('path');
+var path        = require('path');
 
-var app      = require(path.resolve(__dirname, '../server/server'));
-var database = app.datasources.videoDS;
+var app         = require(path.resolve(__dirname, '../server/server'));
+var database    = app.datasources.videoDS;
 
-var async    = require('async');
+// var async       = require('async');
 
-let accounts = require('sample-users-data');
+let accounts    = require(path.resolve(__dirname, 'sample-users-data'));
+
+let adminVideos = require(path.resolve(__dirname, 'sample-videos-data'));
 
 
+var User        = app.models.UserModel;
+var Role        = app.models.Role;
+var RoleMapping = app.models.RoleMapping;
 
-database.autoupdate('UserModel', function(err) {
+var Video       = app.models.VideoModel;
+
+
+//creating loopback necessary tables if no exists
+var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
+database.automigrate(lbTables, function(err) {
+// database.autoupdate(lbTables, function(err) {	
+  if (err) throw err;
+
+  console.log( 'Loopback tables [' + lbTables.toString() + '] created in ' + database.adapter.name );
+  database.disconnect();
+});
+
+
+database.automigrate('UserModel', function(err) {
 	if (err) throw err;
 
-	app.models.userModel
+	accounts(function(array){
+
+		array.forEach(function(element) {
+
+
+
+	    User.findOrCreate({
+	      where: {
+	        name: element.name,
+	        email: element.email,
+	      }
+	    }, element,
+	    function (err, user) {
+	      if (err) throw err;
+	      // console.log("+ " + log.id);
+	      console.log(user);
+	      // callback();
+
+	      if (user.name == 'admin'){
+      		// create the admin role
+
+      			// console.log(user.id);
+      			
+      			Role.findOne({
+      				where: {
+      					name: 'admin'
+      				}
+      			}, function(err, role){
+      				if (err) throw err;
+
+      				// creating role from scratch
+
+      				// console.log( role );
+      				// console.log( !role );
+
+      			// 	if( !role ){
+
+					    // Role.create({
+					    //   name: 'admin'
+					    // }, function(err, role) {
+					    //   if (err) throw err;
+
+					    //   console.log('Created role:', role);
+
+					    //   //add admin user an admin role
+					    //   role.principals.create({
+					    //     principalType: RoleMapping.USER,
+					    //     principalId: user.id 
+					    //   }, function(err, principal) {
+					    //     if (err) throw err;
+
+					    //     console.log('Created principal:', principal);
+					    //   });
+					    // });
+      			// 	}
+
+
+      			});
+
+      			
+
+	      }
+
+	      database.disconnect();
+	    });
+
+	});
+
+
+	});
+
 
 
 
@@ -24,7 +113,7 @@ database.autoupdate('UserModel', function(err) {
 
 
 
-database.autoupdate('VideoModel', function(err) {
+database.automigrate('VideoModel', function(err) {
 	if (err) throw err;
 
 	app.models.UserModel.findOne({
@@ -37,57 +126,7 @@ database.autoupdate('VideoModel', function(err) {
 
 			console.log( user )	    	;
 
-	// // video frames 
-	// var adminVideos = [
-	// {
-	// 	title : 'Logan Epic Kill',
-	// 	url   : 'https://youtu.be/G1aSAQ1CibQ?t=1m26s',
-	// 	desc  : 'LOGAN Official International Red Band Trailer #1 (2017) Hugh Jackman Wolverine Marvel Movie HD',
-	// 	start : 86,
-	// 	end   : 89,
-	// 	step  : 1,
-	// 	slug  : 'G1aSAQ1CibQ',
-	// 	userId: user.id,
-	// 	// created_at: new Date(),
-	//   	// updated_at: new Date(),
-	// },
-	// {
-	// 	title : 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
-	// 	url   : 'https://youtu.be/Lt-U_t2pUHI?t=41s',
-	// 	desc  : 'Witness the power of the Sorcerer Supreme',
-	// 	start : 41,
-	// 	end   : 51,
-	// 	step  : 1,
-	// 	slug  : 'Lt-U_t2pUHI',
-	// 	userId: user.id,
-	// 	// created_at: new Date(),
-	//   	// updated_at: new Date(),
-	// },
-	// {
-	// 	title : 'Black Panther Featurette',
-	// 	url   : 'https://youtu.be/Q88JeXtKMDY?t=44s',
-	// 	desc  : 'Black Panther\'s role in a featurette for Marvel\'s "Captain America: Civil War"',
-	// 	start : 44,
-	// 	end   : 54,
-	// 	step  : 1,
-	// 	slug  : 'Q88JeXtKMDY',
-	// 	userId: user.id,
-	// 	// created_at: new Date(),
-	//   	// updated_at: new Date(),
-	// },
-	// {
-	// 	title : 'Jessica Jones Mirror Cracking',
-	// 	url   : 'https://youtu.be/nWHUjuJ8zxE?t=1m31s',
-	// 	desc  : 'She is a complex character, with problems',
-	// 	start : 91,
-	// 	end   : 97,
-	// 	step  : 1,
-	// 	slug  : 'nWHUjuJ8zxE',
-	// 	userId: user.id,
-	// 	// created_at: new Date(),
-	//   	// updated_at: new Date(),
-	// }
-	// ];
+
 
 	// app.models.VideoModel.create(adminVideos, function(err, model) {
 	// 	if (err) throw err;
@@ -149,32 +188,3 @@ database.autoupdate('VideoModel', function(err) {
 
 // });
 
-// server.automigrate('AccessToken', function(err) {
-// 	if (err) throw err;
-
-// 	var token = {
-// 		"id":"eZRy1Qv7YVx9xEcpLQMl9eruyEIEZd5UECmQOGWYCenAVysIUOCwWQOqLlkY9Gno",
-// 		"ttl":1209600,
-// 		"created":"2017-05-21T22:58:46.468Z",
-// 		"userId": '592642c1e675f021a033ebac'
-// 	};
-
-// });
-
-
-
-// admin id for development instance 592642c1e675f021a033ebac
- 
- // "AccessToken": {
- //      "eZRy1Qv7YVx9xEcpLQMl9eruyEIEZd5UECmQOGWYCenAVysIUOCwWQOqLlkY9Gno": "{\"id\":\"eZRy1Qv7YVx9xEcpLQMl9eruyEIEZd5UECmQOGWYCenAVysIUOCwWQOqLlkY9Gno\",\"ttl\":1209600,\"created\":\"2017-05-21T22:58:46.468Z\",\"userId\":1}"
- //    },
-
-//creating loopback necessary tables if no exists
-var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
-// database.automigrate(lbTables, function(err) {
-database.autoupdate(lbTables, function(err) {
-  if (err) throw err;
-
-  console.log( 'Loopback tables [' + lbTables.toString() + '] created in ' + database.adapter.name );
-  database.disconnect();
-});

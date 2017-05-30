@@ -46,7 +46,7 @@ chai.request(server)
     chai.request(server)
       .get('/api/video')
       .end( function(err, res){
-        
+
         res.should.have.status(401);
         // res.body.should.have.least(4);
         done();
@@ -87,7 +87,7 @@ chai.request(server)
   });
 
   var accessToken;
-  it('should login the admin user and get all projects', function(done) {
+  it('should login the admin user and get all videos', function(done) {
 
     // json('post', '/api/users/login')
     //   .send({
