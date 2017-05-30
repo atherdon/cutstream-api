@@ -1,6 +1,10 @@
 'use strict';
 
+var request = require('request');
 
+// var cors = require('cors');
+
+// app.use(cors());
 
 module.exports = function(app) {
   var router = app.loopback.Router();
@@ -19,6 +23,19 @@ module.exports = function(app) {
   });
 
   router.get('/videos', function(req, res) {
+
+
+request('http://www.google.com', function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log(body) // Show the HTML for the Google homepage. 
+    // var info = JSON.parse(body)
+  res.json(body);
+      } else {
+        res.json(error);
+      }
+})
+
+
     res.render('videos');   
   });
 
