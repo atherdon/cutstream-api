@@ -58,10 +58,6 @@ var Video       = app.models.VideoModel;
 
 videos(function(array){
 
-	
-
-	// console.log(array)	
-
 	Video.create(array)
 		 .then(function(videos){
 
@@ -71,11 +67,6 @@ videos(function(array){
 					videos.forEach(function(video){
 				 		video.updateAttribute('userId', result.id);
 				 	})
-
-					// array.forEach(function(element){
-					// 	element.userId = result.id;
-					// 	// element.push({userId:result.id});
-					// })	
 
 
 				});
