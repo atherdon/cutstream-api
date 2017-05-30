@@ -23,33 +23,19 @@ var Video       = app.models.VideoModel;
 
 
 //creating loopback necessary tables if no exists
-// var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
-// database.automigrate(lbTables, function(err) {
-// // database.autoupdate(lbTables, function(err) {	
-//   if (err) throw err;
+var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
+database.automigrate(lbTables, function(err) {
+// database.autoupdate(lbTables, function(err) {	
+  if (err) throw err;
 
-//   console.log( 'Loopback tables [' + lbTables.toString() + '] created in ' + database.adapter.name );
-//   database.disconnect();
-// });
-
-
+  console.log( 'Loopback tables [' + lbTables.toString() + '] created in ' + database.adapter.name );
+  database.disconnect();
+});
 
 
-
-
-
-// Promise
 database.automigrate('UserModel', function(err) {
 	if (err) throw err;
 
-	// Promise.promisifyAll( accounts );
-
-
-
-	// accounts.getSampleData()
-	// 	.map(function(element){
-	// 		console.log(element);
-	// 	})
 
 	accounts(function(array){
 
@@ -60,17 +46,25 @@ database.automigrate('UserModel', function(err) {
 		        name: element.name,
 		        email: element.email,
 		      }
-		    }, element).then(function(user){
-		    	// console.log(user);
-		    	if(user.name == 'admin'){
-		    		// console.log('pida');
-		    		var query = { name: 'admin' };
-		    		Role.findOrCreate({
-		    			where: query
-		    		}, query,
-		    		function(role){
-		    			console.log(role);
+		    }, element)
+		    .then(function(user){
+		    	// assign admin role to admin user
+		    	if(user[0].name == 'admin'){
+		    	
+		    		var obj = { name: 'admin' };
+
+		    		Role.findOrCreate({where:obj}, obj).then(function(role){
+		    			if(!role[0]){
+		    				role[0].principals.create({
+						        principalType: RoleMapping.USER,
+						        principalId: user[0].id 
+						    }).catch(function(err){
+						      	throw err;
+						    });
+						}
 		    		});
+
+		    		
 		    	}
 		    })
 		    .catch(function(err){
