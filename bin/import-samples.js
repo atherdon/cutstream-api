@@ -3,9 +3,6 @@
 var path        = require('path');
 
 let app         = require(path.resolve(__dirname, '../server/server'));
-// var database    = app.datasources.videoDS;
-
-// var async       = require('async');
 
 var Promise     = require('bluebird');
 

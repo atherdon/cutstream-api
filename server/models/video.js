@@ -54,15 +54,15 @@ module.exports = function(VideoModel) {
 		http: {path: '/list-videos', verb: 'get'}
 	});
 
-	VideoModel.listVideosByUser = function(id, cb){
+	VideoModel.listVideosByUser = function(userId, cb){
 		var UserModel = VideoModel.app.models.UserModel;
 
-		UserModel.exists(id, function(err, user){
+		UserModel.exists(userId, function(err, user){
 			if(err){ cb(err); }
 
 			VideoModel.find({
 				where: {
-					userId: id
+					userId: userId
 				},
 				fields: [
 					'title', 'url', 'desc',
