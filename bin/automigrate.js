@@ -3,16 +3,16 @@
 
 var path        = require('path');
 
-var app         = require(path.resolve(__dirname, '../server/server'));
+let app         = require(path.resolve(__dirname, '../server/server'));
 var database    = app.datasources.videoDS;
 
 // var async       = require('async');
 
-var Promise     = require('bluebird');
+// var Promise     = require('bluebird');
 
-let accounts    = require(path.resolve(__dirname, 'sample-users-data'));
+// let accounts    = require(path.resolve(__dirname, 'sample-users-data'));
 
-let adminVideos = require(path.resolve(__dirname, 'sample-videos-data'));
+// let videos      = require(path.resolve(__dirname, 'sample-videos-data'));
 
 
 var User        = app.models.UserModel;
@@ -23,7 +23,7 @@ var Video       = app.models.VideoModel;
 
 
 //creating loopback necessary tables if no exists
-var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
+var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role', 'UserModel', 'VideoModel'];
 database.automigrate(lbTables, function(err) {
 // database.autoupdate(lbTables, function(err) {	
   if (err) throw err;
@@ -32,52 +32,66 @@ database.automigrate(lbTables, function(err) {
   database.disconnect();
 });
 
+// database.automigrate('UserModel', function(err){
+// 	if (err) throw err;
+	
+// 	// database.disconnect();
+// });
 
-database.automigrate('UserModel', function(err) {
-	if (err) throw err;
+// database.automigrate('VideoModel', function(err){
+// 	if (err) throw err;
+	
+// 	// database.disconnect();
+// })
+
+// database.automigrate('UserModel', function(err) {
+// 	if (err) throw err;
 
 
-	accounts(function(array){
+// 	accounts(function(array){
 
-		array.forEach(function(element) {
+// 		array.forEach(function(element) {
 
-			User.findOrCreate({
-		      where: {
-		        name: element.name,
-		        email: element.email,
-		      }
-		    }, element)
-		    .then(function(user){
-		    	// assign admin role to admin user
-		    	if(user[0].name == 'admin'){
+// 			User.findOrCreate({
+// 		      where: {
+// 		        name: element.name,
+// 		        email: element.email,
+// 		      }
+// 		    }, element)
+// 		    .then(function(user){
+// 		    	// assign admin role to admin user
+// 		    	if(user[0].name == 'admin'){
 		    	
-		    		var obj = { name: 'admin' };
+// 		    		var obj = { name: 'admin' };
 
-		    		Role.findOrCreate({where:obj}, obj).then(function(role){
-		    			if(!role[0]){
-		    				role[0].principals.create({
-						        principalType: RoleMapping.USER,
-						        principalId: user[0].id 
-						    }).catch(function(err){
-						      	throw err;
-						    });
-						}
-		    		});
+// 		    		Role.findOrCreate({where:obj}, obj).then(function(role){
+// 		    			if(!role){
+// 		    				role[0].principals.create({
+// 						        principalType: RoleMapping.USER,
+// 						        principalId: user[0].id 
+// 						    })
+// 						    .then(function(principal){
+// 						    	console.log('Principal:', principal);
+// 						    }).catch(function(err){
+// 						      	throw err;
+// 						    });
+// 						}
+// 		    		});
 
 		    		
-		    	}
-		    })
-		    .catch(function(err){
-		    	throw err;
-		    })
+// 		    	}
+// 		    })
+// 		    .catch(function(err){
+// 		    	throw err;
+// 		    })
 
 
-		});
+// 		});
 
-	});
+// 	});
+// database.disconnect();
 
-
-});
+// });
 
 
 // database.automigrate('UserModel', function(err) {
@@ -169,7 +183,36 @@ database.automigrate('UserModel', function(err) {
 // });
 
 
+// database.automigrate('VideoModel', function(err){
+	// if (err) throw err;
 
+	// var userId = User.findOne({field:'id', where: { name:'admin' }})
+	// .then(function(data){
+		// console.log(data);
+		// return 
+	// })
+	// console.log(userId);
+
+	// videos(function(array){
+
+	// 	array.forEach(function(element) {
+
+	// 		Video.findOrCreate({
+	// 	      where: {
+	// 	        title: element.title,
+		        
+	// 	      }
+	// 	    }, element)
+	// 	    .then(function(video){
+		    	
+	// 	    })
+	// 	    .catch(function(err){
+	// 	    	throw err;
+	// 	    })
+	// 	});
+
+	// });	
+// });
 
 // database.automigrate('VideoModel', function(err) {
 // 	if (err) throw err;

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (){
+module.exports = function getSampleData (cb){
 
 	// video frames 
 	var adminVideos = [
@@ -50,5 +50,5 @@ module.exports = function (){
 	}
 	];
 
-	return adminVideos;
+	return cb(adminVideos);
 };
