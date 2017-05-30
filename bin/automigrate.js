@@ -61,17 +61,17 @@ database.automigrate('UserModel', function(err) {
 		        email: element.email,
 		      }
 		    }, element).then(function(user){
-		    	console.log(user);
-		    	// if(user.name == 'admin'){
-		    	// 	console.log('pida');
-		    	// 	var query = { name: 'admin' };
-		    	// 	Role.findOrCreate({
-		    	// 		where: query
-		    	// 	}, query,
-		    	// 	function(role){
-		    	// 		console.log(role);
-		    	// 	});
-		    	// }
+		    	// console.log(user);
+		    	if(user.name == 'admin'){
+		    		// console.log('pida');
+		    		var query = { name: 'admin' };
+		    		Role.findOrCreate({
+		    			where: query
+		    		}, query,
+		    		function(role){
+		    			console.log(role);
+		    		});
+		    	}
 		    })
 		    .catch(function(err){
 		    	throw err;
