@@ -93,8 +93,9 @@ module.exports = function(app) {
 
       token = token.toJSON();
 
-      console.log( token );
-      console.log( token.userId );
+
+      // console.log( token );
+      // console.log( token.userId );
       // res.render('profile', {
       //   username: token.user.username,
       //   accessToken: token.id
