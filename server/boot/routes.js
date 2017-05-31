@@ -55,6 +55,8 @@ module.exports = function(app) {
 
   router.get('/videos', function(req, res) {
 
+    console.log( res.cookie('access_token') );
+
     // console.log('23');
     // console.log( req.accessToken.userId );
 
@@ -70,7 +72,9 @@ module.exports = function(app) {
     // });
 
 
-    res.render('videos');   
+    res.render('videos', {
+
+    });   
   });
 
 
@@ -102,12 +106,12 @@ module.exports = function(app) {
       //   accessToken: token.id
       // });
 
-
-      res.render('videos', {
-        username: token.user.username,
-        userId: token.user.id,
-        accessToken: token.id
-      });
+      res.redirect('videos');
+      // res.render('videos', {
+      //   username: token.user.username,
+      //   userId: token.user.id,
+      //   accessToken: token.id
+      // });
 
     });
   });
