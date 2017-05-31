@@ -12,7 +12,6 @@ module.exports = function getSampleData (cb){
 		end   : 89,
 		step  : 1,
 		slug  : 'G1aSAQ1CibQ',
-		// userId: user.id,
 
 	},
 	{
@@ -23,7 +22,6 @@ module.exports = function getSampleData (cb){
 		end   : 51,
 		step  : 1,
 		slug  : 'Lt-U_t2pUHI',
-		// userId: user.id,
 	
 	},
 	{
@@ -34,7 +32,6 @@ module.exports = function getSampleData (cb){
 		end   : 54,
 		step  : 1,
 		slug  : 'Q88JeXtKMDY',
-		// userId: user.id,
 		
 	},
 	{
@@ -45,7 +42,6 @@ module.exports = function getSampleData (cb){
 		end   : 97,
 		step  : 1,
 		slug  : 'nWHUjuJ8zxE',
-		// userId: user.id,
 	
 	}
 	];
