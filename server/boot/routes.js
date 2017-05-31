@@ -42,6 +42,7 @@ module.exports = function(app) {
     //   }
     // });
 
+
     // console.log(req.accessToken)
     var AccessToken = app.models.AccessToken;
     var token       = new AccessToken({
