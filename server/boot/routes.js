@@ -19,10 +19,30 @@ module.exports = function(app) {
   });
 
 
-  router.get('/profile', function(req, res) {
+  router.get('/postvideo', function(req, res) {
 
-    res.render('profile');
+    console.log(req.accessToken);
+    console.log(req.accessToken.userId);
+
+    // res.render('postvideo', {
+    //   userModelId: req.accessToken.userId,
+    //   accessToken: ''
+    // });
   });
+
+  router.post('/postvideo', function(req, res){
+
+    console.log( req.body );
+
+    app.models.VideoModel.create({}, function(){
+
+    });
+
+
+  });
+
+
+
 
   router.get('/videos', function(req, res) {
 
