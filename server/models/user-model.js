@@ -29,17 +29,24 @@ module.exports = function(Usermodel) {
 
       var res = ctx.res;
       var req = ctx.req;
+
+      console.log( res );
+      console.log( req );
+
+      console.log( ctx );
+
       
-      if (accessToken != null) {
-          if (accessToken.id != null) {
-              res.cookie('access_token', accessToken.id, {
-                  signed: req.signedCookies ? true : false,
-                  maxAge: 1000 * accessToken.ttl
-              });
-              return res.redirect('/');
-          }
-      }
-      return next();
+      // if (accessToken != null) {
+      //     if (accessToken.id != null) {
+      //         res.cookie('access_token', accessToken.id, {
+      //             signed: req.signedCookies ? true : false,
+      //             maxAge: 1000 * accessToken.ttl
+      //         });
+      //         return res.redirect('/');
+      //     }
+      // }
+      // return 
+      next();
   });
 
 
