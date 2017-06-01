@@ -73,7 +73,7 @@
 
     <h1><a href="/postvideo<% if (typeof accessToken !==
             'undefined') { %>?access_token=<%= accessToken %><% } %>">Post Video link</a></h1>            
-
+    <% if (typeof videoArray !== 'undefined') { %>        
 
     <% for(var i=0; i < videoArray.length; i++) { %>
     <div>
@@ -84,7 +84,7 @@
     </div>
     <% } %>
 
-
+    <% } %>
 
   </body>
 </html>

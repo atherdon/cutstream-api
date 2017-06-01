@@ -60,9 +60,7 @@ module.exports = function(app) {
     console.log(req.accessToken);
     console.log(req.accessToken.userId);
     // console.log( req.accessToken );
-    
-    // console.log( req.params.userId );
-    // console.log( req.params.accessToken);
+
     
 
 
