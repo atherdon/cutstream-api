@@ -5,7 +5,6 @@ var request = require('request');
 // var loopback = require('loopback');
 // var cors = require('cors');
 
-// app.use(cors());
 
 module.exports = function(app) {
 
@@ -44,10 +43,10 @@ module.exports = function(app) {
 
 
     // console.log(req.accessToken)
-    var AccessToken = app.models.AccessToken;
-    var token       = new AccessToken({
-      id: req.query['access_token']
-    });
+    // var AccessToken = app.models.AccessToken;
+    // var token       = new AccessToken({
+      // id: req.query['access_token']
+    // });
     // console.log( req.query['access_token'] );
 
     res.render('profile');
@@ -55,8 +54,9 @@ module.exports = function(app) {
 
   router.get('/videos', function(req, res) {
 
-    console.log( res.cookie('access_token') );
-
+    // console.log( res.cookie('access_token') );
+    console.log(req);
+    console.log(res);
     // console.log('23');
     // console.log( req.accessToken.userId );
 
@@ -124,7 +124,7 @@ module.exports = function(app) {
     });
     token.destroy();
 
-    res.redirect('/');
+    res.redirect('/index');
   });
 
   app.use(router);

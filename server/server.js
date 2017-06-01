@@ -27,14 +27,14 @@ app.set('views', path.resolve(__dirname, 'views'));
 // use loopback.token middleware on all routes
 // setup gear for authentication using cookie (access_token)
 // Note: requires cookie-parser (defined in middleware.json)
-app.use(loopback.token({  
-  model: app.models.accessToken,
-  currentUserLiteral: 'me',
-  searchDefaultTokenKeys: false,
-  cookies: ['access_token'],
-  headers: ['access_token', 'X-Access-Token'],
-  params: ['access_token']
-}));
+// app.use(loopback.token({  
+  // model: app.models.accessToken,
+  // currentUserLiteral: 'me',
+  // searchDefaultTokenKeys: false,
+  // cookies: ['access_token'],
+  // headers: ['access_token', 'X-Access-Token'],
+  // params: ['access_token']
+// }));
 
 
 

@@ -24,29 +24,41 @@ module.exports = function(Usermodel) {
   });
 
 
-  // on login set access_token cookie with same ttl as loopback's accessToken
-  Usermodel.afterRemote('login', function setLoginCookie(ctx, accessToken, next) {  
+  Usermodel.log = function(userId, options) {
+    
+    // IMPORTANT: forward the options arg
+    return Usermodel.findById(userId, null, options)
+              .then(function(data){
+                const token = options && options.accessToken;
+                const userId = token && token.userId;
+                const user = userId ? 'user#' + userId : '<anonymous>';     
 
-      var res = ctx.res;
-      var req = ctx.req;
+                console.log('(%s) %s', user, msg.text);
+                // console.log(options);
+                // console.log(options.accessToken);
+              });
 
-      console.log( res );
-      console.log( req );
+  };
 
-      console.log( ctx );
-
-      
-      // if (accessToken != null) {
-      //     if (accessToken.id != null) {
-      //         res.cookie('access_token', accessToken.id, {
-      //             signed: req.signedCookies ? true : false,
-      //             maxAge: 1000 * accessToken.ttl
-      //         });
-      //         return res.redirect('/');
-      //     }
-      // }
-      // return 
-      next();
+  Usermodel.remoteMethod('log', {
+    accepts: [{
+      arg: 'userId',
+      type: 'string',
+      required: true
+    },
+    {
+      arg: 'options',
+      type: 'object',
+      http: 'optionsFromRequest'
+    }],
+    // returns: {
+    //   arg: 'videos',
+    //   type: 'array'
+    // },
+    http: {
+      path: '/log/:userId',
+      verb: 'post'
+    }
   });
 
 
