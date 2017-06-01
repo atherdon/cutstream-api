@@ -6,11 +6,12 @@ var request = require('request');
 // var cors = require('cors');
 
 
+
 module.exports = function(app) {
 
-  var router = app.loopback.Router();
-  var request = require('request');
-  
+  var router  = app.loopback.Router();
+  // var request = require('request');
+  var Video   = app.models.VideoModel;
   
   router.get('/index', function(req, res) {
     res.render('index', {
@@ -34,13 +35,19 @@ module.exports = function(app) {
 
     // console.log( req.body );
 
-    // var video = req.body; 
-    // var video = new app.models.VideoModel
-    app.models.VideoModel.create(req.body, function(err, video){
 
-      console.log( video );
+    var video = new Video(req.body);
+    video.isValid(function(valid){
+      if (valid) {
+        video.save();
+        // res.render({user: user});
+      } else { 
+        console.log(video.errors);
+        // res.flash('error', 'User is not valid'), console.log(user.errors), res.redirect('/users');
+      }
+    }); 
 
-    });
+
 
 
   });

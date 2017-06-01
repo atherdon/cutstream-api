@@ -5,7 +5,8 @@
 module.exports = function(VideoModel) {
 
 	VideoModel.validatesPresenceOf(
-		'title', 'url', 'start', 'end', 'step'
+		'title', 'url', 'start', 'end', 'step',
+		'userId'
 	);
 
 	VideoModel.validatesNumericalityOf('start', {int: true});
