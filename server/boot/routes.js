@@ -21,55 +21,19 @@ module.exports = function(app) {
 
   router.get('/profile', function(req, res) {
 
-    // var AccessToken = app.models.AccessToken;
-    // AccessToken.findForRequest(req, {}, function (aux, accesstoken) {
-
-    //   console.log(aux, accesstoken);
-    //   if (accesstoken == undefined) {
-    //       res.status(401);
-    //       res.send({
-    //           'Error': 'Unauthorized',
-    //           'Message': 'You need to be authenticated to access this endpoint'
-    //       });
-    //   } else {
-    //       var UserModel = app.models.user;
-    //       UserModel.findById(accesstoken.userId, function (err, user) {
-    //         console.log(user);
-    //         res.status(200);
-    //         res.send();
-    //       });
-    //   }
-    // });
-
-
-    // console.log(req.accessToken)
-    // var AccessToken = app.models.AccessToken;
-    // var token       = new AccessToken({
-      // id: req.query['access_token']
-    // });
-    // console.log( req.query['access_token'] );
-
     res.render('profile');
   });
 
   router.get('/videos', function(req, res) {
 
-    // console.log( res.cookie('access_token') );
-    console.log(req);
-    console.log(res);
-    // console.log('23');
-    // console.log( req.accessToken.userId );
+    console.log(req.accessToken);
+    console.log(req.accessToken.userId);
+    // console.log( req.accessToken );
+    
+    // console.log( req.params.userId );
+    // console.log( req.params.accessToken);
+    
 
-    // request('http://www.google.com', function (error, response, body) {
-    // if (!error && response.statusCode == 200) {
-    //   console.log(body) // Show the HTML for the Google homepage. 
-    //   // var info = JSON.parse(body)
-    //     // res.json(body);
-    // } else {
-    //       // res.json(error);
-    // }
-
-    // });
 
 
     res.render('videos', {
@@ -78,53 +42,66 @@ module.exports = function(app) {
   });
 
 
-  router.post('/videos', function(req, res) {
+  router.post('/profile', function(req, res) {
     var email    = req.body.email;
     var password = req.body.password;
     // console.log(email, password);
 
+
     app.models.UserModel.login({
       email: email,
       password: password
-    }, 'user', function(err, token) {
+    }, 'user', function(err, token){
 
-      if (err) {
-        return res.render('index', {
+      if( err ){
+        res.render('index', {
           email: email,
           password: password,
           loginFailed: true
-        });
-      }  
+        });  
+      }
 
       token = token.toJSON();
 
-
       // console.log( token );
-      // console.log( token.userId );
-      // res.render('profile', {
-      //   username: token.user.username,
-      //   accessToken: token.id
-      // });
 
-      res.redirect('videos');
-      // res.render('videos', {
-      //   username: token.user.username,
-      //   userId: token.user.id,
-      //   accessToken: token.id
-      // });
+      app.models.VideoModel.listVideosByUser(token.user.id, function(err, videos){
+
+        if(err) throw err;
+        // console.log( videos );
+
+
+        res.render('profile', {
+          username: token.user.username,
+          userId: token.user.id,
+          accessToken: token.id,
+          videoArray: videos
+        });
+
+      });
+
+
+
+
 
     });
+
+
+
+
+
   });
 
+  router.get('/logout', function(req, res, next) {
 
-  router.get('/logout', function(req, res) {
-    var AccessToken = app.models.AccessToken;
-    var token       = new AccessToken({
-      id: req.query['access_token']
+    if( !req.accessToken ) { return res.sendStatus(401); } // unauthorized 
+
+    app.models.UserModel.logout(req.accessToken.id, function(err){
+      if (err) return next(err);
+      
+      res.redirect('/index'); //redirect on successful logout     
     });
-    token.destroy();
 
-    res.redirect('/index');
   });
 
   app.use(router);

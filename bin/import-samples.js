@@ -18,39 +18,39 @@ var RoleMapping = app.models.RoleMapping;
 var Video       = app.models.VideoModel;
 
 
-// accounts(function(array){
+accounts(function(array){
 
 
 
-// 	User.create(array)
-// 		.then(function(users){
-// 			// console.log(users);
+	User.create(array)
+		.then(function(users){
+			// console.log(users);
 
-// 			User.findOne({fields:'id', where: { name:'admin' }})
-// 				.then(function(result){
+			User.findOne({fields:'id', where: { name:'admin' }})
+				.then(function(result){
 					
-// 					Role.create({ name:'admin' })
-// 						.then(function(role){
+					Role.create({ name:'admin' })
+						.then(function(role){
 
-// 							role.principals.create({
-// 						        principalType: RoleMapping.USER,
-// 						        principalId: result.id
-// 						    }, function(err, principal){
-// 						    	console.log('Principal', principal);
-// 						    });
-// 						})
-// 						.catch(function(err){
-// 							throw err;
-// 						})
-// 				})		
+							role.principals.create({
+						        principalType: RoleMapping.USER,
+						        principalId: result.id
+						    }, function(err, principal){
+						    	console.log('Principal', principal);
+						    });
+						})
+						.catch(function(err){
+							throw err;
+						})
+				})		
 
-// 		})
-// 		.catch(function(err){
-// 			throw err;
-// 		})
+		})
+		.catch(function(err){
+			throw err;
+		})
 
 
-// });
+});
 
 
 videos(function(array){

@@ -51,16 +51,28 @@ module.exports = function(Usermodel) {
       type: 'object',
       http: 'optionsFromRequest'
     }],
-    // returns: {
-    //   arg: 'videos',
-    //   type: 'array'
-    // },
     http: {
       path: '/log/:userId',
       verb: 'post'
     }
   });
 
+
+  // MyModel.register = function(req, param, cb) {
+  //   var userId = req.accessToken.userId;
+
+  //   console.log(userId); 
+  //   cb(null, ...);
+  // };
+
+  // MyModel.remoteMethod(
+  //   'register',
+  //   {
+  //     accepts: [
+  //       { arg: 'req', type: 'object', http: {source: 'req'} }, // <----
+  //       { arg: 'param', type: 'string', required: true },
+  //     ]
+  //   });
 
      
 };
