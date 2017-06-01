@@ -21,20 +21,24 @@ module.exports = function(app) {
 
   router.get('/postvideo', function(req, res) {
 
-    console.log(req.accessToken);
-    console.log(req.accessToken.userId);
+    // console.log(req.accessToken);
+    // console.log(req.accessToken.userId);
 
-    // res.render('postvideo', {
-    //   userModelId: req.accessToken.userId,
-    //   accessToken: ''
-    // });
+    res.render('postvideo', {
+      userModelId: req.accessToken.userId,
+      accessToken: req.accessToken.id
+    });
   });
 
   router.post('/postvideo', function(req, res){
 
-    console.log( req.body );
+    // console.log( req.body );
 
-    app.models.VideoModel.create({}, function(){
+    // var video = req.body; 
+    // var video = new app.models.VideoModel
+    app.models.VideoModel.create(req.body, function(err, video){
+
+      console.log( video );
 
     });
 

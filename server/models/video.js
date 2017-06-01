@@ -8,6 +8,10 @@ module.exports = function(VideoModel) {
 		'title', 'url', 'start', 'end', 'step'
 	);
 
+	VideoModel.validatesNumericalityOf('start', {int: true});
+	VideoModel.validatesNumericalityOf('end',   {int: true});
+	VideoModel.validatesNumericalityOf('step',  {int: true});
+
 	// YouTube url custom validation
 	var re = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 
