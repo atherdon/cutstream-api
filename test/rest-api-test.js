@@ -1,16 +1,4 @@
 /* jshint camelcase: false */
-// var app = require('../server/server');
-// var request = require('supertest');
-
-// var loopback = require('loopback');
-
-// function json(verb, url) {
-//     return request(app)[verb](url)
-//       .set('Content-Type', 'application/json')
-//       .set('Accept', 'application/json')
-//       .expect('Content-Type', /json/);
-//   }
-
 
 var chai     = require('chai');
 var chaiHttp = require('chai-http');

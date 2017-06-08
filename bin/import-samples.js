@@ -4,8 +4,6 @@ var path        = require('path');
 
 let app         = require(path.resolve(__dirname, '../server/server'));
 
-var Promise     = require('bluebird');
-
 let accounts    = require(path.resolve(__dirname, 'sample-users-data'));
 
 let videos      = require(path.resolve(__dirname, 'sample-videos-data'));
