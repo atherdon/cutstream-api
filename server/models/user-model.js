@@ -57,6 +57,19 @@ module.exports = function(Usermodel) {
     }
   });
 
+  UserModel.addVideos = function (videos) {
+      UserModel.findOne({
+        fields:'id', where: { name:'admin' }
+      })
+     .then(function(result){
+
+        videos.forEach(function(video){
+          video.updateAttribute('userId', result.id);
+        })
+
+      });
+
+  };
 
   // MyModel.register = function(req, param, cb) {
   //   var userId = req.accessToken.userId;

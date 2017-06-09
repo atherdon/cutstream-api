@@ -53,22 +53,31 @@ accounts(function(array){
 
 videos(function(array){
 
+
 	Video.create(array)
-		 .then(function(videos){
-
-		 	User.findOne({fields:'id', where: { name:'admin' }})
-				.then(function(result){
-
-					videos.forEach(function(video){
-				 		video.updateAttribute('userId', result.id);
-				 	})
+		 .then(User.addVideos(videos));
 
 
-				});
+	// Video.create(array)
+	// 	 .then(function(videos){
+
+	// 	 	User.addVideos(videos);	
+		 		
+
+	// 	 	// User.findOne({fields:'id', where: { name:'admin' }})
+	// 			// .then(function(result){
+
+	// 			// 	videos.forEach(function(video){
+	// 			//  		video.updateAttribute('userId', result.id);
+	// 			//  	})
+	// 			// 	User.addVideos(videos);	
+		 		
+
+	// 			// });
 
 		 		
-		 		console.log(videos);
+	// 	 		console.log(videos);
 
-		 })
+	// 	 })
 
 });
