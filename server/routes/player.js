@@ -1,13 +1,9 @@
-// var express  = require('express');
-// var router   = express.Router();
+'use strict';
 
 
-// const util   = require('util');
+//models
+// var Video   = server.models.VideoModel;
 
-
-
-
-// var Video    = require('../models/video');
 var videoController = require('../controllers/player-controller');
 
 
@@ -16,7 +12,8 @@ module.exports = function(server) {
 
 	console.log(server);
 	console.log(router);
-
+	
+	/* routers */
 	router.get('/:id', videoController.getVideo);
 
 	router.get('/edit/:id/', videoController.getVideoById);

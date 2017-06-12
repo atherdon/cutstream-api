@@ -1,21 +1,12 @@
-// var express  = require('express');
-// var router   = express.Router();
+'use strict';
 
-
-// const util   = require('util');
-
-// var http = require('http');
-
-//models
-// var Video    = require('../models/video');
 
 var mainController = require('../controllers/main-controller');
 
 
-
 module.exports = function(server) {
   var router  = server.loopback.Router();
-  // var request = require('request');
+
   // var Video   = server.models.VideoModel;
 
   console.log(server);
