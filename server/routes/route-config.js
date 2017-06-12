@@ -2,15 +2,15 @@
 
   'use strict';
 
-  routeConfig.init = function (app) {
+  routeConfig.init = function (server) {
 
     // *** routes *** //
 	const index  = require('./routes/index');
 	const player = require('./routes/player');
 
     // *** register routes *** //  
-    app.use('/', index);
-	app.use('/player', player);
+    server.use('/', index);
+	server.use('/player', player);
 
 
   };

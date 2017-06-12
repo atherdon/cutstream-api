@@ -1,8 +1,8 @@
-var express  = require('express');
+// var express  = require('express');
 // var router   = express.Router();
 
 
-const util   = require('util');
+// const util   = require('util');
 
 // var http = require('http');
 
@@ -16,7 +16,7 @@ var mainController = require('../controllers/main-controller');
 module.exports = function(server) {
   var router  = server.loopback.Router();
   // var request = require('request');
-  var Video   = server.models.VideoModel;
+  // var Video   = server.models.VideoModel;
 
   console.log(server);
   console.log(router);
