@@ -7,11 +7,11 @@ var request = require('request');
 
 
 
-module.exports = function(app) {
+module.exports = function(server) {
 
-  var router  = app.loopback.Router();
+  var router  = server.loopback.Router();
   // var request = require('request');
-  var Video   = app.models.VideoModel;
+  var Video   = server.models.VideoModel;
   
   router.get('/index', function(req, res) {
     res.render('index', {
@@ -77,7 +77,7 @@ module.exports = function(app) {
     // console.log(email, password);
 
 
-    app.models.UserModel.login({
+    server.models.UserModel.login({
       email: email,
       password: password
     }, 'user', function(err, token){
@@ -94,7 +94,7 @@ module.exports = function(app) {
 
       // console.log( token );
 
-      app.models.VideoModel.listVideosByUser(token.user.id, function(err, videos){
+      server.models.VideoModel.listVideosByUser(token.user.id, function(err, videos){
 
         if(err) throw err;
         // console.log( videos );
@@ -125,7 +125,7 @@ module.exports = function(app) {
 
     if( !req.accessToken ) { return res.sendStatus(401); } // unauthorized 
 
-    app.models.UserModel.logout(req.accessToken.id, function(err){
+    server.models.UserModel.logout(req.accessToken.id, function(err){
       if (err) return next(err);
       
       res.redirect('/index'); //redirect on successful logout     
@@ -133,6 +133,6 @@ module.exports = function(app) {
 
   });
 
-  app.use(router);
+  server.use(router);
 
 };
