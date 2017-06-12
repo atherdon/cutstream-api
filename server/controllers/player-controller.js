@@ -37,15 +37,14 @@ exports.getVideoById = function(req, res, next){
 //      .error(console.error);
  	Video.findById( req.params.id, function(err, video) {
 
-		if (err) 
-			res.render('empty', { title: 'Error' });
+		if (err) res.render('empty', { title: 'Error' });
 				// res.send(err);
 
-			console.log(video)	;
+		console.log(video)	;
 
 			// video.duration = req.params.duration;
 
-			res.render('edit', video ); //@todo change to sending maybe two objects, or calculate duration by youtube on page instead
+		res.render('edit', video ); //@todo change to sending maybe two objects, or calculate duration by youtube on page instead
 
 	
 
