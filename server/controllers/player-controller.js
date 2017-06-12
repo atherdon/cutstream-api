@@ -3,14 +3,68 @@
 
 var Video    = require('../models/mongoose/video');
 
+var Video2   = server.models.VideoModel;	
+
+
+exports.getVideo2 = function(req, res, next){
+	var videoId = req.params.id;	
+  	// console.log(req.accessToken);
+   //  console.log(req.accessToken.userId);
+	
+	Video2.findById(videoId)
+		.then(function(err, videos){
+
+			console.log(videos);
+			// if (err) res.render('empty', { title: 'Error' });
+
+
+			// res.render('player-only', video );
+
+		});  
+};
+
+exports.editVideoById = function(req, res, next){
+	var videoId = req.params.id;
+
+	Video2.findById(videoId)
+		.then(function(err, videos){
+
+			console.log(videos);
+
+			// if (err) res.render('empty', { title: 'Error' });
+				// res.send(err);
+
+			// console.log(videos)	;
+
+			// video.duration = req.params.duration;
+
+			// res.render('edit', video ); //@todo change to sending maybe two objects, or calculate duration by youtube on page instead
+
+
+		}); 
+
+
+};
+
+
+exports.update = function(req, res, next){
+	console.log( req.body.id );
+	var videoId = req.body.id;
+	Video2.upsert({
+		id: videoId,
+		start: req.body.start,
+		end: req.body.end
+	}).then(function(err, video){
+
+		if (err) 
+			res.render('empty', { title: 'Error' });
+	});
+	
+};
+
 exports.getVideo = function(req, res, next){
-//@TODO change to bluebird version with async
-// Todo.findAsync()
-//      .then(function(todos) {
-//        res.render('todos', {title: 'Todos', todos: todos});
-//      })
-//      .catch(next)
-//      .error(console.error);
+
+
 	Video.findById( req.params.id, function(err, video) {
 
 		if (err) res.render('empty', { title: 'Error' });
@@ -21,20 +75,18 @@ exports.getVideo = function(req, res, next){
 	});
 
 
-
-
 };
 
 exports.getVideoById = function(req, res, next){
 
 	// console.log(util.inspect( req.params, false, null ));	
-//@TODO change to bluebird version with async
-// Todo.findAsync()
-//      .then(function(todos) {
-//        res.render('todos', {title: 'Todos', todos: todos});
-//      })
-//      .catch(next)
-//      .error(console.error);
+	//@TODO change to bluebird version with async
+	// Todo.findAsync()
+	//      .then(function(todos) {
+	//        res.render('todos', {title: 'Todos', todos: todos});
+	//      })
+	//      .catch(next)
+	//      .error(console.error);
  	Video.findById( req.params.id, function(err, video) {
 
 		if (err) res.render('empty', { title: 'Error' });
