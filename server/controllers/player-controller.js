@@ -100,3 +100,13 @@ exports.update = function(req, res, next){
 //   });
 
 // };
+
+
+
+// Fancy console.log
+function output (err, data) {
+  console.dir (err || data, {
+    depth: null,
+    colors: true
+  });
+}

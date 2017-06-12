@@ -80,3 +80,13 @@ exports.getExample = function(req, res, next){
 // 	console.log('Video created!');
 
 // });
+
+
+
+// Fancy console.log
+function output (err, data) {
+  console.dir (err || data, {
+    depth: null,
+    colors: true
+  });
+}

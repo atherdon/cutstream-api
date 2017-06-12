@@ -13,30 +13,23 @@ var mainController = require('../controllers/main-controller');
 
 
 
-console.log( app );
+module.exports = function(server) {
+  var router  = server.loopback.Router();
+  // var request = require('request');
+  var Video   = server.models.VideoModel;
 
-console.log( app.router );
+  console.log(server);
+  console.log(router);
 
-/* routers */
-app.router('/')
-   .get(mainController.getHomepage);
+  /* routers */
+  router.get('/', mainController.getHomepage);
 
-app.router('/insert')
-   .post(mainController.postVideo);
+  router.post('/insert', mainController.postVideo);
 
-app.router('/example')
-   .get(mainController.getExample);
+  router.get('/example', mainController.getExample);    
 
-app.router('/mongotest')
-   .get(mainController.databaseConnect);
+  // router.get('mongotest', mainController.databaseConnect);
 
-        
+};
 
 
-// Fancy console.log
-function output (err, data) {
-  console.dir (err || data, {
-    depth: null,
-    colors: true
-  });
-}
