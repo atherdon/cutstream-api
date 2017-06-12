@@ -2,10 +2,10 @@
 
 var path = require('path');
 
-module.exports = function(Usermodel) {
+module.exports = function(UserModel) {
 
-	Usermodel.validatesPresenceOf('name');
-  Usermodel.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
+	UserModel.validatesPresenceOf('username');
+  UserModel.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
     
   var re = /^(([^<>()[\]\\.,;:\s@\"]-(\.[^<>()[\]\\.,;:\s@\"]-)*)|(\".-\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]-\.)-[a-zA-Z]{2,}))$/;
 
@@ -16,7 +16,7 @@ module.exports = function(Usermodel) {
   }
 
 
-	Usermodel.observe("before save", function updateTimestamp(ctx, next) {
+	UserModel.observe("before save", function updateTimestamp(ctx, next) {
  
     	if( ctx.isNewInstance ){
     		ctx.instance.created_at = new Date();
@@ -26,16 +26,16 @@ module.exports = function(Usermodel) {
     	next();
   });
 
-  Usermodel.observe('update', function(ctx, next){
+  UserModel.observe('update', function(ctx, next){
   	ctx.instance.updated_at = new Date();
   	next();
   });
 
 
-  Usermodel.log = function(userId, options) {
+  UserModel.log = function(userId, options) {
     
     // IMPORTANT: forward the options arg
-    return Usermodel.findById(userId, null, options)
+    return UserModel.findById(userId, null, options)
               .then(function(data){
                 const token = options && options.accessToken;
                 const userId = token && token.userId;
@@ -49,7 +49,7 @@ module.exports = function(Usermodel) {
   };
 
   // @TODO move to config file later
-  Usermodel.remoteMethod('log', {
+  UserModel.remoteMethod('log', {
     accepts: [{
       arg: 'userId',
       type: 'string',

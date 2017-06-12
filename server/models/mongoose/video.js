@@ -28,10 +28,10 @@ var VideoSchema = mongoose.Schema({
      title : String,
      url   : String,
      desc  : String,
-     start : Number, //@todo if empty - set 0
-     end   : Number, //@todo if empty - set duration end
-     step  : Number, //@todo if empty - set 1
-     slug  : String,
+     start : Number, 
+     end   : Number, 
+     step  : Number, 
+     slug  : String, // @TODO maybe this field is not necessary
          
   }, options );
 

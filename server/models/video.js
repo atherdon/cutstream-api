@@ -7,24 +7,14 @@ module.exports = function(VideoModel) {
 	// this fields must be exists
 	VideoModel.validatesPresenceOf(
 		'title', 'url', 
-		'start', 
-		'end', 
-		'step',
+		// 'start', 
+		// 'end', 
+		// 'step',
 		'userId'
 	);
 
-	// this fields must be numeric
-	VideoModel.validatesNumericalityOf('start', {int: true});
-	VideoModel.validatesNumericalityOf('end',   {int: true});
-	VideoModel.validatesNumericalityOf('step',  {int: true});
-
-
- 	start : Number, //@todo 
-    end   : Number, //@todo if empty - set duration end
-    step  : Number, //@todo if empty - set 1
 
 	// YouTube url custom validation
-
 	var re = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 
 	VideoModel.validatesFormatOf('url', {
@@ -57,6 +47,11 @@ module.exports = function(VideoModel) {
       }		
       
     }
+
+    // this fields must be numeric
+	VideoModel.validatesNumericalityOf('start', {int: true});
+	VideoModel.validatesNumericalityOf('end',   {int: true});
+	VideoModel.validatesNumericalityOf('step',  {int: true});
 
 
 	// End Number must be greater than Start Number
