@@ -7,7 +7,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "username": {
       "type": "string",
       "required": true
     },
