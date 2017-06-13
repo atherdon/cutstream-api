@@ -15,4 +15,4 @@
 
   };
 
-})(module.exports);
+})(module.exports); // @TODO include this and remove init from routes

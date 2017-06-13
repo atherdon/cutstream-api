@@ -21,6 +21,9 @@ module.exports = function(server) {
 
   // router.get('mongotest', mainController.databaseConnect);
 
+  // server.use('/', router);
+  return router;
+
 };
 
 

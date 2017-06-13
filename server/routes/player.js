@@ -19,5 +19,8 @@ module.exports = function(server) {
 	router.get('/edit/:id/', videoController.getVideoById);
 
 	router.post('/update/', videoController.update);
+
+	// server.use('/player', router);
+	return router;
 };
 
