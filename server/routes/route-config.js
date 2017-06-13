@@ -5,8 +5,8 @@
   routeConfig.init = function (server) {
 
     // *** routes *** //
-	const index  = require('./routes/index');
-	const player = require('./routes/player');
+	const index  = require('index');
+	const player = require('player');
 
     // *** register routes *** //  
     server.use('/', index);

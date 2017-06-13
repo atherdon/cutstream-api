@@ -12,12 +12,14 @@ var app = module.exports = loopback();
 // frontend related part
 app.middleware('initial', bodyParser.urlencoded({ extended: true }));
 
-app.set('view engine', 'ejs'); // LoopBack comes with EJS out-of-box
+// app.set('view engine', 'ejs'); // LoopBack comes with EJS out-of-box
+app.set('view engine', 'pug');
 app.set('json spaces', 2); // format json responses for easier viewing
 
 // must be set to serve views properly when starting the app via `lb run` from
 // the project root
-app.set('views', path.resolve(__dirname, 'views'));
+// app.set('views', path.resolve(__dirname, 'views'));
+app.set('views', path.resolve(__dirname, 'views/pug'));
 
 // use loopback.token middleware on all routes
 // setup gear for authentication using cookie (access_token)
