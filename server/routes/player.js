@@ -4,7 +4,7 @@
 //models
 // var Video   = server.models.VideoModel;
 
-var videoController = require('../controllers/player-controller');
+var playerController = require('../controllers/player-controller');
 
 
 module.exports = function(server) {
