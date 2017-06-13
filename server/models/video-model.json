@@ -59,5 +59,7 @@
       "permission": "ALLOW"
     }
   ],
-  "methods": {}
+  "methods": {
+    
+  }
 }

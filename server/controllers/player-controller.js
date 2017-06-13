@@ -6,7 +6,7 @@ var loopback   = require('loopback');
 var server     = loopback();
 
 var Video2   = server.models.VideoModel;	
-
+console.log(server.models.UserModel);
 
 exports.getVideo2 = function(req, res, next){
 	var videoId = req.params.id;	
@@ -25,7 +25,7 @@ exports.getVideo2 = function(req, res, next){
 		});  
 };
 
-exports.editVideoById = function(req, res, next){
+exports.getVideoById2 = function(req, res, next){
 	var videoId = req.params.id;
 
 	Video2.findById(videoId)
