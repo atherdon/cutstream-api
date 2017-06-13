@@ -7,11 +7,11 @@ module.exports = function(server) {
   var playerController = require('../controllers/player-controller');
 
 	/* routers */
-	router.get('/:id', videoController.getVideo);
+	router.get('/:id',       playerController.getVideo);
 
-	router.get('/edit/:id/', videoController.getVideoById);
+	router.get('/edit/:id/', playerController.getVideoById);
 
-	router.post('/update/', videoController.update);
+	router.post('/update/',  playerController.update);
 	// router.get('mongotest', mainController.databaseConnect);
 
 	server.use('/player', router);   
