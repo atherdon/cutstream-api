@@ -1,7 +1,8 @@
 'use strict';
 
-
-var Video    = require('../models/mongoose/video');
+var loopback   = require('loopback');
+var server     = loopback();
+// var Video    = require('../models/mongoose/video');
 
 exports.getHomepage = function(req, res, next){
 

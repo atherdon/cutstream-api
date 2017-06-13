@@ -1,7 +1,9 @@
 'use strict';
 
 
-var Video    = require('../models/mongoose/video');
+// var Video    = require('../models/mongoose/video');
+var loopback   = require('loopback');
+var server     = loopback();
 
 var Video2   = server.models.VideoModel;	
 
@@ -59,7 +61,7 @@ exports.update = function(req, res, next){
 		if (err) 
 			res.render('empty', { title: 'Error' });
 	});
-	
+
 };
 
 exports.getVideo = function(req, res, next){

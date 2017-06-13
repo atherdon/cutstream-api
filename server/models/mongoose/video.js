@@ -16,7 +16,7 @@ var options = {
                updatedAt: 'updated_at' 
           },   
 
-          { _id: false }
+          { _id: false } // Used for including examples to homepage
      };
 
 /**
