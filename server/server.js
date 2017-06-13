@@ -1,13 +1,14 @@
 'use strict';
 
-var loopback = require('loopback');
-var boot = require('loopback-boot');
+var loopback   = require('loopback');
+var boot       = require('loopback-boot');
 
 // frontend related part
 var bodyParser = require('body-parser');
-var path = require('path');
+var path       = require('path');
 
-var app = module.exports = loopback();
+var app        = module.exports = loopback();
+
 
 // frontend related part
 app.middleware('initial', bodyParser.urlencoded({ extended: true }));
@@ -20,6 +21,7 @@ app.set('json spaces', 2); // format json responses for easier viewing
 // the project root
 // app.set('views', path.resolve(__dirname, 'views'));
 app.set('views', path.resolve(__dirname, 'views/pug'));
+
 
 // use loopback.token middleware on all routes
 // setup gear for authentication using cookie (access_token)
