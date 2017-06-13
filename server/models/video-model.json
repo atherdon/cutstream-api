@@ -2,7 +2,7 @@
   "name": "VideoModel",
   "plural": "video",
   "base": "PersistedModel",
-  "idInjection": true,
+  "idInjection": false,
   "options": {
     "validateUpsert": true
   },
@@ -60,6 +60,6 @@
     }
   ],
   "methods": {
-    
+
   }
 }

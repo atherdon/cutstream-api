@@ -2,11 +2,19 @@
 
 
 // var Video    = require('../models/mongoose/video');
-var loopback   = require('loopback');
-var server     = loopback();
+// var loopback   = require('loopback');
+// var server     = loopback();
 
-var Video2   = server.models.VideoModel;	
-console.log(server.models.UserModel);
+// var Video2   = server.models.VideoModel;	
+// console.log(server.models.UserModel);
+
+
+var path        = require('path');
+
+let server2         = require(path.resolve(__dirname, '../server'));
+var database    = server2.models.VideoModel;
+console.log(database);
+
 
 exports.getVideo2 = function(req, res, next){
 	var videoId = req.params.id;	
