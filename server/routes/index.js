@@ -5,6 +5,9 @@ var mainController = require('../controllers/main-controller');
 
 
 module.exports = function(server) {
+
+  // console.log(server);
+  
   var router  = server.loopback.Router();
 
   // var Video   = server.models.VideoModel;
@@ -21,8 +24,8 @@ module.exports = function(server) {
 
   // router.get('mongotest', mainController.databaseConnect);
 
-  // server.use('/', router);
-  return router;
+  server.use('/', router);
+  // return router;
 
 };
 

@@ -20,7 +20,7 @@ module.exports = function(server) {
 
 	router.post('/update/', videoController.update);
 
-	// server.use('/player', router);
-	return router;
+	server.use('/player', router);
+	// return router;
 };
 

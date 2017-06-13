@@ -8,10 +8,10 @@ module.exports = function(server) {
   server.use(router);
   
   // @TODO change this later. But right we're using this as is
-  var indexRoutes = require('../routes/index');
-  server.use('/', indexRoutes);
+  // var indexRoutes = require('../routes/index');
+  // server.use('/', indexRoutes);
 
-  var PlayerRoutes = require('../routes/player');
-  server.use('/player', PlayerRoutes);
+  // var PlayerRoutes = require('../routes/player');
+  // server.use('/player', PlayerRoutes);
 
 };
