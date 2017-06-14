@@ -2,15 +2,11 @@
   "name": "VideoModel",
   "plural": "video",
   "base": "PersistedModel",
-  "idInjection": false,
+  "idInjection": true,
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "id": {
-      "type": "string",
-      "required": true
-    },
+  "properties": {    
     "title": {
       "type": "string",
       "required": true
@@ -39,7 +35,7 @@
       "required": true
     },
     "userId": {
-      "type": "object",
+      "type": "array",
       "required": false
     },
     "created_at": {

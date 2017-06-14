@@ -99,20 +99,7 @@ module.exports = function(VideoModel) {
 			}, cb);
 		});
 
-		// UserModel.exists(userId, function(err, user){
-		// 	if(err){ cb(err); }
 
-		// 	VideoModel.find({
-		// 		where: {
-		// 			userId: userId
-		// 		},
-		// 		fields: [
-		// 			'title', 'url', 'desc',
-		// 			'start', 'end', 'step'
-		// 		]				
-				
-		// 	}, cb);
-		// });
 
 	};
 	

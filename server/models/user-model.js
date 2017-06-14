@@ -74,28 +74,28 @@ module.exports = function(UserModel) {
 
 
   UserModel.addVideos = function () {
-      var VideoModel = UserModel.app.models.VideoModel;
+     //  var VideoModel = UserModel.app.models.VideoModel;
 
-      UserModel.find({
-        fields:'id'
-      })
-     .then(function(usersIds){
+     //  UserModel.find({
+     //    fields:'id'
+     //  })
+     // .then(function(usersIds){
 
       //   console.log(usersIds);
 
       // });  
 
-        var result = Object.keys(usersIds).map(function(e) {
-          return usersIds[e].id;
-        });
+        // var result = Object.keys(usersIds).map(function(e) {
+        //   return usersIds[e].id;
+        // });
 
         // console.log(result);
         // console.log('-------');
 
-        VideoModel.upsertWithWhere({ username:'admin' }, { userId:result })
-        .then(function(videos){
-          console.log(videos);
-        })
+        // VideoModel.upsertWithWhere({ username:'admin' }, { userId:result })
+        // .then(function(videos){
+        //   console.log(videos);
+        // })
 
       //   VideoModel.find({})
       //       .then(function(videos){
@@ -113,9 +113,9 @@ module.exports = function(UserModel) {
       //           console.log('-------');
       //       })
 
-      }).catch(function(err){
-            throw err;
-      });      
+      // }).catch(function(err){
+      //       throw err;
+      // });      
 
      //  UserModel.findOne({
      //    fields:'id', where: { name:'admin' }
