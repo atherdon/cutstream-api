@@ -81,7 +81,7 @@ module.exports = function(VideoModel) {
 		next();
 	});
     
-	VideoModel.listAdminVideos = function(cb){
+	VideoModel.listAdminVideos = function(){
 
 		var UserModel = VideoModel.app.models.UserModel;
 		// console.log(UserModel);
@@ -96,29 +96,39 @@ module.exports = function(VideoModel) {
 
 		// UserModel.videos.findById();
 
+		// UserModel.videos({
+		//  where : {
+	 //      username: 'admin'
+  //     		} 
+  //   	}, function(err, videos){
+		// 		console.log(videos)
+		// 	});
+
 		UserModel.findOne({
 		 where : {
 	      username: 'admin'
       		} 
     	})
 		.then(function(admin){
-			console.log(admin.id);
+			// console.log(admin.id);
 
 			// admin.videos({},function(err, videos){
-			// 	// console.log(videos)
+			// 	console.log(videos)
 			// })
 
 			VideoModel.find({
 				where: {
-					userId: admin.id 
-					// userId: { "elemMatch":{ "id" : admin.id } }
+					// userId: admin.id 
+					userId:  admin.id 
 				},
 				fields: [
 					'title', 'url', 'desc',
 					'start', 'end', 'step'
 				]				
 				
-			}, cb);
+			}, function(err, videos){
+				console.log(videos)
+			});
 		});
 
 

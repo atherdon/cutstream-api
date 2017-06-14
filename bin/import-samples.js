@@ -43,15 +43,17 @@ videos(function(array){
 	// 	});
 
 
-	User.findOne({ fields:'id' }).then(function(userIds){
+	User.findOne({ fields:'id', where :{
+      username: 'admin'
+      } }).then(function(userId){
 
-		var result = Object.keys(userIds).map(function(e) {
-           return userIds[e].id;
-        });
-
+		// var result = Object.keys(userIds).map(function(e) {
+  //          return userIds[e].id.toString();
+  //       });
+		// console.log(result)
 		array.forEach(function(element){
 
-			element.userId = userIds;
+			element.userId = userId;
 
 		})
         

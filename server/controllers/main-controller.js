@@ -12,10 +12,10 @@ var Video   = server.models.VideoModel;
 
 exports.getHomepage = function(req, res, next){
 
-	Video.listAdminVideos(
-	function(videos){
-		console.log(videos);
-	});
+	Video.listAdminVideos();
+	// function(videos){
+	// 	console.log(videos);
+	// });
 
 	// res.render('index', { title: 'Express' });
 

@@ -32,7 +32,7 @@
       "type": "hasMany",
       "model": "VideoModel",
       "foreignKey": "userId"
-    },
+    }
   },
   "acls": [
     
