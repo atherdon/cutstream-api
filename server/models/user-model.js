@@ -66,6 +66,11 @@ module.exports = function(UserModel) {
     }
   });
 
+  UserModel.adminQuery = function(){
+    return {
+      username: 'admin'
+    }
+  };
 
 
   UserModel.addVideos = function () {
@@ -84,10 +89,10 @@ module.exports = function(UserModel) {
           return usersIds[e].id;
         });
 
-        console.log(result);
-        console.log('-------');
+        // console.log(result);
+        // console.log('-------');
 
-        VideoModel.upsertWithWhere({},{userId:result})
+        VideoModel.upsertWithWhere({ username:'admin' }, { userId:result })
         .then(function(videos){
           console.log(videos);
         })

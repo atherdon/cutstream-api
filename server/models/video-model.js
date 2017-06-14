@@ -81,6 +81,42 @@ module.exports = function(VideoModel) {
 		next();
 	});
     
+	VideoModel.listAdminVideos = function(cb){
+
+		var UserModel = VideoModel.app.models.UserModel;
+		
+		UserModel.find(UserModel.adminQuery)
+		.then(function(admin){
+			VideoModel.find({
+				where: {
+					userId: admin.id
+				},
+				fields: [
+					'title', 'url', 'desc',
+					'start', 'end', 'step'
+				]				
+				
+			}, cb);
+		});
+
+		// UserModel.exists(userId, function(err, user){
+		// 	if(err){ cb(err); }
+
+		// 	VideoModel.find({
+		// 		where: {
+		// 			userId: userId
+		// 		},
+		// 		fields: [
+		// 			'title', 'url', 'desc',
+		// 			'start', 'end', 'step'
+		// 		]				
+				
+		// 	}, cb);
+		// });
+
+	};
+	}
+
 	VideoModel.listVideos = function(cb){
 		VideoModel.find({}, cb);
 	};

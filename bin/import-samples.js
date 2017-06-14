@@ -14,33 +14,33 @@ var User        = app.models.UserModel;
 var Video       = app.models.VideoModel;
 
 
-accounts(function(array){
+// accounts(function(array){
 
-	User.create(array)
-		.then(function(users){
-			// console.log(users);
+// 	User.create(array)
+// 		.then(function(users){
+// 			// console.log(users);
 
-			User.assign();
+// 			User.assign();
 
 				
 
-		})
-		.catch(function(err){
-			throw err;
-		});
-
-});
-
-
-// videos(function(array){
-
-
-// 	Video.create(array)
-// 		 .then(User.addVideos(videos))
-// 		 .catch(function(err){
+// 		})
+// 		.catch(function(err){
 // 			throw err;
 // 		});
 
-
-
 // });
+
+
+videos(function(array){
+
+
+	Video.create(array)
+		 .then(User.addVideos(videos))
+		 .catch(function(err){
+			throw err;
+		});
+
+
+
+});
