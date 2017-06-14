@@ -34,13 +34,6 @@ var Video       = app.models.VideoModel;
 
 videos(function(array){
 
-	// Video.create(array)
-	// 	 .then(function(videos){
-	// 	 	// console.log(videos);
-	// 	 })
-	// 	 .catch(function(err){
-	// 		// throw err;
-	// 	});
 
 
 	User.findOne({ fields:'id', where :{
@@ -50,7 +43,8 @@ videos(function(array){
 		// var result = Object.keys(userIds).map(function(e) {
   //          return userIds[e].id.toString();
   //       });
-		// console.log(result)
+  
+		console.log(result)
 		array.forEach(function(element){
 
 			element.userId = userId;
