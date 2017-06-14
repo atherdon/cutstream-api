@@ -45,9 +45,11 @@ videos(function(array){
 
 		array.forEach(function(element, index){
 
-			// console.log( element.userId =  );
+			// console.log( element );
+
+			// console.log( array[index] );
 			// element.userId = result;
-			array[index].userId = result;
+			array[index].userId = [ "blah", "ha"];
 		})
         
 	});
