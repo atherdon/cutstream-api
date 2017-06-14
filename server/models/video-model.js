@@ -104,7 +104,8 @@ module.exports = function(VideoModel) {
 
 			VideoModel.find({
 				where: {
-					userId: { elemMatch:{ id : admin.id } }
+					userId: admin.id 
+					// userId: { "elemMatch":{ "id" : admin.id } }
 				},
 				fields: [
 					'title', 'url', 'desc',
