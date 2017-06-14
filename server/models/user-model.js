@@ -7,13 +7,13 @@ module.exports = function(UserModel) {
 	UserModel.validatesPresenceOf('username');
   UserModel.validatesLengthOf('password', {min: 5, message: {min: 'Password is too short'}});
     
-  var re = /^(([^<>()[\]\\.,;:\s@\"]-(\.[^<>()[\]\\.,;:\s@\"]-)*)|(\".-\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]-\.)-[a-zA-Z]{2,}))$/;
+  // var re = /^(([^<>()[\]\\.,;:\s@\"]-(\.[^<>()[\]\\.,;:\s@\"]-)*)|(\".-\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]-\.)-[a-zA-Z]{2,}))$/;
 
-  UserModel.validatesFormatOf('email', {with: re, message: 'Must provide a valid email'});
-  if (!(UserModel.settings.realmRequired || UserModel.settings.realmDelimiter)) {
-    UserModel.validatesUniquenessOf('email', {message: 'Email already exists'});
-    UserModel.validatesUniquenessOf('username', {message: 'User already exists'});
-  }
+  // UserModel.validatesFormatOf('email', {with: re, message: 'Must provide a valid email'});
+  // if (!(UserModel.settings.realmRequired || UserModel.settings.realmDelimiter)) {
+  //   UserModel.validatesUniquenessOf('email', {message: 'Email already exists'});
+  //   UserModel.validatesUniquenessOf('username', {message: 'User already exists'});
+  // }
 
 
 	UserModel.observe("before save", function updateTimestamp(ctx, next) {
@@ -122,9 +122,14 @@ module.exports = function(UserModel) {
     var Role        = UserModel.app.models.Role;
     var RoleMapping = UserModel.app.models.RoleMapping;
 
-    UserModel.findOne({fields:'id', where: { name:'admin' }})
+    UserModel.findOne({
+      fields:'id', 
+      where: { 
+        username:'admin' 
+      }
+    })
       .then(function(result){
-        
+
         Role.create({ name:'admin' })
           .then(function(role){
 
@@ -137,7 +142,7 @@ module.exports = function(UserModel) {
           })
           .catch(function(err){
             throw err;
-          })
+          });
       });        
   };
 

@@ -45,10 +45,20 @@
     "updated_at": {
       "type": "date",
       "required": true
+    },
+    "userId":{
+      "type":"object",
+      "required":"false"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": { 
+    "users": {
+      "type": "hasMany",
+      "model": "UserModel",
+      "foreignKey": "userId"
+    }
+  },
   "acls": [
     {
       "accessType": "*",
