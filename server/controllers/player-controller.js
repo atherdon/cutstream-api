@@ -11,8 +11,8 @@
 
 var path     = require('path');
 
-let server2  = require(path.resolve(__dirname, '../server'));
-var Video2   = server2.models.VideoModel;
+let server  = require(path.resolve(__dirname, '../server'));
+var Video2  = server.models.VideoModel;
 // console.log(database);
 
 

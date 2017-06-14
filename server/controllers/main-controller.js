@@ -1,12 +1,23 @@
 'use strict';
 
-var loopback   = require('loopback');
-var server     = loopback();
+// var loopback   = require('loopback');
+// var server     = loopback();
 // var Video    = require('../models/mongoose/video');
+
+
+var path     = require('path');
+
+let server  = require(path.resolve(__dirname, '../server'));
+var Video   = server.models.VideoModel;
 
 exports.getHomepage = function(req, res, next){
 
-	res.render('index', { title: 'Express' });
+	Video.listAdminVideos(
+	function(videos){
+		console.log(videos);
+	});
+
+	// res.render('index', { title: 'Express' });
 
 };
 

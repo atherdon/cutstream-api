@@ -84,12 +84,27 @@ module.exports = function(VideoModel) {
 	VideoModel.listAdminVideos = function(cb){
 
 		var UserModel = VideoModel.app.models.UserModel;
+		// console.log(UserModel);
+		// UserModel.findOne({
+		//  where : {
+	 //      username: 'admin'
+  //     	} 
+  //   	})
+		// .then(function(admin){
+		// 	console.log(admin.id)});
 
-		UserModel.find(UserModel.adminQuery)
+
+		UserModel.findOne({
+		 where : {
+	      username: 'admin'
+      		} 
+    	})
 		.then(function(admin){
+			console.log(admin.id);
+
 			VideoModel.find({
 				where: {
-					userId: admin.id
+					userId: { elemMatch:{ id : admin.id } }
 				},
 				fields: [
 					'title', 'url', 'desc',

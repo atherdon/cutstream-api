@@ -14,56 +14,47 @@ var User        = app.models.UserModel;
 var Video       = app.models.VideoModel;
 
 
-accounts(function(array){
+// accounts(function(array){
 
-	User.create(array)
-		.then(function(users){
-			// console.log(users);
+// 	User.create(array)
+// 		.then(function(users){
+// 			// console.log(users);
 
-			User.assign();
+// 			User.assign();
 
 				
 
-		})
-		.catch(function(err){
-			throw err;
-		});
-
-});
-
-
-// videos(function(array){
-
-// 	User.find({ fields:'id' }).then(function(userIds){
-
-// 		// console.log(userIds)
-// 		var result = Object.keys(userIds).map(function(e) {
-//           return userIds[e].id;
-//         });
-
-// 		// console.log(result);
-
-// 		array.forEach(function(element, index){
-
-// 			// console.log( element );
-
-// 			// console.log( array[index] );
-// 			element.userId = result;
-// 			// array[index].userId = [ "blah", "ha"];
 // 		})
-        
-//         Video.create(array)
-// 		 .then(function(videos){
-// 		 	console.log(videos);
-// 		 })
-// 		 .catch(function(err){
+// 		.catch(function(err){
 // 			throw err;
 // 		});
 
-//         	// console.log(array);
-
-// 	});
-
-
-
 // });
+
+
+videos(function(array){
+
+	User.find({ fields:'id' }).then(function(userIds){
+
+
+		array.forEach(function(element){
+
+			element.userId = userIds;
+
+		})
+        
+        Video.create(array)
+		 .then(function(videos){
+		 	// console.log(videos);
+		 })
+		 .catch(function(err){
+			// throw err;
+		});
+
+        	// console.log(array);
+
+	});
+
+
+
+});

@@ -67,8 +67,9 @@ module.exports = function(UserModel) {
   });
 
   UserModel.adminQuery = function(){
-    return {
+    return { where :{
       username: 'admin'
+      } 
     }
   };
 
