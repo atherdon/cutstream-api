@@ -94,6 +94,8 @@ module.exports = function(VideoModel) {
 		// 	console.log(admin.id)});
 
 
+		// UserModel.videos.findById();
+
 		UserModel.findOne({
 		 where : {
 	      username: 'admin'
@@ -101,6 +103,10 @@ module.exports = function(VideoModel) {
     	})
 		.then(function(admin){
 			console.log(admin.id);
+
+			// admin.videos({},function(err, videos){
+			// 	// console.log(videos)
+			// })
 
 			VideoModel.find({
 				where: {

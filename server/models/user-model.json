@@ -28,7 +28,11 @@
   },
   "validations": [],
   "relations": {
-    
+    "videos": {
+      "type": "hasMany",
+      "model": "VideoModel",
+      "foreignKey": "userId"
+    },
   },
   "acls": [
     

@@ -34,10 +34,7 @@
       "type": "string",
       "required": true
     },
-    "userId": {
-      "type": "array",
-      "required": false
-    },
+    
     "created_at": {
       "type": "date",
       "required": true
@@ -49,7 +46,11 @@
   },
   "validations": [],
   "relations": { 
-    
+    "user": {
+      "type": "belongsTo",
+      "model": "UserModel",
+      "foreignKey": ""
+    }
   },
   "acls": [
     
