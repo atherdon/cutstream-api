@@ -39,7 +39,7 @@
       "required": true
     },
     "userId": {
-      "type": "number",
+      "type": "object",
       "required": false
     },
     "created_at": {

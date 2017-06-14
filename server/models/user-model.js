@@ -76,28 +76,37 @@ module.exports = function(UserModel) {
       })
      .then(function(usersIds){
 
-        console.log(usersIds);
+      //   console.log(usersIds);
 
-
+      // });  
 
         var result = Object.keys(usersIds).map(function(e) {
           return usersIds[e].id;
         });
 
         console.log(result);
-        // console.log('-------');
+        console.log('-------');
 
-        VideoModel.find({})
-            .then(function(videos){
-                console.log(videos);
-                console.log('-------');
+        VideoModel.upsertWithWhere({},{userId:result})
+        .then(function(videos){
+          console.log(videos);
+        })
 
-                videos.forEach(function(video){
-                    video.updateAttribute('userId', result);
-                });    
-                console.log(videos);
-                console.log('-------');
-            })
+      //   VideoModel.find({})
+      //       .then(function(videos){
+      //           // console.log(videos);
+      //           console.log('-------');
+
+      //           videos.forEach(function(video){
+
+      //               video.upsert({userId:result}).then(function(video){
+      //                 console.log(video);
+      //               });
+      //               // video.updateAttribute('userId', result);
+      //           });    
+      //           // console.log(videos);
+      //           console.log('-------');
+      //       })
 
       }).catch(function(err){
             throw err;
