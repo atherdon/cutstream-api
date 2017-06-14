@@ -9,11 +9,11 @@
 // console.log(server.models.UserModel);
 
 
-var path        = require('path');
+var path     = require('path');
 
-let server2         = require(path.resolve(__dirname, '../server'));
-var database    = server2.models.VideoModel;
-console.log(database);
+let server2  = require(path.resolve(__dirname, '../server'));
+var Video2   = server2.models.VideoModel;
+// console.log(database);
 
 
 exports.getVideo2 = function(req, res, next){
@@ -71,6 +71,7 @@ exports.update = function(req, res, next){
 	});
 
 };
+
 
 exports.getVideo = function(req, res, next){
 

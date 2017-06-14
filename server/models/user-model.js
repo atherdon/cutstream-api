@@ -66,17 +66,51 @@ module.exports = function(UserModel) {
     }
   });
 
-  UserModel.addVideos = function (videos) {
-      UserModel.findOne({
-        fields:'id', where: { name:'admin' }
+  UserModel.addVideos = function () {
+      var VideoModel = UserModel.app.models.VideoModel;
+
+      UserModel.find({
+        fields:'id'
       })
-     .then(function(result){
+     .then(function(usersIds){
 
-        videos.forEach(function(video){
-          video.updateAttribute('userId', result.id);
-        })
+        console.log(usersIds);
 
-      });
+
+
+        var result = Object.keys(usersIds).map(function(e) {
+          return usersIds[e].id;
+        });
+
+        console.log(result);
+        // console.log('-------');
+
+        VideoModel.find({})
+            .then(function(videos){
+                console.log(videos);
+                console.log('-------');
+
+                videos.forEach(function(video){
+                    video.updateAttribute('userId', result);
+                });    
+                console.log(videos);
+                console.log('-------');
+            })
+
+      }).catch(function(err){
+            throw err;
+      });      
+
+     //  UserModel.findOne({
+     //    fields:'id', where: { name:'admin' }
+     //  })
+     // .then(function(result){
+
+     //    videos.forEach(function(video){
+     //      video.updateAttribute('userId', result.id);
+     //    })
+
+     //  });
 
   };
 
