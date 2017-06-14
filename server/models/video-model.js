@@ -84,7 +84,7 @@ module.exports = function(VideoModel) {
 	VideoModel.listAdminVideos = function(cb){
 
 		var UserModel = VideoModel.app.models.UserModel;
-		
+
 		UserModel.find(UserModel.adminQuery)
 		.then(function(admin){
 			VideoModel.find({
@@ -115,7 +115,7 @@ module.exports = function(VideoModel) {
 		// });
 
 	};
-	}
+	
 
 	VideoModel.listVideos = function(cb){
 		VideoModel.find({}, cb);

@@ -14,7 +14,7 @@ module.exports = function getSampleData (cb){
 		slug  : 'G1aSAQ1CibQ',
 		id   : 'G1aSAQ1CibQ',
 
-		userId: {}
+		userId: []
 	},
 	{
 		title : 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
@@ -26,7 +26,7 @@ module.exports = function getSampleData (cb){
 		slug  : 'Lt-U_t2pUHI',
 		// id   : 'Lt-U_t2pUHI',
 
-		userId: {}
+		userId: []
 	},
 	{
 		title : 'Black Panther Featurette',
@@ -38,7 +38,7 @@ module.exports = function getSampleData (cb){
 		slug  : 'Q88JeXtKMDY',
 		// id   : 'Q88JeXtKMDY',
 
-		userId: {}
+		userId: []
 	},
 	{
 		title : 'Jessica Jones Mirror Cracking',
@@ -50,7 +50,7 @@ module.exports = function getSampleData (cb){
 		slug  : 'nWHUjuJ8zxE',
 		// id  : 'nWHUjuJ8zxE',
 
-		userId: {}
+		userId: []
 	}
 	];
 

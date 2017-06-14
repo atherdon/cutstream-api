@@ -34,12 +34,35 @@ var Video       = app.models.VideoModel;
 
 videos(function(array){
 
+	User.find({ fields:'id' }).then(function(userIds){
 
-	Video.create(array)
-		 .then(User.addVideos(videos))
-		 .catch(function(err){
-			throw err;
-		});
+		// console.log(userIds)
+		var result = Object.keys(userIds).map(function(e) {
+          return userIds[e].id;
+        });
+
+		// console.log(result);
+
+		array.forEach(function(element, index){
+
+			// console.log( element.userId =  );
+			// element.userId = result;
+			array[index].userId = result;
+		})
+        
+	});
+
+
+	console.log(array);
+
+	
+
+
+	// Video.create(array)
+	// 	 .then(User.addVideos(videos))
+	// 	 .catch(function(err){
+	// 		throw err;
+	// 	});
 
 
 
