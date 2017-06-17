@@ -12,7 +12,7 @@ module.exports = function getSampleData (){
 		end   : 89,
 		step  : 1,
 		slug  : 'G1aSAQ1CibQ',
-		id   : 'G1aSAQ1CibQ',
+		// id   : 'G1aSAQ1CibQ',
 
 		userId: ''
 	},

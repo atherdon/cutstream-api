@@ -9,9 +9,9 @@ let server      = require(path.resolve(__dirname, '../server/server'));
 var database    = server.datasources.videoDS;
 
 
-let users       = require(path.resolve(__dirname, 'sample-users-data'));
+let getUsers       = require(path.resolve(__dirname, 'sample-users-data'));
 
-let videos      = require(path.resolve(__dirname, 'sample-videos-data'));
+let getVideos      = require(path.resolve(__dirname, 'sample-videos-data'));
 
 
 var User        = server.models.UserModel;
@@ -19,7 +19,7 @@ var User        = server.models.UserModel;
 var Video       = server.models.VideoModel;
 
 
-module.exports = function(){
+// module.exports = function(){
 
 	async.parallel({
 		users: async.apply(createUsers),
@@ -31,19 +31,20 @@ module.exports = function(){
 		console.log(results.users);
 		console.log(results.videos);
 
-		// attachVideosToUsers(results.users, results.videos, function(err){
-		// 	console.log('>models create sucessfully');
-		// });
+		attachVideosToUsers(results.users, results.videos, function(err){
+			console.log('>models create sucessfully');
+		});
 
 	});
 
-};
+// };
 
 function createUsers(cb){
+	// console.log(users);
 	database.automigrate('UserModel', function(err){
 		if (err) return cb(err);
 
-		User.create(users, cb);
+		User.create(getUsers(), cb);
 	});
 };
 
@@ -51,7 +52,7 @@ function createVideos(cb){
 	database.automigrate('VideoModel', function(err){
 		if (err) return cb(err);
 
-		Video.create(videos, cb);
+		Video.create(getVideos(), cb);
 	});
 };
 
@@ -59,7 +60,7 @@ function createVideos(cb){
 function attachVideosToUsers(users, videos, cb){
 
 	videos.forEach(function(video){
-		video.updateAttribute('userId', users[0].id);
+		video.updateAttribute('userId', users[2].id);
 		console.log(video.userId);
 	});
 
