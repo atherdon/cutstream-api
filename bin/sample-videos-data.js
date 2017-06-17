@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function getSampleData (cb){
+module.exports = function getSampleData (){
 
 	// video frames 
 	var adminVideos = [
@@ -24,7 +24,6 @@ module.exports = function getSampleData (cb){
 		end   : 51,
 		step  : 1,
 		slug  : 'Lt-U_t2pUHI',
-		// id   : 'Lt-U_t2pUHI',
 
 		userId: ''
 	},
@@ -36,7 +35,6 @@ module.exports = function getSampleData (cb){
 		end   : 54,
 		step  : 1,
 		slug  : 'Q88JeXtKMDY',
-		// id   : 'Q88JeXtKMDY',
 
 		userId: ''
 	},
@@ -48,7 +46,6 @@ module.exports = function getSampleData (cb){
 		end   : 97,
 		step  : 1,
 		slug  : 'nWHUjuJ8zxE',
-		// id  : 'nWHUjuJ8zxE',
 
 		userId: ''
 	}

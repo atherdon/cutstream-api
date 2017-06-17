@@ -6,7 +6,7 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {    
+  "properties": {
     "title": {
       "type": "string",
       "required": true
@@ -34,7 +34,6 @@
       "type": "string",
       "required": true
     },
-    
     "created_at": {
       "type": "date",
       "required": true
@@ -45,13 +44,7 @@
     }
   },
   "validations": [],
-  "relations": { 
-    
-  },
-  "acls": [
-    
-  ],
-  "methods": {
-
-  }
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

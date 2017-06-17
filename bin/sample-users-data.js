@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function getSampleData (cb){
+module.exports = function getSampleData (){
 
 	var accounts = [	
 		{

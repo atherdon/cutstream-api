@@ -4,18 +4,19 @@
 var path        = require('path');
 var async       = require('async');
 
-let app         = require(path.resolve(__dirname, '../server/server'));
+let server      = require(path.resolve(__dirname, '../server/server'));
 
-var database    = app.datasources.videoDS;
+var database    = server.datasources.videoDS;
 
-let users    = require(path.resolve(__dirname, 'sample-users-data'));
+
+let users       = require(path.resolve(__dirname, 'sample-users-data'));
 
 let videos      = require(path.resolve(__dirname, 'sample-videos-data'));
 
 
-var User        = app.models.UserModel;
+var User        = server.models.UserModel;
 
-var Video       = app.models.VideoModel;
+var Video       = server.models.VideoModel;
 
 
 module.exports = function(){
@@ -39,7 +40,7 @@ module.exports = function(){
 };
 
 function createUsers(cb){
-	database.autoupdate('UserModel', function(err){
+	database.automigrate('UserModel', function(err){
 		if (err) return cb(err);
 
 		User.create(users, cb);
@@ -47,7 +48,7 @@ function createUsers(cb){
 };
 
 function createVideos(cb){
-	database.autoupdate('VideoModel', function(err){
+	database.automigrate('VideoModel', function(err){
 		if (err) return cb(err);
 
 		Video.create(videos, cb);
