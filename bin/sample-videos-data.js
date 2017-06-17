@@ -54,5 +54,6 @@ module.exports = function getSampleData (cb){
 	}
 	];
 
-	return cb(adminVideos);
+	return adminVideos;
+	// return cb(adminVideos);
 };

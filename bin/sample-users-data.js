@@ -22,6 +22,6 @@ module.exports = function getSampleData (cb){
 		}
   	];
 
-  	return cb(accounts);
-
+  	return accounts;
+  	// return cb(accounts);
 }
