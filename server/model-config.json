@@ -43,5 +43,9 @@
   "UserModel": {
     "dataSource": "videoDS",
     "public": true
+  },
+  "Example": {
+    "dataSource": "videoDS",
+    "public": false
   }
 }
