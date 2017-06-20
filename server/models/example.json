@@ -1,15 +1,13 @@
 {
-  "name": "Example",
+  "name": "ExampleModel",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "case": {
-      "type": [
-        "number"
-      ],
+    "videos": {
+      "type": "object",
       "required": true
     },
     "img": {

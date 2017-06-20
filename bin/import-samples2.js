@@ -21,7 +21,7 @@ var User        = server.models.UserModel;
 
 var Video       = server.models.VideoModel;
 
-
+var Examples    = server.models.ExampleModel;
 // module.exports = function(){
 
 	async.parallel({
@@ -32,6 +32,8 @@ var Video       = server.models.VideoModel;
 		examples2: async.apply(createExampleVideos2),
 		examples3: async.apply(createExampleVideos3),
 		examples4: async.apply(createExampleVideos4),
+
+		cases    : async.apply(createCases)
 
 	}, function(err, results){
 		if( err ) throw err;
@@ -147,6 +149,19 @@ function createExampleVideos4(cb){
 	});
 };
 
+function createCases(cb){
+	database.automigrate('ExamplesModel', function(err){
+		if (err) return cb(err);
+
+		var examples = getExampleVideos();
+		// Video.create(getExampleVideos(), cb);
+		// Video.create(examples[0], cb);
+		// Video.create(examples[1], cb);
+		// Video.create(examples[2], cb);
+		Video.create(examples[3], cb);
+	});
+};
+
 
 //attaching videos to admin user
 function attachVideosToUsers(users, videos, cb){
@@ -157,7 +172,7 @@ function attachVideosToUsers(users, videos, cb){
 	});
 
 	// Video.updateAttribute('userId', users[0].id);
-}
+};
 
 //attaching videos to admin user
 function attachExampleVideosToAdmin(users, exampleVideos, cb){
@@ -167,4 +182,6 @@ function attachExampleVideosToAdmin(users, exampleVideos, cb){
 		// console.log(video.userId);
 	});
 
-}
+};
+
+
