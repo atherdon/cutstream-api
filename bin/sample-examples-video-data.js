@@ -3,9 +3,11 @@
 module.exports = function getSampleData (){
 
 	// video frames 
-	var exampleVideos = [
+	var exampleVideos    = [];
+
+	var exampleVideos[0] = [
 	{
-		// _id   : 'case1e1',
+		
 		title : 'Laura Haddock from Captain America?',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -16,7 +18,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e2',
+		
 		title : 'Dog Dr.Wesley von Spears',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -27,7 +29,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e3',
+		
 		title : 'The Kymellians',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -38,7 +40,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e4',
+		
 		title : 'The Sakaraans',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -49,7 +51,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e5',
+		
 		title : 'Bereet the Krylorian',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -60,7 +62,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e6',
+		
 		title : 'Ship Called "Milano" - Alisa Milano is superstar!',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -71,7 +73,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e7',
+		
 		title : 'Yondu',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -82,7 +84,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e8',
+		
 		title : 'Stan Lee Cameo',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -93,7 +95,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e9',
+		
 		title : 'Rhommann DEY & Garthan SAAL',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -104,7 +106,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e10',
+		
 		title : 'Indiana Jones & the Maltese Falcon',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -115,7 +117,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e11',
+		
 		title : 'Troma\'s LLOYD Kaufman',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -126,7 +128,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e12',
+		
 		title : 'Castle? Right! Sorry, Nathan Fillon',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -137,7 +139,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e13',
+		
 		title : 'Thanos on his throne',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -148,7 +150,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e14',
+		
 		title : 'A home in "KNOWHERE"',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -159,7 +161,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e15',
+		
 		title : 'Carina Walters',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -170,7 +172,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e16',
+	
 		title : 'Cosmo THE SPACE DOG',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -181,7 +183,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e17',
+		
 		title : 'Slugs from "SLITHER"',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -192,7 +194,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e18',
+		
 		title : 'Chitauri warrior & Dark ELF',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -203,7 +205,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e19',
+		
 		title : 'Cocoon of Adam warlock???',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -214,7 +216,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e20',
+		
 		title : 'Voice of Rob Zombie',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -225,7 +227,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e21',
+		
 		title : '12% of a plan',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -236,7 +238,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e22',
+		
 		title : 'Captain Marvel costume',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -247,7 +249,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e23',
+		
 		title : 'Howard The Duck',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -258,7 +260,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case1e24',
+	
 		title : 'Undiscovered Easter Egg?',
 		url   : 'https://www.youtube.com/watch?v=WbIPHjHoYaA',
 		desc  : '',
@@ -268,8 +270,10 @@ module.exports = function getSampleData (){
 		slug  : 'WbIPHjHoYaA',
 		userId: ''
 	},
+	];
 
-	{
+
+	var exampleVideos[1] = [{
 		// _id   : 'case2e1',
 		title : 'Jamie sneezed and got lucky',
 		url   : 'https://www.youtube.com/watch?v=g0uPUJbOYdg',
@@ -335,9 +339,9 @@ module.exports = function getSampleData (){
 		slug  : 'g0uPUJbOYdg',
 		userId: ''
 	},
+	];
 
-
-	{
+	var exampleVideos[2] = [{
 		// _id   : 'case3e1',
 		title : 'First Funny Video from Compilation',
 		url   : 'https://www.youtube.com/watch?v=_xYXxYh6J24',
