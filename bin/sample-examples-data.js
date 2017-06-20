@@ -29,11 +29,12 @@ module.exports = function getSampleData (){
 		  videos: []
 		},
 		{
-		  img   : 'john',	
-		  title : 'john.doe@ibm.com',
-		  url   : 'john1',
-		  description : 'john1',
-		  description2: 'john1',
+		  img   : '/images/icebucket.jpg',	
+		  title : 'Ice Bucket Challenge Gone Wrong',
+		  url   : 'https://www.youtube.com/watch?v=_xYXxYh6J24',
+		  description : '(Video Description) Vine Compilation',
+		  description2: 'You\'ve seen one of this compilation videos, right?',
+		  description3: 'This compilation have more than 50 videos inside.'
 		  videos: []
 
 		},
