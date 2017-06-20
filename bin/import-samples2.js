@@ -17,6 +17,8 @@ let getVideos        = require(path.resolve(__dirname, 'sample-videos-data'));
 
 let getExampleVideos = require(path.resolve(__dirname, 'sample-examples-video-data'));
 
+let casesList        = require(path.resolve(__dirname, 'sample-examples-list'));
+
 var User        = server.models.UserModel;
 
 var Video       = server.models.VideoModel;
@@ -27,7 +29,7 @@ var Examples    = server.models.ExampleModel;
 	async.parallel({
 		users    : async.apply(createUsers),
 		videos   : async.apply(createVideos),
-		// cases: async.apply(createCases),
+		
 		examples1: async.apply(createExampleVideos1),
 		examples2: async.apply(createExampleVideos2),
 		examples3: async.apply(createExampleVideos3),
@@ -88,13 +90,14 @@ function createVideos(cb){
 	});
 };
 
-// function createCases(cb){
-// 	database.automigrate('CaseModel', function(err){
-// 		if (err) return cb(err);
+function createCases(cb){
+	database.automigrate('ExampleModel', function(err){
+		if (err) return cb(err);
 
-// 		Video.create(getVideos(), cb);
-// 	});
-// };
+		var examples = getExampleVideos();
+		Examples.create(getVideos(), cb);
+	});
+};
 
 
 function createExampleVideos1(cb){
@@ -149,18 +152,19 @@ function createExampleVideos4(cb){
 	});
 };
 
-function createCases(cb){
-	database.automigrate('ExamplesModel', function(err){
-		if (err) return cb(err);
 
-		var examples = getExampleVideos();
-		// Video.create(getExampleVideos(), cb);
-		// Video.create(examples[0], cb);
-		// Video.create(examples[1], cb);
-		// Video.create(examples[2], cb);
-		Video.create(examples[3], cb);
-	});
-};
+// function createCases(cb){
+// 	database.automigrate('ExampleModel', function(err){
+// 		if (err) return cb(err);
+
+// 		var examples = getExampleVideos();
+// 		// Video.create(getExampleVideos(), cb);
+// 		// Video.create(examples[0], cb);
+// 		// Video.create(examples[1], cb);
+// 		// Video.create(examples[2], cb);
+// 		Video.create(examples[3], cb);
+// 	});
+// };
 
 
 //attaching videos to admin user
