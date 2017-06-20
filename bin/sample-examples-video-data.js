@@ -273,8 +273,9 @@ module.exports = function getSampleData (){
 	];
 
 
-	var exampleVideos[1] = [{
-		// _id   : 'case2e1',
+	var exampleVideos[1] = [
+	{
+		
 		title : 'Jamie sneezed and got lucky',
 		url   : 'https://www.youtube.com/watch?v=g0uPUJbOYdg',
 		desc  : '',
@@ -285,7 +286,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case2e2',
+		
 		title : 'Jamie loses big pot',
 		url   : 'https://www.youtube.com/watch?v=g0uPUJbOYdg',
 		desc  : '',
@@ -296,7 +297,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case2e3',
+		
 		title : 'AA - QQ - AK -Jamie goes really mad',
 		url   : 'https://www.youtube.com/watch?v=g0uPUJbOYdg',
 		desc  : '',
@@ -307,7 +308,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case2e4',
+		
 		title : 'Previous hand Break Down',
 		url   : 'https://www.youtube.com/watch?v=g0uPUJbOYdg',
 		desc  : '',
@@ -318,7 +319,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case2e5',
+		
 		title : '1/17 chanses to win - Call on the River',
 		url   : 'https://www.youtube.com/watch?v=g0uPUJbOYdg',
 		desc  : '',
@@ -329,7 +330,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case2e6',
+		
 		title : 'Final table and famous Jamie face!',
 		url   : 'https://www.youtube.com/watch?v=g0uPUJbOYdg',
 		desc  : '',
@@ -341,8 +342,9 @@ module.exports = function getSampleData (){
 	},
 	];
 
-	var exampleVideos[2] = [{
-		// _id   : 'case3e1',
+	var exampleVideos[2] = [
+	{
+		
 		title : 'First Funny Video from Compilation',
 		url   : 'https://www.youtube.com/watch?v=_xYXxYh6J24',
 		desc  : '',
@@ -353,7 +355,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case3e2',
+	
 		title : 'Second Funny Video from Compilation',
 		url   : 'https://www.youtube.com/watch?v=_xYXxYh6J24',
 		desc  : '',
@@ -364,7 +366,7 @@ module.exports = function getSampleData (){
 		userId: ''
 	},
 	{
-		// _id   : 'case3e3',
+		
 		title : 'Third Funny Video from Compilation',
 		url   : 'https://www.youtube.com/watch?v=_xYXxYh6J24',
 		desc  : '',

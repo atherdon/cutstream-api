@@ -160,12 +160,11 @@ function attachVideosToUsers(users, videos, cb){
 }
 
 //attaching videos to admin user
-function attachVideosToUsers(users, exampleVideos, cb){
+function attachExampleVideosToAdmin(users, exampleVideos, cb){
 
 	exampleVideos.forEach(function(video){
 		video.updateAttribute('userId', users[2].id);
 		// console.log(video.userId);
 	});
-
 
 }

@@ -1,5 +1,7 @@
 'use strict';
 
-module.exports = function(Example) {
+module.exports = function(ExampleModel) {
+
+		
 
 };
