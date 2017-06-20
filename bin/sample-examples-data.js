@@ -12,6 +12,9 @@ module.exports = function getSampleData (){
 		  description2: 'john1',
 		  videos: []
 
+		  // description3: '',
+		  // subtitle: '',
+
 		},
 		{
 		  img   : 'john',	
