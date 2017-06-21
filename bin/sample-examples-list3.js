@@ -15,8 +15,8 @@ module.exports = function getSampleData (examples){
 		},
 		{
 			text  : 'Third Funny Video from Compilation:', 
-			link  : 'player/' . examples[1].id,
-			title : examples[1].title
+			link  : 'player/' . examples[2].id,
+			title : examples[2].title
 		},
 		
 	];
