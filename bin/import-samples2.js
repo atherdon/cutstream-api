@@ -37,7 +37,7 @@ var Examples    = server.models.ExampleModel;
 		examples3: async.apply(createExampleVideos3),
 		examples4: async.apply(createExampleVideos4),
 
-		// cases    : async.apply(createCases)
+		cases    : async.apply(createCases)
 
 	}, function(err, results){
 		if( err ) throw err;
@@ -47,6 +47,10 @@ var Examples    = server.models.ExampleModel;
 		// console.log(results.videos);
 		// console.log(results.cases);
 		// console.log(results.examples);
+		// console.log(results.examples);
+		console.log(results.cases[0]);
+		console.log(results.cases[1]);
+		console.log(results.cases[2]);
 
 		attachVideosToUsers(results.users, results.videos, function(err){
 			console.log('>models create sucessfully');
@@ -70,6 +74,9 @@ var Examples    = server.models.ExampleModel;
 		});
 
 
+		importCase1(result.cases[0]);
+		importCase2(result.cases[1]);
+		importCase3(result.cases[2]);
 
 	});
 
@@ -92,14 +99,14 @@ function createVideos(cb){
 	});
 };
 
-// function createCases(cb){
-// 	database.automigrate('ExampleModel', function(err){
-// 		if (err) return cb(err);
+function createCases(cb){
+	database.automigrate('ExampleModel', function(err){
+		if (err) return cb(err);
 
-// 		var examples = getExampleVideos();
-// 		Examples.create(getVideos(), cb);
-// 	});
-// };
+		var examples = getExampleVideos();
+		Examples.create(examples, cb);
+	});
+};
 
 
 function createExampleVideos1(cb){
@@ -141,41 +148,23 @@ function createExampleVideos3(cb){
 	});
 };
 
-// function createExampleVideos4(cb){
-// 	database.autoupdate('VideoModel', function(err){
-// 		if (err) return cb(err);
 
-// 		var examples = getExampleVideos();
-// 		// Video.create(getExampleVideos(), cb);
-// 		// Video.create(examples[0], cb);
-// 		// Video.create(examples[1], cb);
-// 		// Video.create(examples[2], cb);
-// 		Video.create(examples[3], cb);
-// 	});
-// };
-
-function importCase1(){
+function importCase1(example){
 	var case1 = casesList1();
+	example.updateAttribute('videos', case1);
 };
-function importCase2(){
+
+function importCase2(example){
 	var case2 = casesList2();
+	example.updateAttribute('videos', case2);
 };
-function importCase3(){
+
+function importCase3(example){
 	var case3 = casesList3();
+	example.updateAttribute('videos', case2);
 };
 
-// function createCases(cb){
-// 	database.automigrate('ExampleModel', function(err){
-// 		if (err) return cb(err);
 
-// 		var examples = getExampleVideos();
-// 		// Video.create(getExampleVideos(), cb);
-// 		// Video.create(examples[0], cb);
-// 		// Video.create(examples[1], cb);
-// 		// Video.create(examples[2], cb);
-// 		Video.create(examples[3], cb);
-// 	});
-// };
 
 
 //attaching videos to admin user
