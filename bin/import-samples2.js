@@ -37,7 +37,7 @@ var Examples    = server.models.ExampleModel;
 		examples3: async.apply(createExampleVideos3),
 		examples4: async.apply(createExampleVideos4),
 
-		cases    : async.apply(createCases)
+		// cases    : async.apply(createCases)
 
 	}, function(err, results){
 		if( err ) throw err;
@@ -92,14 +92,14 @@ function createVideos(cb){
 	});
 };
 
-function createCases(cb){
-	database.automigrate('ExampleModel', function(err){
-		if (err) return cb(err);
+// function createCases(cb){
+// 	database.automigrate('ExampleModel', function(err){
+// 		if (err) return cb(err);
 
-		var examples = getExampleVideos();
-		Examples.create(getVideos(), cb);
-	});
-};
+// 		var examples = getExampleVideos();
+// 		Examples.create(getVideos(), cb);
+// 	});
+// };
 
 
 function createExampleVideos1(cb){
@@ -163,6 +163,7 @@ function importCase2(){
 function importCase3(){
 	var case3 = casesList3();
 };
+
 // function createCases(cb){
 // 	database.automigrate('ExampleModel', function(err){
 // 		if (err) return cb(err);
