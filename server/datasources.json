@@ -3,5 +3,11 @@
     "url": "mongodb://heroku_mfstx9tp:eesh2l0mcgehm7ruam0icidhn4@ds143588.mlab.com:43588/heroku_mfstx9tp",
     "name": "videoDS",
     "connector": "loopback-connector-mongodb"
+  },
+  "mailgun": {
+    "name": "mailgun",
+    "connector": "loopback-connector-mailgun",
+    "apikey": "key-4e236ace7f85293ec5eb2b37d6d9fa39",
+    "domain": "sandbox31d3370622eb42a597ccb3fa1fd0adbf.mailgun.org"
   }
 }

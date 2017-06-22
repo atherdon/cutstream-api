@@ -44,8 +44,12 @@
     "dataSource": "videoDS",
     "public": true
   },
-  "Example": {
+  "ExampleModel": {
     "dataSource": "videoDS",
+    "public": true
+  },
+  "EmailModel": {
+    "dataSource": "mailgun",
     "public": false
   }
 }
