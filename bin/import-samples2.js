@@ -22,6 +22,9 @@ let casesList2       = require(path.resolve(__dirname, 'sample-examples-list2'))
 let casesList3       = require(path.resolve(__dirname, 'sample-examples-list3'));
 
 var User        = server.models.UserModel;
+var Role        = server.models.Role;
+var RoleMapping = server.models.RoleMapping;
+
 
 var Video       = server.models.VideoModel;
 
@@ -48,9 +51,13 @@ var Examples    = server.models.ExampleModel;
 		// console.log(results.cases);
 		// console.log(results.examples);
 		// console.log(results.examples);
-		console.log(results.cases[0]);
-		console.log(results.cases[1]);
-		console.log(results.cases[2]);
+		// console.log(results.cases[0]);
+		// console.log(results.cases[1]);
+		// console.log(results.cases[2]);
+
+		assignAdmin(results.users[2], function(err){
+			console.log('>admin role create sucessfully');
+		});
 
 		attachVideosToUsers(results.users, results.videos, function(err){
 			console.log('>models create sucessfully');
@@ -89,6 +96,28 @@ function createUsers(cb){
 
 		User.create(getUsers(), cb);
 	});
+};
+
+function assignAdmin(admin, cb){
+	
+	database.automigrate('Role', function(err){
+		if (err) return cb(err);
+
+		Role.create({ name:'admin' })
+		.then(function(role){
+
+			role.principals.create({
+                  principalType: RoleMapping.USER,
+                  principalId: admin.id
+              }, function(err, principal){
+                console.log('Principal', principal);
+              });
+
+		})
+		.catch(function(err){
+            throw err;
+        });
+	});	
 };
 
 function createVideos(cb){
