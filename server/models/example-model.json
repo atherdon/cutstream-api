@@ -8,7 +8,7 @@
   "properties": {
     "videos": {
       "type": "object",
-      "required": true
+      "required": false
     },
     "img": {
       "type": "string",
@@ -25,11 +25,8 @@
     "description": {
       "type": "string",
       "required": true
-    },
-    "description2": {
-      "type": "string",
-      "required": true
     }
+    
   },
   "validations": [],
   "relations": {},

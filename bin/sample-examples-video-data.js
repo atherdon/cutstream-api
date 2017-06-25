@@ -5,7 +5,7 @@ module.exports = function getSampleData (){
 	// video frames 
 	var exampleVideos    = [];
 
-	var exampleVideos[0] = [
+	exampleVideos[0] = [
 	{
 		
 		title : 'Laura Haddock from Captain America?',
@@ -273,7 +273,7 @@ module.exports = function getSampleData (){
 	];
 
 
-	var exampleVideos[1] = [
+	exampleVideos[1] = [
 	{
 		
 		title : 'Jamie sneezed and got lucky',
@@ -342,7 +342,7 @@ module.exports = function getSampleData (){
 	},
 	];
 
-	var exampleVideos[2] = [
+	exampleVideos[2] = [
 	{
 		
 		title : 'First Funny Video from Compilation',

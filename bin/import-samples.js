@@ -13,7 +13,7 @@ let getUsers         = require(path.resolve(__dirname, 'sample-users-data'));
 
 let getVideos        = require(path.resolve(__dirname, 'sample-videos-data'));
 
-// let getExamples  = require(path.resolve(__dirname, 'sample-examples-cases-data'));
+let getExamples  = require(path.resolve(__dirname, 'sample-examples-data'));
 
 let getExampleVideos = require(path.resolve(__dirname, 'sample-examples-video-data'));
 
@@ -34,13 +34,14 @@ var Examples    = server.models.ExampleModel;
 	async.parallel({
 		users    : async.apply(createUsers),
 		videos   : async.apply(createVideos),
-		
+		examples : async.apply(createExamples),
+
 		examples1: async.apply(createExampleVideos1),
 		examples2: async.apply(createExampleVideos2),
 		examples3: async.apply(createExampleVideos3),
-		examples4: async.apply(createExampleVideos4),
+		// examples4: async.apply(createExampleVideos4),
 
-		cases    : async.apply(createCases)
+		// cases    : async.apply(createCases)
 
 	}, function(err, results){
 		if( err ) throw err;
@@ -51,39 +52,38 @@ var Examples    = server.models.ExampleModel;
 		// console.log(results.cases);
 		// console.log(results.examples);
 		// console.log(results.examples);
-		// console.log(results.cases[0]);
-		// console.log(results.cases[1]);
-		// console.log(results.cases[2]);
+		
 
 		assignAdmin(results.users[2], function(err){
 			console.log('>admin role create sucessfully');
 		});
 
-		attachVideosToUsers(results.users, results.videos, function(err){
-			console.log('>models create sucessfully');
-		});
+		// attachVideosToUsers(results.users, results.videos, function(err){
+		// 	console.log('>models create sucessfully');
+		// });
 
 
-		attachExampleVideosToAdmin(results.users, results.examples1, function(err){
+		attachExampleVideosToAdmin(results.users[2], results.examples1, function(err){
 			console.log('>examples1 attached to admin');
 		});
 
-		attachExampleVideosToAdmin(results.users, results.examples2, function(err){
+		attachExampleVideosToAdmin(results.users[2], results.examples2, function(err){
 			console.log('>examples2 attached to admin');
 		});
 
-		attachExampleVideosToAdmin(results.users, results.examples3, function(err){
+		attachExampleVideosToAdmin(results.users[2], results.examples3, function(err){
 			console.log('>examples3 attached to admin');
 		});
 
-		attachExampleVideosToAdmin(results.users, results.examples4, function(err){
-			console.log('>examples4 attached to admin');
-		});
+		// attachExampleVideosToAdmin(results.users, results.examples4, function(err){
+		// 	console.log('>examples4 attached to admin');
+		// });
 
 
-		importCase1(result.cases[0]);
-		importCase2(result.cases[1]);
-		importCase3(result.cases[2]);
+		importCase1(results.examples[0]);
+		importCase2(results.examples[1]);
+		importCase3(results.examples[2]);
+		console.log('> examples imported and attached to admin');
 
 	});
 
@@ -128,13 +128,31 @@ function createVideos(cb){
 	});
 };
 
-function createCases(cb){
+function createExamples(cb){
 	database.automigrate('ExampleModel', function(err){
 		if (err) return cb(err);
 
-		var examples = getExampleVideos();
+		var examples = getExamples();
 		Examples.create(examples, cb);
 	});
+};
+
+// function createCases(cb){
+// 	database.automigrate('ExampleModel', function(err){
+// 		if (err) return cb(err);
+
+// 		var examples = getExampleVideos();
+// 		Examples.create(examples, cb);
+// 	});
+// };
+
+function attachExampleVideosToAdmin(admin, videos, cb){
+
+	videos.forEach(function(video){
+		video.updateAttribute('userId', admin.id);
+		
+	});
+
 };
 
 
@@ -143,11 +161,9 @@ function createExampleVideos1(cb){
 		if (err) return cb(err);
 
 		var examples = getExampleVideos();
-		// Video.create(getExampleVideos(), cb);
+		
 		Video.create(examples[0], cb);
-		// Video.create(examples[1], cb);
-		// Video.create(examples[2], cb);
-		// Video.create(examples[3], cb);
+		
 	});
 };
 
@@ -156,11 +172,9 @@ function createExampleVideos2(cb){
 		if (err) return cb(err);
 
 		var examples = getExampleVideos();
-		// Video.create(getExampleVideos(), cb);
-		// Video.create(examples[0], cb);
+		
 		Video.create(examples[1], cb);
-		// Video.create(examples[2], cb);
-		// Video.create(examples[3], cb);
+		
 	});
 };
 
@@ -169,13 +183,12 @@ function createExampleVideos3(cb){
 		if (err) return cb(err);
 
 		var examples = getExampleVideos();
-		// Video.create(getExampleVideos(), cb);
-		// Video.create(examples[0], cb);
-		// Video.create(examples[1], cb);
+		
 		Video.create(examples[2], cb);
-		// Video.create(examples[3], cb);
+		
 	});
 };
+
 
 
 function importCase1(example){
@@ -190,38 +203,38 @@ function importCase2(example){
 
 function importCase3(example){
 	var case3 = casesList3();
-	example.updateAttribute('videos', case2);
+	example.updateAttribute('videos', case3);
 };
 
 
 
 
 //attaching videos to admin user
-function attachVideosToUsers(users, videos, cb){
+// function attachVideosToUsers(users, videos, cb){
 
-	videos.forEach(function(video){
-		video.updateAttribute('userId', users[2].id);
-		console.log(video.userId);
-	});
+// 	videos.forEach(function(video){
+// 		video.updateAttribute('userId', users[2].id);
+// 		console.log(video.userId);
+// 	});
 
-	// Video.updateAttribute('userId', users[0].id);
-};
+// 	// Video.updateAttribute('userId', users[0].id);
+// };
 
 //attaching videos to admin user
-function attachExampleVideosToAdmin(users, exampleVideos, cb){
+// function attachExampleVideosToAdmin(users, exampleVideos, cb){
 
-	exampleVideos.forEach(function(video){
-		video.updateAttribute('userId', users[2].id);
-		// console.log(video.userId);
-	});
+// 	exampleVideos.forEach(function(video){
+// 		video.updateAttribute('userId', users[2].id);
+// 		// console.log(video.userId);
+// 	});
 
-};
+// };
 
-function attachCasesToAdmin(){
+// function attachCasesToAdmin(){
 
-};
+// };
 
-function attachListsToCases(){
+// function attachListsToCases(){
 
-};
+// };
 

@@ -26,7 +26,7 @@ module.exports = function getSampleData (){
 			'<br /> | Youtube: https://www.youtube.com/channel/UC7tffpR__YXghv3ypgpE7fg',
 			'<br /> |Twitch:  https://www.twitch.tv/pokerstaples <br />',
 			'Some interesting pieces from his video:'   
-		  ]
+		  ],
 		  
 		  videos: []
 		},
@@ -38,7 +38,7 @@ module.exports = function getSampleData (){
 			  '(Video Description) Vine Compilation',
 			  'You\'ve seen one of this compilation videos, right?',
 			  'This compilation have more than 50 videos inside.'
-		  ]
+		  ],
 		  
 		  videos: []
 
