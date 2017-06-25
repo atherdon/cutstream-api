@@ -1,23 +1,28 @@
 'use strict';
 
-// var loopback   = require('loopback');
-// var server     = loopback();
-// var Video    = require('../models/mongoose/video');
 
+var path      = require('path');
+var validator = require('express-validator');
 
-var path     = require('path');
-
-let server  = require(path.resolve(__dirname, '../server'));
-var Video   = server.models.VideoModel;
+let server    = require(path.resolve(__dirname, '../server'));
+var Video     = server.models.VideoModel;
 
 exports.getHomepage = function(req, res, next){
 
 	Video.listAdminVideos();
+
 	// function(videos){
 	// 	console.log(videos);
 	// });
+	// let errors = req.validationErrors();
+	// if (errors) {
+ //    	req.flash('errors', errors);
+	// }
 
-	// res.render('index', { title: 'Express' });
+	res.render('index', { 
+		title: 'Express',
+
+	});
 
 };
 
@@ -52,7 +57,7 @@ exports.postVideo = function(req, res, next){
 
 	// console.log( value );	
 	//@TODO change to bluebird version with async
-// http://stackoverflow.com/questions/25555139/bluebird-promisies-crud-example-using-nodejs-express-and-mongoose
+	// http://stackoverflow.com/questions/25555139/bluebird-promisies-crud-example-using-nodejs-express-and-mongoose
 	value.save().then(function(docs){
 
 		// console.log( docs );

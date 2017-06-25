@@ -2,25 +2,24 @@
 
 var request = require('request');
 
-// var loopback = require('loopback');
 
-
-
-
+// Routes, related to ejs view engine
+// So, they don't work well, because we're using pug view engine right now
 module.exports = function(server) {
 
   var router  = server.loopback.Router();
-  // var request = require('request');
+
   var Video   = server.models.VideoModel;
   
-  router.get('/index', function(req, res) {
+  router.get('/index', function(req, res, next) {
+
     res.render('index', {
       loginFailed: false
     });
   });
 
 
-  router.get('/postvideo', function(req, res) {
+  router.get('/postvideo', function(req, res, next) {
 
     // console.log(req.accessToken);
     // console.log(req.accessToken.userId);
@@ -31,7 +30,7 @@ module.exports = function(server) {
     });
   });
 
-  router.post('/postvideo', function(req, res){
+  router.post('/postvideo', function(req, res, next){
 
     // console.log( req.body );
 
@@ -55,7 +54,7 @@ module.exports = function(server) {
 
 
 
-  router.get('/videos', function(req, res) {
+  router.get('/videos', function(req, res, next) {
 
     console.log(req.accessToken);
     console.log(req.accessToken.userId);
@@ -71,7 +70,7 @@ module.exports = function(server) {
   });
 
 
-  router.post('/profile', function(req, res) {
+  router.post('/profile', function(req, res, next) {
     var email    = req.body.email;
     var password = req.body.password;
     // console.log(email, password);
@@ -132,6 +131,8 @@ module.exports = function(server) {
     });
 
   });
+
+
 
   server.use(router);
 

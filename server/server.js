@@ -21,7 +21,7 @@ app.set('json spaces', 2); // format json responses for easier viewing
 // the project root
 // app.set('views', path.resolve(__dirname, 'views'));
 app.set('views', path.resolve(__dirname, 'views/pug/starter'));
-
+// @TODO change this path
 
 // use loopback.token middleware on all routes
 // setup gear for authentication using cookie (access_token)
