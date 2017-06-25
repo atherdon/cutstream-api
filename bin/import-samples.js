@@ -192,17 +192,17 @@ function createExampleVideos3(cb){
 
 
 function importCase1(example){
-	var case1 = casesList1();
+	var case1 = casesList1(example);
 	example.updateAttribute('videos', case1);
 };
 
 function importCase2(example){
-	var case2 = casesList2();
+	var case2 = casesList2(example);
 	example.updateAttribute('videos', case2);
 };
 
 function importCase3(example){
-	var case3 = casesList3();
+	var case3 = casesList3(example);
 	example.updateAttribute('videos', case3);
 };
 
