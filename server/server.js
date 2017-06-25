@@ -6,6 +6,7 @@ var boot       = require('loopback-boot');
 // frontend related part
 var bodyParser = require('body-parser');
 var path       = require('path');
+var express    = require('express');
 
 var app        = module.exports = loopback();
 
@@ -24,9 +25,8 @@ app.set('views', path.resolve(__dirname, 'views/pug/starter'));
 // @TODO change this path
 
 // in client/public we store static files right now.
-staticDir = path.join(__dirname + '/../client/public');
+var staticDir = path.join(__dirname + '/../client/public');
 app.use(express.static(staticDir));
-
 
 // use loopback.token middleware on all routes
 // setup gear for authentication using cookie (access_token)
