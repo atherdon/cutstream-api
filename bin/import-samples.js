@@ -95,7 +95,8 @@ var Examples    = server.models.ExampleModel;
 		importCase1(results.examples1, results.examples[0]);
 		importCase2(results.examples2, results.examples[1]);
 		importCase3(results.examples3, results.examples[2]);
-		// console.log('> examples imported and attached to admin');
+		
+		console.log('> examples imported and attached to admin');
 
 	});
 
