@@ -9,7 +9,16 @@ var Video     = server.models.VideoModel;
 
 exports.getHomepage = function(req, res, next){
 
-	Video.listAdminVideos();
+	// Video.listAdminVideos();
+
+	Video.listExamplesShort(function(examples){
+		// console.log(examples);
+		res.render('index', { 
+			title: 'Express',
+			examples: examples
+		});
+
+	});
 
 	// function(videos){
 	// 	console.log(videos);
@@ -19,10 +28,7 @@ exports.getHomepage = function(req, res, next){
  //    	req.flash('errors', errors);
 	// }
 
-	res.render('index', { 
-		title: 'Express',
-		examples: {}
-	});
+	
 
 };
 

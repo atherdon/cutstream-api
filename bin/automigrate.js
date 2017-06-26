@@ -11,7 +11,7 @@ var database    = app.datasources.videoDS;
 var lbTables = [
  'User', 'AccessToken', 'ACL', 'RoleMapping', 'Role',
  // custom tables
- 'UserModel', 'VideoModel'
+ 'UserModel', 'VideoModel', 'ExampleModel'
 ];
 database.automigrate(lbTables, function(err) {
 // database.autoupdate(lbTables, function(err) {	

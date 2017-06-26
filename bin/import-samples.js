@@ -52,9 +52,9 @@ var Examples    = server.models.ExampleModel;
 		// console.log(results.users);
 		// console.log(results.videos);
 		// console.log(results.cases);
-		console.log(results.examples1[0]);
-		console.log(results.examples2[0]);
-		console.log(results.examples3[0]);
+		// console.log(results.examples1[0]);
+		// console.log(results.examples2[0]);
+		// console.log(results.examples3[0]);
 		// console.log(results.examples);
 		
 
@@ -95,7 +95,7 @@ var Examples    = server.models.ExampleModel;
 		importCase1(results.examples1, results.examples[0]);
 		importCase2(results.examples2, results.examples[1]);
 		importCase3(results.examples3, results.examples[2]);
-		
+
 		console.log('> examples imported and attached to admin');
 
 	});
@@ -218,36 +218,4 @@ function importCase3(data, modelExamples){
 	var case3 = List3(data);
 	modelExamples.updateAttribute('videos', case3);
 };
-
-
-
-
-//attaching videos to admin user
-// function attachVideosToUsers(users, videos, cb){
-
-// 	videos.forEach(function(video){
-// 		video.updateAttribute('userId', users[2].id);
-// 		console.log(video.userId);
-// 	});
-
-// 	// Video.updateAttribute('userId', users[0].id);
-// };
-
-//attaching videos to admin user
-// function attachExampleVideosToAdmin(users, exampleVideos, cb){
-
-// 	exampleVideos.forEach(function(video){
-// 		video.updateAttribute('userId', users[2].id);
-// 		// console.log(video.userId);
-// 	});
-
-// };
-
-// function attachCasesToAdmin(){
-
-// };
-
-// function attachListsToCases(){
-
-// };
 

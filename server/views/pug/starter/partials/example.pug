@@ -1,7 +1,7 @@
 .col-md-6
-  .card.card-background(style="background-image: url('#{url}')")
+  .card.card-background(style="background-image: url('" + value.img + "')")
     .content.content-video 
-      a(href="#{link}")
+      a(href="player/" + value.id)
         .icon
           i.material-icons play_arrow
-      h3.card-title #{title}
+      h3.card-title= value.title

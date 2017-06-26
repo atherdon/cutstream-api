@@ -135,6 +135,58 @@ module.exports = function(VideoModel) {
 
 	};
 	
+	VideoModel.listExamplesShort = function(cb){
+		var ExampleModel = VideoModel.app.models.ExampleModel;
+
+		ExampleModel.find({
+			fields: [
+					'id', 'img', 'title',					
+				]
+		})
+		.then(cb)
+		.catch(function(err){
+			throw err;
+		});
+
+
+	};
+
+	VideoModel.listExamples = function(cb){
+		var ExampleModel = VideoModel.app.models.ExampleModel;
+
+		ExampleModel.find({
+			// fields: [
+			// 		'id', 'img', 'title',
+					
+			// 	]
+		})
+		.then(cb)
+		.catch(function(err){
+			throw err;
+		});
+
+
+	};
+
+	VideoModel.listExamples = function(exampleId, cb){
+		var ExampleModel = VideoModel.app.models.ExampleModel;
+
+		ExampleModel.findById(exampleId, { 
+
+			// fields: [
+			// 		'id', 'img', 'title',
+					
+			// 	]
+		})
+		.then(cb)
+		.catch(function(err){
+			throw err;
+		})
+
+
+	};
+
+
 
 	VideoModel.listVideos = function(cb){
 		VideoModel.find({}, cb);
