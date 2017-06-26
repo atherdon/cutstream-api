@@ -9,6 +9,7 @@ let server      = require(path.resolve(__dirname, '../server/server'));
 var database    = server.datasources.videoDS;
 
 
+
 let getUsers         = require(path.resolve(__dirname, 'sample-users-data'));
 
 let getVideos        = require(path.resolve(__dirname, 'sample-videos-data'));
@@ -17,9 +18,8 @@ let getExamples  = require(path.resolve(__dirname, 'sample-examples-data'));
 
 let getExampleVideos = require(path.resolve(__dirname, 'sample-examples-video-data'));
 
-let casesList1       = require(path.resolve(__dirname, 'sample-examples-list'));
-let casesList2       = require(path.resolve(__dirname, 'sample-examples-list2'));
-let casesList3       = require(path.resolve(__dirname, 'sample-examples-list3'));
+
+var List1       = require(path.resolve(__dirname, 'sample-examples-list'));
 
 var User        = server.models.UserModel;
 var Role        = server.models.Role;
@@ -50,7 +50,9 @@ var Examples    = server.models.ExampleModel;
 		// console.log(results.users);
 		// console.log(results.videos);
 		// console.log(results.cases);
-		// console.log(results.examples);
+		console.log(results.examples1[0]);
+		console.log(results.examples2[0]);
+		console.log(results.examples3[0]);
 		// console.log(results.examples);
 		
 
@@ -78,12 +80,21 @@ var Examples    = server.models.ExampleModel;
 		// attachExampleVideosToAdmin(results.users, results.examples4, function(err){
 		// 	console.log('>examples4 attached to admin');
 		// });
+		// casesList1(results.examples1);casesList2(results.examples2);casesLis31(esults.examples3);
+		// var a = List1();
+		// a.getList(results.examples1);
 
 
-		importCase1(results.examples[0]);
-		importCase2(results.examples[1]);
-		importCase3(results.examples[2]);
-		console.log('> examples imported and attached to admin');
+
+
+console.log(List1.get(results.examples1));
+// let List2       = require(path.resolve(__dirname, 'sample-examples-list2'));
+// let List3       = require(path.resolve(__dirname, 'sample-examples-list3'));
+
+		// importCase1(results.examples1, results.examples[0]);
+		// importCase2(results.examples2, results.examples[1]);
+		// importCase3(results.examples3, results.examples[2]);
+		// console.log('> examples imported and attached to admin');
 
 	});
 
@@ -191,19 +202,19 @@ function createExampleVideos3(cb){
 
 
 
-function importCase1(example){
-	var case1 = casesList1(example);
-	example.updateAttribute('videos', case1);
+function importCase1(data, modelExamples){
+	var case1 = casesList1(data);
+	modelExamples.updateAttribute('videos', case1);
 };
 
-function importCase2(example){
-	var case2 = casesList2(example);
-	example.updateAttribute('videos', case2);
+function importCase2(data, modelExamples){
+	var case2 = casesList2(data);
+	modelExamples.updateAttribute('videos', case2);
 };
 
-function importCase3(example){
-	var case3 = casesList3(example);
-	example.updateAttribute('videos', case3);
+function importCase3(data, modelExamples){
+	var case3 = casesList3(data);
+	modelExamples.updateAttribute('videos', case3);
 };
 
 

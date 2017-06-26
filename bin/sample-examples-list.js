@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function getSampleData (examples){
-
+module.exports = { get : function (examples){
+	// console.log(examples[0]);
 	var list = [	
 		{
 			text  : '1 Eastern Egg:', 
@@ -127,4 +127,5 @@ module.exports = function getSampleData (examples){
 
 
 	return list;
+}
 };

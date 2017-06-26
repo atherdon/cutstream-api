@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function getSampleData (examples){
-
+console.log(examples);
 	var list = [	
 		{
 			text  : 'First Funny Video from Compilation:', 
