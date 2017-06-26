@@ -20,6 +20,8 @@ let getExampleVideos = require(path.resolve(__dirname, 'sample-examples-video-da
 
 
 var List1       = require(path.resolve(__dirname, 'sample-examples-list'));
+var List2       = require(path.resolve(__dirname, 'sample-examples-list2'));
+var List3       = require(path.resolve(__dirname, 'sample-examples-list3'));
 
 var User        = server.models.UserModel;
 var Role        = server.models.Role;
@@ -87,13 +89,12 @@ var Examples    = server.models.ExampleModel;
 
 
 
-console.log(List1.get(results.examples1));
-// let List2       = require(path.resolve(__dirname, 'sample-examples-list2'));
-// let List3       = require(path.resolve(__dirname, 'sample-examples-list3'));
+// console.log(List1(results.examples1));
 
-		// importCase1(results.examples1, results.examples[0]);
-		// importCase2(results.examples2, results.examples[1]);
-		// importCase3(results.examples3, results.examples[2]);
+
+		importCase1(results.examples1, results.examples[0]);
+		importCase2(results.examples2, results.examples[1]);
+		importCase3(results.examples3, results.examples[2]);
 		// console.log('> examples imported and attached to admin');
 
 	});
@@ -203,17 +204,17 @@ function createExampleVideos3(cb){
 
 
 function importCase1(data, modelExamples){
-	var case1 = casesList1(data);
+	var case1 = List1(data);
 	modelExamples.updateAttribute('videos', case1);
 };
 
 function importCase2(data, modelExamples){
-	var case2 = casesList2(data);
+	var case2 = List2(data);
 	modelExamples.updateAttribute('videos', case2);
 };
 
 function importCase3(data, modelExamples){
-	var case3 = casesList3(data);
+	var case3 = List3(data);
 	modelExamples.updateAttribute('videos', case3);
 };
 
