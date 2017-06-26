@@ -1,6 +1,6 @@
 # cutstream-api
 
-
+Template created by https://www.creative-tim.com/
 
 cd "C:\Program Files\MongoDB\Server\3.4\bin"
 mongod.exe --dbpath="f:\code\cutstream\api\1\data"
@@ -21,3 +21,4 @@ npm WARN deprecated jade@1.11.0: Jade has been renamed to pug, please install th
 
 @todo 
 npm WARN deprecated transformers@2.1.0: Deprecated, use jstransformer
+
