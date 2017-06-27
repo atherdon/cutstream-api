@@ -188,7 +188,20 @@ module.exports = function(VideoModel) {
 
 	};
 
+	VideoModel.listHomeExamples = function (cb) {
 
+		VideoModel.find({
+			where: {title:{ inq: [
+				'Logan Epic Kill',
+				'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
+				'Black Panther Featurette',
+				'Jessica Jones Mirror Cracking'
+				] 
+			}}
+		}).then(cb);
+
+
+	};
 
 	VideoModel.listVideos = function(cb){
 		VideoModel.find({}, cb);

@@ -7,26 +7,52 @@ var validator = require('express-validator');
 let server    = require(path.resolve(__dirname, '../server'));
 var Video     = server.models.VideoModel;
 
-exports.getHomepage = function(req, res, next){
+
+// function pidor(cb){
+
+// 	VideoModel.find({
+// 			where: {title:{ inq: [
+// 				'Logan Epic Kill',
+// 				'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
+// 				'Black Panther Featurette',
+// 				'Jessica Jones Mirror Cracking'
+// 				] 
+// 			}}
+// 		}).then(cb);
+
+// };
+
+exports.getHomepage = async function(req, res, next){
 
 	// Video.listAdminVideos();
 	var object = {
 		title: 'Express',
 	};
+
+	Video.listHomeExamples(function(pidor-data){
+		console.log(pidor-data);
+	});
+
 	// console.log(Video.listExamplesShort());
 	// @TODO change this bad hardcode. But I don't want to do it right now.
 	// It will be cool, if any of this homepage samples have similar to examples data. because we need to store images, etc.
-	Video.find({
-		where: {title:{ inq: [
-			'Logan Epic Kill',
-			'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
-			'Black Panther Featurette',
-			'Jessica Jones Mirror Cracking'
-			] 
-		}}
-	}).then(function(array){
-		console.log(array);
-	})
+	// Video.find({
+	// 	where: {title:{ inq: [
+	// 		'Logan Epic Kill',
+	// 		'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
+	// 		'Black Panther Featurette',
+	// 		'Jessica Jones Mirror Cracking'
+	// 		] 
+	// 	}}
+	// }).then(function(array){
+	// 	console.log(array);
+	// });
+
+	// const homepageExamples = await pidor();
+
+	// console.log(homepageExamples);
+
+
 
 		// function(examples){
 		// console.log(examples);
