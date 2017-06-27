@@ -24,10 +24,7 @@ var Video     = server.models.VideoModel;
 
 exports.getHomepage = async function(req, res, next){
 
-	// Video.listAdminVideos();
-	var object = {
-		title: 'Express',
-	};
+	
 
 	// @TODO change this bad hardcode. But I don't want to do it right now.
 	// It will be cool, if any of this homepage samples have similar to examples data. because we need to store images, etc.
@@ -37,7 +34,7 @@ exports.getHomepage = async function(req, res, next){
 
 		res.render('index', { 
 			title: 'Express',
-			cases: result.cases
+			cases: result.cases,
 			examples: result.homepage // @TODO change this
 		});
 
