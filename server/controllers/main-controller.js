@@ -13,7 +13,21 @@ exports.getHomepage = function(req, res, next){
 	var object = {
 		title: 'Express',
 	};
-	console.log(Video.listExamplesShort());
+	// console.log(Video.listExamplesShort());
+	// @TODO change this bad hardcode. But I don't want to do it right now.
+	// It will be cool, if any of this homepage samples have similar to examples data. because we need to store images, etc.
+	Video.find({
+		where: {title:{ inq: [
+			'Logan Epic Kill',
+			'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
+			'Black Panther Featurette',
+			'Jessica Jones Mirror Cracking'
+			] 
+		}}
+	}).then(function(array){
+		console.log(array);
+	})
+
 		// function(examples){
 		// console.log(examples);
 		// res.render('index', { 
