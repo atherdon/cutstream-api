@@ -135,15 +135,17 @@ module.exports = function(VideoModel) {
 
 	};
 	
-	VideoModel.listExamplesShort = function(cb){
+	VideoModel.listExamplesShort = function(){
 		var ExampleModel = VideoModel.app.models.ExampleModel;
-
+		// var data = {}
 		ExampleModel.find({
 			fields: [
 					'id', 'img', 'title',					
 				]
 		})
-		.then(cb)
+		.then(function(example){
+			return example;
+		})
 		.catch(function(err){
 			throw err;
 		});

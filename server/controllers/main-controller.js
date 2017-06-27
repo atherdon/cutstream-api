@@ -10,15 +10,22 @@ var Video     = server.models.VideoModel;
 exports.getHomepage = function(req, res, next){
 
 	// Video.listAdminVideos();
-
-	Video.listExamplesShort(function(examples){
+	var object = {
+		title: 'Express',
+	};
+	console.log(Video.listExamplesShort());
+		// function(examples){
 		// console.log(examples);
-		res.render('index', { 
-			title: 'Express',
-			examples: examples
-		});
+		// res.render('index', { 
+		// 	title: 'Express',
+		// 	examples: examples
+		// });
 
-	});
+		// object.examples = examples;
+// 
+	// });
+
+	// console.log(object);
 
 	// function(videos){
 	// 	console.log(videos);
@@ -83,16 +90,41 @@ exports.postVideo = function(req, res, next){
 
 };
 
+
 exports.getExample = function(req, res, next){
+	var exampleId = req.params.id;
+	ExampleModel.findById(exampleId, {
+      // fields:'id', 
+      // where: { 
+      //   username:'admin' 
+      // }
+    })
+    .then(function(example){
 
-	var object = {
-		title    : false,
-		subtitle : false,
-		link     : false,
-		body     : false,
-	}
+    	console.log(example);
+    	console.log(example.title);
+    	console.log(example.videos);
+    	img
+    	url
+    	description[0]
+    	description[1]
+    	description[2]
 
-	res.render('example1', object);
+		var object = {
+			title    : false,
+			subtitle : false,
+			link     : false,
+			body     : false,
+			description0: (description[0]) ? description[0] : '',
+		}
+		res.render('example-auto', object);
+
+    });
+
+
+
+
+	
 
 };
 
