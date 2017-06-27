@@ -29,13 +29,21 @@ exports.getHomepage = async function(req, res, next){
 		title: 'Express',
 	};
 
-	Video.listHomeExamples(function(pidor-data){
-		console.log(pidor-data);
+	// @TODO change this bad hardcode. But I don't want to do it right now.
+	// It will be cool, if any of this homepage samples have similar to examples data. because we need to store images, etc.
+	
+	Video.listHomeExamples(function(result){
+		console.log(result);
+
+		res.render('index', { 
+			title: 'Express',
+			cases: result.cases
+			examples: result.homepage // @TODO change this
+		});
+
 	});
 
 	// console.log(Video.listExamplesShort());
-	// @TODO change this bad hardcode. But I don't want to do it right now.
-	// It will be cool, if any of this homepage samples have similar to examples data. because we need to store images, etc.
 	// Video.find({
 	// 	where: {title:{ inq: [
 	// 		'Logan Epic Kill',
@@ -56,10 +64,7 @@ exports.getHomepage = async function(req, res, next){
 
 		// function(examples){
 		// console.log(examples);
-		// res.render('index', { 
-		// 	title: 'Express',
-		// 	examples: examples
-		// });
+		
 
 		// object.examples = examples;
 // 

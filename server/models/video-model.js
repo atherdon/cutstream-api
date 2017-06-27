@@ -189,7 +189,10 @@ module.exports = function(VideoModel) {
 	};
 
 	VideoModel.listHomeExamples = function (cb) {
-
+		var ExampleModel = VideoModel.app.models.ExampleModel;
+		
+		
+		var object = {};
 		VideoModel.find({
 			where: {title:{ inq: [
 				'Logan Epic Kill',
@@ -198,7 +201,27 @@ module.exports = function(VideoModel) {
 				'Jessica Jones Mirror Cracking'
 				] 
 			}}
-		}).then(cb);
+		}).then(function(result){
+
+			object.homepage = result;
+
+
+			ExampleModel.find({
+				fields: [
+						'id', 'img', 'title',					
+					]
+			})
+			.then(function(example){
+				
+				object.cases = example;
+				cb(object);
+			})
+			.catch(function(err){
+				throw err;
+			});
+
+
+		});
 
 
 	};
