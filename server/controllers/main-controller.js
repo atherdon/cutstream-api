@@ -146,11 +146,11 @@ exports.getExample = function(req, res, next){
     	console.log(example);
     	console.log(example.title);
     	console.log(example.videos);
-    	img
-    	url
-    	description[0]
-    	description[1]
-    	description[2]
+    	// img
+    	// url
+    	// description[0]
+    	// description[1]
+    	// description[2]
 
 		var object = {
 			title    : false,
@@ -160,6 +160,7 @@ exports.getExample = function(req, res, next){
 			description0: (description[0]) ? description[0] : '',
 		}
 		res.render('example-auto', object);
+		
 
     });
 
