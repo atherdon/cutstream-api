@@ -1,0 +1,20 @@
+extends layoutplayer
+
+block content
+  .row
+    .col-sm-12
+     
+      h2 #{title}
+      br
+      #hiddenPlayer
+      br
+      br
+
+      .sliders_step1.hide(data-start="#{start}", data-end="#{end}", data-edit="false")
+
+      h3 #{desc}  
+      br
+      
+      //-  @todo remove this bullshit later 
+      //-  @todo move slug to hiddenPlayer properties
+      input#slug(type="hidden", name="slug", value="#{slug}") 

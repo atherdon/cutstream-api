@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title= title
+
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')    
+
+  
+    link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css') 
+
+
+    link(rel='stylesheet', href='/stylesheets/wizard/bootstrap.min.css') 
+    link(rel='stylesheet', href='/stylesheets/wizard/material-bootstrap-wizard.css') 
+
+    //- CSS Just for demo purpose, don't include it in your project
+    link(rel='stylesheet', href='/stylesheets/wizard/demo.css') 
+
+    link(rel='stylesheet', href='/stylesheets/slider.css') 
+    
+    //- script(src='//load.sumome.com/', data-sumo-site-id="ee897a9c0203036e816bb1625aceab56745302211ba3102f09e880c9b58c33c7", async="async" )
+  body
+
+    .image-container.set-full-height(style="background-image: url('/images/wizard-book.jpg')")
+      // Big container
+      .container
+        .row
+          .col-sm-8.col-sm-offset-2
+            // Wizard container
+            .wizard-container.pt-100
+              #wizard.card.p-50
+                
+                block content  	
+
+            // wizard container
+        // row           
+      // big container
+
+
+    //-block content
+
+
+    script(src='/javascripts/wizard/jquery-2.2.4.min.js')
+    script(src='/javascripts/2/jquery-ui.js')    
+
+    script(src='/javascripts/slider2.js')
+    
