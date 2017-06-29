@@ -1,19 +1,11 @@
 'use strict';
 
 
-// var Video    = require('../models/mongoose/video');
-// var loopback   = require('loopback');
-// var server     = loopback();
-
-// var Video2   = server.models.VideoModel;	
-// console.log(server.models.UserModel);
-
-
 var path     = require('path');
 
 let server  = require(path.resolve(__dirname, '../server'));
-var Video2  = server.models.VideoModel;
-// console.log(database);
+var Video  = server.models.VideoModel;
+
 
 
 exports.getVideo = function(req, res, next){
@@ -22,7 +14,7 @@ exports.getVideo = function(req, res, next){
   	// console.log(req.accessToken);
    //  console.log(req.accessToken.userId);
 	
-	Video2.findById(videoId)
+	Video.findById(videoId)
 		.then(function(video){
 
 			res.render('player-only', video );
@@ -39,7 +31,7 @@ exports.getVideo = function(req, res, next){
 exports.getVideoById = function(req, res, next){
 	var videoId = req.params.id;
 
-	Video2.findById(videoId)
+	Video.findById(videoId)
 		.then(function(video){
 
 			console.log(video);
@@ -63,14 +55,19 @@ exports.getVideoById = function(req, res, next){
 exports.update = function(req, res, next){
 	console.log( req.body.id );
 	var videoId = req.body.id;
-	Video2.upsert({
-		id: videoId,
-		start: req.body.start,
-		end: req.body.end
-	}).then(function(err, video){
 
-		if (err) 
-			res.render('empty', { title: 'Error' });
+	Video.upsert({
+		id   : videoId,
+		start: req.body.start,
+		end  : req.body.end
+	}).then(function(video){
+
+		add redirect to someone else page.
+
+	}).catch(function(err){
+		throw err;
+
+		res.render('empty', { title: 'Error' });
 	});
 
 };
@@ -120,29 +117,29 @@ exports.update = function(req, res, next){
 
 // };
 
-exports.update = function(req, res, next){
+// exports.update = function(req, res, next){
 
-	//@todo receive only update form values
-	// console.log(util.inspect( req.params, false, null ));	
-	console.log(util.inspect( req.body, false, null ));
-	console.log( req.body.id );
+// 	//@todo receive only update form values
+// 	// console.log(util.inspect( req.params, false, null ));	
+// 	console.log(util.inspect( req.body, false, null ));
+// 	console.log( req.body.id );
 
-	const id = req.body.id;
-	//@TODO change to bluebird version with async
-	// http://stackoverflow.com/questions/30915942/how-to-do-a-findoneandupdate-with-bluebird-promises-mongoose
-	Video.findOneAndUpdate({_id:id}, {start: req.body.start, end:req.body.end}, {}, function(err, video){
-		//@todo add thank you for using our service
-		// res.redirect("index"); //@todo test title
-		// res.render('index', { title: 'CutStream | Start & End point for your video' });
-		if (err) 
-			res.render('empty', { title: 'Error' });
+// 	const id = req.body.id;
+// 	//@TODO change to bluebird version with async
+// 	// http://stackoverflow.com/questions/30915942/how-to-do-a-findoneandupdate-with-bluebird-promises-mongoose
+// 	Video.findOneAndUpdate({_id:id}, {start: req.body.start, end:req.body.end}, {}, function(err, video){
+// 		//@todo add thank you for using our service
+// 		// res.redirect("index"); //@todo test title
+// 		// res.render('index', { title: 'CutStream | Start & End point for your video' });
+// 		if (err) 
+// 			res.render('empty', { title: 'Error' });
 		
-	});
+// 	});
 
 
  
 
-};
+// };
 
 // @TODO remove when will be tested
 
