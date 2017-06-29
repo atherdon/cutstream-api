@@ -18,18 +18,25 @@ var Video2  = server.models.VideoModel;
 
 exports.getVideo2 = function(req, res, next){
 	var videoId = req.params.id;	
+	console.log(videoId);
   	// console.log(req.accessToken);
    //  console.log(req.accessToken.userId);
 	
 	Video2.findById(videoId)
-		.then(function(err, videos){
+		.then(function(video){
 
-			console.log(videos);
-			// if (err) res.render('empty', { title: 'Error' });
+			console.log(video);
+			
 
 
-			// res.render('player-only', video );
+			res.render('player-only', video );
 
+		}).catch(function(err){
+			if (err) {
+				res.render('empty', { title: 'Error' });
+				throw err;
+			}
+			
 		});  
 };
 

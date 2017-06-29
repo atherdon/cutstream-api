@@ -25,6 +25,7 @@ module.exports = function(server) {
 
 // 		});  
 // });
+
 	router.get('/:id',       playerController.getVideo2);
 
 	router.get('/edit/:id/', playerController.getVideoById);
