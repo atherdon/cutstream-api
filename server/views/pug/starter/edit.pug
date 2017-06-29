@@ -20,9 +20,9 @@ block content
         i.material-icons schedule
         | Time Range:&nbsp;
         span.slider-time1
-        &nbsp;  
+        | &nbsp;  
         span.divider - 
-        &nbsp;
+        | &nbsp;
         span.slider-time2
       br
 
@@ -40,7 +40,7 @@ block content
       br
 
       h3 Change Start & End points:
-      .sliders_step1(data-start="#{start}", data-end="#{end}", data-min="0", data-step="#{step}", data-edit="true")    
+      .sliders_step1(data-start="' + #{video.start} + '", data-end="#{end}", data-min="0", data-step="#{step}", data-edit="true")    
         #slider-range
 
         

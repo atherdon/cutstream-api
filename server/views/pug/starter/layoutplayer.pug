@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title= title
+
+    include partials/styles-player
+
+    
+    //- script(src='//load.sumome.com/', data-sumo-site-id="ee897a9c0203036e816bb1625aceab56745302211ba3102f09e880c9b58c33c7", async="async" )
+  body
+
+    .image-container.set-full-height(style="background-image: url('/images/wizard-book.jpg')")
+      // Big container
+      .container
+        .row
+          .col-sm-8.col-sm-offset-2
+            // Wizard container
+            .wizard-container.pt-100
+              #wizard.card.p-50
+                
+                block content  	
+
+            // wizard container
+        // row           
+      // big container
+
+
+    //-block content
+
+    include partials/scripts-player
+    

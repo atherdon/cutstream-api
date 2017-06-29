@@ -16,7 +16,7 @@ var Video2  = server.models.VideoModel;
 // console.log(database);
 
 
-exports.getVideo2 = function(req, res, next){
+exports.getVideo = function(req, res, next){
 	var videoId = req.params.id;	
 	console.log(videoId);
   	// console.log(req.accessToken);
@@ -24,10 +24,6 @@ exports.getVideo2 = function(req, res, next){
 	
 	Video2.findById(videoId)
 		.then(function(video){
-
-			console.log(video);
-			
-
 
 			res.render('player-only', video );
 
@@ -40,23 +36,23 @@ exports.getVideo2 = function(req, res, next){
 		});  
 };
 
-exports.getVideoById2 = function(req, res, next){
+exports.getVideoById = function(req, res, next){
 	var videoId = req.params.id;
 
 	Video2.findById(videoId)
-		.then(function(err, videos){
+		.then(function(video){
 
-			console.log(videos);
+			console.log(video);
+		
+			//@todo change to sending maybe two objects, or calculate duration by youtube on page instead
+			res.render('edit', video ); 
 
-			// if (err) res.render('empty', { title: 'Error' });
-				// res.send(err);
 
-			// console.log(videos)	;
-
-			// video.duration = req.params.duration;
-
-			// res.render('edit', video ); //@todo change to sending maybe two objects, or calculate duration by youtube on page instead
-
+		}).catch(function(err){
+			if(err){
+				res.render('empty', { title: 'Error' });
+				throw err;
+			}
 
 		}); 
 
@@ -80,49 +76,49 @@ exports.update = function(req, res, next){
 };
 
 
-exports.getVideo = function(req, res, next){
+// exports.getVideo = function(req, res, next){
 
 
-	Video.findById( req.params.id, function(err, video) {
+// 	Video.findById( req.params.id, function(err, video) {
 
-		if (err) res.render('empty', { title: 'Error' });
-				// res.send(err);
+// 		if (err) res.render('empty', { title: 'Error' });
+// 				// res.send(err);
 
-			res.render('player-only', video );
+// 			res.render('player-only', video );
 
-	});
+// 	});
 
 
-};
+// };
 
-exports.getVideoById = function(req, res, next){
+// exports.getVideoById = function(req, res, next){
 
-	// console.log(util.inspect( req.params, false, null ));	
-	//@TODO change to bluebird version with async
-	// Todo.findAsync()
-	//      .then(function(todos) {
-	//        res.render('todos', {title: 'Todos', todos: todos});
-	//      })
-	//      .catch(next)
-	//      .error(console.error);
- 	Video.findById( req.params.id, function(err, video) {
+// 	// console.log(util.inspect( req.params, false, null ));	
+// 	//@TODO change to bluebird version with async
+// 	// Todo.findAsync()
+// 	//      .then(function(todos) {
+// 	//        res.render('todos', {title: 'Todos', todos: todos});
+// 	//      })
+// 	//      .catch(next)
+// 	//      .error(console.error);
+//  	Video.findById( req.params.id, function(err, video) {
 
-		if (err) res.render('empty', { title: 'Error' });
-				// res.send(err);
+// 		if (err) res.render('empty', { title: 'Error' });
+// 				// res.send(err);
 
-		console.log(video)	;
+// 		console.log(video)	;
 
-			// video.duration = req.params.duration;
+// 			// video.duration = req.params.duration;
 
-		res.render('edit', video ); //@todo change to sending maybe two objects, or calculate duration by youtube on page instead
+// 		res.render('edit', video ); //@todo change to sending maybe two objects, or calculate duration by youtube on page instead
 
 	
 
 			
 
-	});
+// 	});
 
-};
+// };
 
 exports.update = function(req, res, next){
 
