@@ -6,25 +6,10 @@ var validator = require('express-validator');
 
 let server    = require(path.resolve(__dirname, '../server'));
 var Video     = server.models.VideoModel;
+var Example   = server.models.ExampleModel;
 
-
-// function pidor(cb){
-
-// 	VideoModel.find({
-// 			where: {title:{ inq: [
-// 				'Logan Epic Kill',
-// 				'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
-// 				'Black Panther Featurette',
-// 				'Jessica Jones Mirror Cracking'
-// 				] 
-// 			}}
-// 		}).then(cb);
-
-// };
 
 exports.getHomepage = async function(req, res, next){
-
-	
 
 	// @TODO change this bad hardcode. But I don't want to do it right now.
 	// It will be cool, if any of this homepage samples have similar to examples data. because we need to store images, etc.
@@ -40,34 +25,7 @@ exports.getHomepage = async function(req, res, next){
 
 	});
 
-	// console.log(Video.listExamplesShort());
-	// Video.find({
-	// 	where: {title:{ inq: [
-	// 		'Logan Epic Kill',
-	// 		'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands',
-	// 		'Black Panther Featurette',
-	// 		'Jessica Jones Mirror Cracking'
-	// 		] 
-	// 	}}
-	// }).then(function(array){
-	// 	console.log(array);
-	// });
 
-	// const homepageExamples = await pidor();
-
-	// console.log(homepageExamples);
-
-
-
-		// function(examples){
-		// console.log(examples);
-		
-
-		// object.examples = examples;
-// 
-	// });
-
-	// console.log(object);
 
 	// function(videos){
 	// 	console.log(videos);
@@ -134,8 +92,12 @@ exports.postVideo = function(req, res, next){
 
 
 exports.getExample = function(req, res, next){
+	
 	var exampleId = req.params.id;
-	ExampleModel.findById(exampleId, {
+
+	// console.log(exampleId);
+
+	Example.findById(exampleId, {
       // fields:'id', 
       // where: { 
       //   username:'admin' 
@@ -144,8 +106,9 @@ exports.getExample = function(req, res, next){
     .then(function(example){
 
     	console.log(example);
-    	console.log(example.title);
-    	console.log(example.videos);
+    	// console.log(example.title);
+    	// console.log(example.videos);
+    	// console.log(example.description);
     	// img
     	// url
     	// description[0]
@@ -153,11 +116,12 @@ exports.getExample = function(req, res, next){
     	// description[2]
 
 		var object = {
-			title    : false,
-			subtitle : false,
-			link     : false,
-			body     : false,
-			description0: (description[0]) ? description[0] : '',
+			img      : example.img,
+			url      : example.url,
+			title    : example.title,
+			videos   : example.videos,
+			description: example.description
+			
 		}
 		res.render('example-auto', object);
 		
@@ -170,16 +134,6 @@ exports.getExample = function(req, res, next){
 	
 
 };
-
-//@TODO change to bluebird version with async
-// firstRow.save().then(function(docs){
-
-// 	console.log(docs);
-// 	console.log('Video created!');
-
-// });
-
-
 
 // Fancy console.log
 function output (err, data) {
