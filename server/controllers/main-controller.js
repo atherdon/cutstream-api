@@ -23,6 +23,8 @@ exports.getHomepage = async function(req, res, next){
 			examples: result.homepage // @TODO change this
 		});
 
+	}).catch(function(err){
+		render()
 	});
 
 
@@ -114,18 +116,27 @@ exports.getExample = function(req, res, next){
     	// description[0]
     	// description[1]
     	// description[2]
-
-		var object = {
-			img      : example.img,
-			url      : example.url,
-			title    : example.title,
-			videos   : example.videos,
-			description: example.description
+    	if(example){
+    		
+			var object = {
+				img      : example.img,
+				url      : example.url,
+				title    : example.title,
+				videos   : example.videos,
+				description: example.description
 			
+			}
+			res.render('example-auto', object);	
+
 		}
-		res.render('example-auto', object);
+
+		
 		
 
+    }).catch(function(err){
+
+    	res.render('empty', { title: 'Error' });
+    	throw err;
     });
 
 

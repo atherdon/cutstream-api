@@ -10,20 +10,23 @@ var Video  = server.models.VideoModel;
 
 exports.getVideo = function(req, res, next){
 	var videoId = req.params.id;	
-	console.log(videoId);
+	// console.log(videoId);
   	// console.log(req.accessToken);
    //  console.log(req.accessToken.userId);
 	
 	Video.findById(videoId)
 		.then(function(video){
-
-			res.render('player-only', video );
+			// console.log(video);
+			if(video){
+				res.render('player-only', video );	
+			}
+			
 
 		}).catch(function(err){
-			if (err) {
+			// if (err) {
 				res.render('empty', { title: 'Error' });
 				throw err;
-			}
+			// }
 			
 		});  
 };
@@ -35,9 +38,11 @@ exports.getVideoById = function(req, res, next){
 		.then(function(video){
 
 			console.log(video);
-		
-			//@todo change to sending maybe two objects, or calculate duration by youtube on page instead
-			res.render('edit', video ); 
+			if(video){
+				//@todo change to sending maybe two objects, or calculate duration by youtube on page instead
+				res.render('edit', video ); 	
+			}
+			
 
 
 		}).catch(function(err){
