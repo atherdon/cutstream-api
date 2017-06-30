@@ -203,7 +203,38 @@ module.exports = function(VideoModel) {
 			}}
 		}).then(function(result){
 
-			object.homepage = result;
+			// console.log(result);
+			object.homepage = [];
+			result.forEach(function(item){
+				
+				var to_add = {
+					id: item.id,
+					title: item.title
+				};
+
+				if( item.title == 'Logan Epic Kill' ){
+					console.log(item.title);	
+					to_add.img = '/images/logan3.jpg';
+				}
+
+				if( item.title == 'Benedict Cumberbatch Shows Off Doctor Strange\'s Hands' ){
+					to_add.img = '/images/doctor-strange2.jpg';
+				}				
+
+				if( item.title == 'Black Panther Featurette' ){
+					to_add.img = '/images/bp4.jpg';
+				}
+
+				if( item.title == 'Jessica Jones Mirror Cracking' ){
+					to_add.img = '/images/jessjo.jpg';
+				}
+
+				object.homepage.push(to_add);
+
+			});
+			// console.log(object.homepage);
+
+			// object.homepage = result;
 
 
 			ExampleModel.find({

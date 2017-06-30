@@ -59,6 +59,7 @@ html
 
           .section.section-examples            
             .container.text-center
+
               .row
                 .col-md-12
                   h2 Examples
@@ -66,14 +67,15 @@ html
 
               .row
 
-                h1 | Examples
-
                 each value in examples
                   include partials/example
 
                 //include partials/old-examples 
 
-                h1 | Cases
+              .row
+                .col-md-12
+                  h2 Cases
+                .space-50
 
                 each value in cases
                   include partials/case
