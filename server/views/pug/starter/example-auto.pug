@@ -19,7 +19,7 @@ block content
               h4= description[0]
             br
 
-            a.btn.btn-danger.btn-raised.btn-large(href="' + url + '") Watch Video
+            a.btn.btn-danger.btn-raised.btn-large(href='' + url) Watch Video 
               .icon
                 i.material-icons play_arrow
                 
@@ -44,51 +44,7 @@ block content
                   ul
                     each value in videos
                       li #{value.text}
-                        a(href="' + value.link + '") | #{title}
-
-                  ul
-                    li 1 Eastern Egg:
-                      a(href="player/case1e1") | Laura Haddock from Captain America?
-
-                    li 2 Eastern Egg:
-                      a(href="player/case1e2") |  Dog Dr.Wesley von Spears
-
-                    li 3 Eastern Egg: 
-                      a(href="player/case1e3") | The Kymellians
-
-                    li 4 Eastern Egg:
-                      a(href="player/case1e4") | The Sakaraans
-
-                    li 5 Eastern Egg:
-                      a(href="player/case1e5") | Bereet the Krylorian
-
-                    li 6 Eastern Egg:
-                      a(href="player/case1e6") | Ship Called "Milano" - Alisa Milano is superstar!
-
-                    li 7 Eastern Egg:
-                      a(href="player/case1e7") | Yondu
-
-                    li 8 Eastern Egg: 
-                      a(href="player/case1e8") | Stan Lee Cameo
-
-                    li 9 Eastern Egg:
-                      a(href="player/case1e9") | Rhommann DEY &amp; Garthan SAAL
-
-                    li 10 Eastern Egg:
-                      a(href="player/case1e10") | Indiana Jones &amp; the Maltese Falcon
-
-                    li 11 Eastern Egg:
-                      a(href="player/case1e11") | Troma\'s LLOYD Kaufman
-
-                    li 12 Eastern Egg:
-                      a(href="player/case1e12") | Castle? Right! Sorry, Nathan Fillon
-
-                    li 13 Eastern Egg:
-                      a(href="player/case1e13") | Thanos on his throne
-
-                                       
-
-  
+                        a(href="' + value.link + '")  #{title}
 
 
         .space-50
