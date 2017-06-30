@@ -20,9 +20,7 @@ app.set('json spaces', 2); // format json responses for easier viewing
 
 // must be set to serve views properly when starting the app via `lb run` from
 // the project root
-// app.set('views', path.resolve(__dirname, 'views'));
-app.set('views', path.resolve(__dirname, 'views/pug/starter'));
-// @TODO change this path
+app.set('views', path.resolve(__dirname, 'views'));
 
 // in client/public we store static files right now.
 var staticDir = path.join(__dirname + '/../client/public');
