@@ -62,7 +62,7 @@ exports.update = function(req, res, next){
 		end  : req.body.end
 	}).then(function(video){
 
-		add redirect to someone else page.
+		// @TODO add redirect to someone else page.
 
 	}).catch(function(err){
 		throw err;
