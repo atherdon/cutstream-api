@@ -78,21 +78,6 @@ exports.update = function(req, res, next){
 };
 
 
-// exports.getVideo = function(req, res, next){
-
-
-// 	Video.findById( req.params.id, function(err, video) {
-
-// 		if (err) res.render('empty', { title: 'Error' });
-// 				// res.send(err);
-
-// 			res.render('player-only', video );
-
-// 	});
-
-
-// };
-
 // exports.getVideoById = function(req, res, next){
 
 // 	// console.log(util.inspect( req.params, false, null ));	
