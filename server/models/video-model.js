@@ -213,7 +213,6 @@ module.exports = function(VideoModel) {
 				};
 
 				if( item.title == 'Logan Epic Kill' ){
-					console.log(item.title);	
 					to_add.img = '/images/logan3.jpg';
 				}
 
