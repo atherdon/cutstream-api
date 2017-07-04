@@ -16,6 +16,9 @@ module.exports = function(UserModel) {
   // }
 
 
+
+
+
 	UserModel.observe("before save", function updateTimestamp(ctx, next) {
  
     	if( ctx.isNewInstance ){
