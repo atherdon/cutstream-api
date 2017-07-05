@@ -4,10 +4,10 @@
 module.exports = function(server) {
   
   var router = server.loopback.Router();
-  var notificationsController = require('../controllers/notifications-controller');
+  var userController = require('../controllers/user-controller');
   
   /* routers */
-  router.get('/verified',    notificationsController.verified);
+  router.get('/verified',    userController.verified);
 
   // router.post('/insert',     mainController.postVideo);
 
