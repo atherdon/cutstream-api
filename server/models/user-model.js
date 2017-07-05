@@ -1,6 +1,7 @@
 'use strict';
 
-var path = require('path');
+var config = require('../../server/config.json');
+var path   = require('path');
 
 module.exports = function(UserModel) {
 
@@ -124,6 +125,38 @@ module.exports = function(UserModel) {
       redirect: '/verified',
       user: user
     };
+
+    userInstance.verify(options, function(err, response, next){
+
+      if (err) {
+        UserModel.deleteById(userInstance.id);
+        return next(err);
+      }
+
+      ctx.res.render('account/response', {        
+        title  : 'Signed up successfully',
+        content: 'Please check your email and click on the verification link ' +
+        'before loggin in.',
+        redirectTo: '/',
+        redirectToLinkText: 'Log in'
+      });
+
+
+    });
+
+
+  });
+
+  UserModel.afterRemote("prototype.verify", function(ctx, user, next){
+
+    ctx.res.render('account/response',{
+      title: 'A Link to reverify your identity has been sent '+
+        'to your email successfully',
+      content: 'Please check your email and click on the verification link '+
+        'before loggin in',
+      redirectTo: '/', 
+      redirectToLinkText: 'Log in'
+    });
 
   });
 
