@@ -35,6 +35,6 @@ exports.getVideo = function(req, res, next){
 
 exports.verified = function(req, res, next){
 
-	res.render('verified');
-	
+	res.render('account/verified');
+
 };
