@@ -42,7 +42,12 @@
   },
   "UserModel": {
     "dataSource": "videoDS",
-    "public": true
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+
+
   },
   "ExampleModel": {
     "dataSource": "videoDS",
