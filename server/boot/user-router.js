@@ -7,7 +7,7 @@ module.exports = function(server) {
   var notificationsController = require('../controllers/notifications-controller');
   
   /* routers */
-  // router.get('/',            mainController.getHomepage);
+  router.get('/verified',    notificationsController.verified);
 
   // router.post('/insert',     mainController.postVideo);
 
