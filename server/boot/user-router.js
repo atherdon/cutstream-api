@@ -7,15 +7,13 @@ module.exports = function(server) {
   var userController = require('../controllers/user-controller');
   
   /* routers */
-  router.get('/login', userController.getLogin);
-  router.post('/login', userController.postLogin);
-  router.get('/verified',    userController.verified);
+  router.get('/login',    userController.getLogin);
+  router.post('/login',   userController.postLogin);
+  router.get('/verified', userController.verified);
 
-  // router.post('/insert',     mainController.postVideo);
+  
 
   // router.get('/example/:id', mainController.getExample);    
-
-  // server.use('/', router);
 
 
 };
