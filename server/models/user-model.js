@@ -50,38 +50,6 @@ module.exports = function(UserModel) {
   };
 
 
-  // assign admin role to admin user
-  UserModel.assign = function(){
-
-    var Role        = UserModel.app.models.Role;
-    var RoleMapping = UserModel.app.models.RoleMapping;
-
-    UserModel.findOne({
-      fields:'id', 
-      where: { 
-        username:'admin' 
-      }
-    })
-      .then(function(result){
-
-        Role.create({ name:'admin' })
-          .then(function(role){
-
-            role.principals.create({
-                  principalType: RoleMapping.USER,
-                  principalId: result.id
-              }, function(err, principal){
-                console.log('Principal', principal);
-              });
-          })
-          .catch(function(err){
-            throw err;
-          });
-      });        
-  };
-
-
-
   // MyModel.register = function(req, param, cb) {
   //   var userId = req.accessToken.userId;
 
