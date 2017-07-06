@@ -65,3 +65,41 @@ exports.postLogin = function(req, res, next){
 	      });
 	});
 };
+
+exports.getLogout = function(req, res, next){
+
+	if (!req.accessToken) return res.sendStatus(401);
+
+    User.logout(req.accessToken.id, function(err) {
+      if (err) return next(err);
+      res.redirect('/');
+    });
+};
+
+exports.postResetPassword = function(req, res, next){
+
+    User.resetPassword({
+      email: req.body.email
+    }, function(err) {
+      if (err) return res.status(401).send(err);
+
+      res.render('account/response', {
+        title: 'Password reset requested',
+        content: 'Check your email for further instructions',
+        redirectTo: '/',
+        redirectToLinkText: 'Log in'
+      });
+    });
+
+};
+
+exports.getResetPassword = function(req, res, next){
+
+	if (!req.accessToken) return res.sendStatus(401);
+
+    res.render('account/password-reset', {
+      redirectUrl: '/api/users/reset-password?access_token='+
+        req.accessToken.id
+    });
+  
+};
