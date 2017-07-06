@@ -16,9 +16,9 @@ jQuery(document).ready(function() {
 
    
 
-//   @TODO test this later with other timemarks.
+//:todo test this later with other timemarks.
 
-//@todo use this later - if user place to input url with start time.
+//:todo use this later - if user place to input url with start time.
 
 
 

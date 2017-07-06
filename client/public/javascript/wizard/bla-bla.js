@@ -7,7 +7,7 @@ $(document).ready(function(){
 		if( $(this).data().type == 'hours'){
 
 			$("#inputEnd").inputmask("hh:mm:ss");
-  			$("#inputStart").inputmask("hh:mm:ss"); //"hh:mm t": @todo test this option in order to set only one variable to hours.
+  			$("#inputStart").inputmask("hh:mm:ss"); //"hh:mm t": //:todo test this option in order to set only one variable to hours.
 			$(this).data('type', 'minutes');
 			return false;
 		}
@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 			start = '00:' + start ;
 			end   = '00:' + end ;
-			//@todo move it to object below later
+			//:todo move it to object below later
 		}
 
 		// console.log(start);

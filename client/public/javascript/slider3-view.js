@@ -137,7 +137,7 @@ function YouTubeloadvideo(player, start, end) {
 
 	var slug = $("#slug").val();
 
-	//@todo maybe move data(). variables to this function
+	//:todo maybe move data(). variables to this function
 	player.loadVideoById({
 
 		videoId         : slug,

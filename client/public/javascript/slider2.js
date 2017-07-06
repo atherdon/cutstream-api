@@ -10,7 +10,7 @@ $(document).ready(function(){
 function playerInit(){
 
 	var options = populateWithOptions();
-	var yt_int, yt_player,  //@todo replace reptiloid with yt_player variable and check 
+	var yt_int, yt_player,  //:todo replace reptiloid with yt_player variable and check 
 	    initYT = function() {
 
 	    	// console.log('piarastia');
@@ -39,11 +39,11 @@ function playerInit(){
 
 function sliderInitialization(){
 
-	//@todo try to calculate step using duration for reducing elements
-	//@todo we can remove duration things from urls, parameters
+	//:todo try to calculate step using duration for reducing elements
+	//:todo we can remove duration things from urls, parameters
   var data = $('.sliders_step1').data();
   // console.log(data.edit);
-  if( !data.edit ) return false; //this stuff work for view player only state. @todo deal with data-edit variable. don't like it
+  if( !data.edit ) return false; //this stuff work for view player only state. :todo deal with data-edit variable. don't like it
 
   
 
@@ -84,7 +84,7 @@ function sliderInitialization(){
         
         PlayerReptiloid.pauseVideo();
 
-        //@todo move this to global objects and use it like at displayVideoInformation()
+        //:todo move this to global objects and use it like at displayVideoInformation()
         //case start time update
         var first_elem_html = calculationDisplanation( ui.values[0], step );
         $('.slider-time1').html( first_elem_html );
@@ -98,7 +98,7 @@ function sliderInitialization(){
         $('#crop-size').html( calculationDisplanation( cropSize, step ) );
 
         // case update form values for 'video update functionality'
-        //@todo if slider vas touched, but user want to close this page without hit update - add message - your changes wouldn't be applied
+        //:todo if slider vas touched, but user want to close this page without hit update - add message - your changes wouldn't be applied
 		    $('#inputStart').val( ui.values[0] );
         $('#inputEnd').val(   ui.values[1] );
 
@@ -109,7 +109,7 @@ function sliderInitialization(){
 
 }
 
-//@todo apply duration as data attribute to slider. will remove a lot of unimportant things
+//:todo apply duration as data attribute to slider. will remove a lot of unimportant things
 function displayVideoInformation(){
 
 	//when we see page in first time we'll have ugly time
@@ -206,7 +206,7 @@ function displayVideoInformation(){
 }
 
 
-//@todo remove step stuff. will be not necessary soon
+//:todo remove step stuff. will be not necessary soon
 function calculationDisplanation( value, step ){
   
   // console.log( value + ' seconds ' );
@@ -474,7 +474,7 @@ function YouTubeloadvideo(player, start, end) {
 	// console.log(end);
 	var slug = $("#slug").val();
 
-	//@todo maybe move data(). variables to this function
+	//:todo maybe move data(). variables to this function
 	player.loadVideoById({
 
 		videoId         : slug,
@@ -506,7 +506,7 @@ function callVideoReload(event){
   //TimeInSeconds
   end   = data.end;
 
-    // var slug = $("#slug").val(); //@todo move slug to sliders data attribute or replace with some else method
+    // var slug = $("#slug").val(); //:todo move slug to sliders data attribute or replace with some else method
     // console.log( slug );
 
   var player = event.target;

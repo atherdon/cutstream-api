@@ -160,7 +160,7 @@ $(document).ready(function(){
         readURL(this);
     });
 
-    //@todo this is really crazy stuff.
+    //:todo this is really crazy stuff.
     $('[data-toggle="wizard-radio"]').click(function(){
         wizard = $(this).closest('.wizard-card');
         wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
