@@ -16,10 +16,10 @@ exports.verified = function(req, res, next){
 };
 exports.getLogin = function(req, res, next){
 
-	var credentials = [
+	var credentials = {
 		email: 'admin@ibm.com',
 		password: 'admin'
-	];
+	};
 
 	res.render('account/login', {
 		email: credentials.email,
