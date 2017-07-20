@@ -16,8 +16,8 @@ exports.getHomepage = async function(req, res, next){
 	
 	Video.listHomeExamples(function(result){
 
-		console.log(result.cases);
-		console.log(result.examples);
+		// console.log(result.cases);
+		// console.log(result.examples);
 
 		res.render('index', { 
 			title: 'Express',
