@@ -15,27 +15,22 @@ exports.getHomepage = async function(req, res, next){
 	// It will be cool, if any of this homepage samples have similar to examples data. because we need to store images, etc.
 	
 	Video.listHomeExamples(function(result){
-		// console.log(result);
+
+		console.log(result.cases);
+		console.log(result.examples);
 
 		res.render('index', { 
 			title: 'Express',
 			cases: result.cases,
-			examples: result.homepage // @TODO change this
+			examples: result.examples // @TODO change this
 		});
 
-	}).catch(function(err){
-		render()
 	});
-
-
-
-	// function(videos){
-	// 	console.log(videos);
+	// .catch(function(err){
+	// 	throw err;
 	// });
-	// let errors = req.validationErrors();
-	// if (errors) {
- //    	req.flash('errors', errors);
-	// }
+
+
 
 	
 

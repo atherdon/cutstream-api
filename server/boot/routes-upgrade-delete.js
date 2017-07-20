@@ -11,12 +11,12 @@ module.exports = function(server) {
 
   var Video   = server.models.VideoModel;
   
-  router.get('/index', function(req, res, next) {
+  // router.get('/index', function(req, res, next) {
 
-    res.render('index', {
-      loginFailed: false
-    });
-  });
+  //   res.render('index', {
+  //     loginFailed: false
+  //   });
+  // });
 
 
   router.get('/postvideo', function(req, res, next) {

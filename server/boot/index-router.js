@@ -13,7 +13,8 @@ module.exports = function(server) {
 
   router.get('/example/:id', mainController.getExample);    
 
-  server.use('/', router);
+  server.use(router);
+  // server.use('/', router);
 
 
 };

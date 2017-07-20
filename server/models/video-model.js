@@ -84,6 +84,8 @@ module.exports = function(VideoModel) {
 	VideoModel.listAdminVideos = function(){
 
 		var UserModel = VideoModel.app.models.UserModel;
+
+		// console.log('123');
 		// console.log(UserModel);
 		// UserModel.findOne({
 		//  where : {
@@ -193,6 +195,7 @@ module.exports = function(VideoModel) {
 		
 		
 		var object = {};
+
 		VideoModel.find({
 			where: {title:{ inq: [
 				'Logan Epic Kill',
@@ -204,7 +207,7 @@ module.exports = function(VideoModel) {
 		}).then(function(result){
 
 			// console.log(result);
-			object.homepage = [];
+			object.examples = [];
 			result.forEach(function(item){
 				
 				var to_add = {
@@ -228,7 +231,7 @@ module.exports = function(VideoModel) {
 					to_add.img = '/images/jessjo.jpg';
 				}
 
-				object.homepage.push(to_add);
+				object.examples.push(to_add);
 
 			});
 			// console.log(object.homepage);
