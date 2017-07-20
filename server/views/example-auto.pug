@@ -5,7 +5,7 @@ block content
     
 
   .wrapper
-    .header.header-filter(style="background-image: url('" + img + "'); height:500px;")
+    .header.header-filter(style="background-image: url('" + img + "');")
       .container
         .row
 
@@ -28,23 +28,23 @@ block content
 
     .main.main-raised
         
-        .section.section-full-screen.section-signup     
-          .container
-            .section.section-landing 
+           
+        .container
+          .section.section-landing 
 
-              .row
-                .col-sm-8.col-md-offset-2
+            .row
+              .col-sm-8.col-md-offset-2
 
-                  if description[1]	
-                    h2.title= description[1]
+                if description[1]	
+                  h2.title= description[1]
 
-                  if description[2]	  
-                    h5.description= description[2]
+                if description[2]	  
+                  h5.description= description[2]
 
-                  ul
-                    each value in videos
-                      li #{value.text}
-                        a(href="' + value.link + '")  #{title}
+                ul(style="line-height: 28px;")
+                  each value in videos
+                    li(style="font-size:18px;") #{value.text}
+                      a(href="' + value.link + '")  #{title}
 
 
         .space-50

@@ -20,7 +20,7 @@ exports.getHomepage = async function(req, res, next){
 		// console.log(result.examples);
 
 		res.render('index', { 
-			title: 'Express',
+			title: 'CutStream | Start & End point for your video',
 			cases: result.cases,
 			examples: result.examples // @TODO change this
 		});
@@ -86,7 +86,7 @@ exports.postVideo = function(req, res, next){
 
 
 };
-
+//CutStream | Start & End point for your video
 
 exports.getExample = function(req, res, next){
 	
@@ -102,7 +102,7 @@ exports.getExample = function(req, res, next){
     })
     .then(function(example){
 
-    	console.log(example);
+    	// console.log(example);
     	// console.log(example.title);
     	// console.log(example.videos);
     	// console.log(example.description);
