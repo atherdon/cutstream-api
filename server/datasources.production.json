@@ -1,0 +1,6 @@
+{
+  "videoDS": {   
+    "url": "mongodb://heroku_b9tqcpvc:5ivet9vbmsplahlefskl2d0vin@ds019866.mlab.com:19866/heroku_b9tqcpvc",
+    "connector": "loopback-connector-mongodb"
+  }
+}

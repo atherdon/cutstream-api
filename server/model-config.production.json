@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "videoDS",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "videoDS",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "videoDS",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "videoDS",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "videoDS",
+    "public": false
+  },
+  "VideoModel": {
+    "dataSource": "videoDS",
+    "public": true
+  },
+  "UserModel": {
+    "dataSource": "videoDS",
+    "public": true,
+    
+
+
+  },
+  "ExampleModel": {
+    "dataSource": "videoDS",
+    "public": true
+  },
+
+}
