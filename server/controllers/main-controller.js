@@ -118,7 +118,8 @@ exports.getExample = function(req, res, next){
 				url      : example.url,
 				title    : example.title,
 				videos   : example.videos,
-				description: example.description
+				description: example.description,
+				id: exampleId
 			
 			}
 			res.render('example-auto', object);	

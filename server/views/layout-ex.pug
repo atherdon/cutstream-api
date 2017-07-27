@@ -3,19 +3,19 @@ html
   head
     title= title
     
-    //link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')    
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')    
     
     
-    //link(rel='stylesheet', href='/stylesheets/wizard/font-awesome.min.css') 
-    //link(rel='stylesheet', href='/stylesheets/wizard/bootstrap.min.css') 
+    link(rel='stylesheet', href='/stylesheets/wizard/font-awesome.min.css') 
+    link(rel='stylesheet', href='/stylesheets/wizard/bootstrap.min.css') 
 
-    //link(rel='stylesheet', href='/stylesheets/wizard/material-kit.css') 
+    link(rel='stylesheet', href='/stylesheets/wizard/material-kit.css') 
 
-    include partials/styles 
+    //include partials/styles 
     link(rel='stylesheet', href='/stylesheets/example.css') 
     
 
-  body.landing-page
+  body(class='landing-page example-' + id)
 
     block content
 

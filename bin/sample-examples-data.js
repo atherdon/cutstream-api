@@ -12,7 +12,8 @@ module.exports = function getSampleData (){
 		  	'(Video Description) We may not be cashing in on director James Gunn\'s $100K proposal to find the last remaining Easter Egg in Guardians of the Galaxy, but we count down some of the notables RIGHT HERE in our latest installment of Easter Egg Countdown!',
 		  ],		  
 
-		  videos: []		 
+		  videos: [],
+		  slug: 'WbIPHjHoYaA'		 
 
 		},
 		{
@@ -28,7 +29,8 @@ module.exports = function getSampleData (){
 			'Some interesting pieces from his video:'   
 		  ],
 		  
-		  videos: []
+		  videos: [],
+		  slug: 'g0uPUJbOYdg'
 		},
 		{
 		  img   : '/images/icebucket.jpg',	
@@ -40,7 +42,8 @@ module.exports = function getSampleData (){
 			  'This compilation have more than 50 videos inside.'
 		  ],
 		  
-		  videos: []
+		  videos: [],
+		  slug: '_xYXxYh6J24'
 
 		},
 		// {

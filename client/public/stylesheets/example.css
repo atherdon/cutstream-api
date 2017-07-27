@@ -4,6 +4,12 @@
 
 /* ----------- Non-Retina Screens ----------- */
 
+/*.landing-page .header {
+    height: auto;
+    min-height: 40vh;
+}*/
+
+.example-59566e56d254ce27dcf2bb76
 
 @media (max-width: 991px) {
   .landing-page .header {
