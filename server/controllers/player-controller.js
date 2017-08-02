@@ -38,6 +38,7 @@ exports.getVideoById = function(req, res, next){
 		.then(function(video){
 
 			console.log(video);
+
 			if(video){
 				//@todo change to sending maybe two objects, or calculate duration by youtube on page instead
 				res.render('edit', video ); 	
@@ -58,7 +59,9 @@ exports.getVideoById = function(req, res, next){
 
 
 exports.update = function(req, res, next){
+
 	console.log( req.body.id );
+
 	var videoId = req.body.id;
 
 	Video.upsert({
@@ -77,59 +80,6 @@ exports.update = function(req, res, next){
 
 };
 
-
-// exports.getVideoById = function(req, res, next){
-
-// 	// console.log(util.inspect( req.params, false, null ));	
-// 	//@TODO change to bluebird version with async
-// 	// Todo.findAsync()
-// 	//      .then(function(todos) {
-// 	//        res.render('todos', {title: 'Todos', todos: todos});
-// 	//      })
-// 	//      .catch(next)
-// 	//      .error(console.error);
-//  	Video.findById( req.params.id, function(err, video) {
-
-// 		if (err) res.render('empty', { title: 'Error' });
-// 				// res.send(err);
-
-// 		console.log(video)	;
-
-// 			// video.duration = req.params.duration;
-
-// 		res.render('edit', video ); //@todo change to sending maybe two objects, or calculate duration by youtube on page instead
-
-	
-
-			
-
-// 	});
-
-// };
-
-// exports.update = function(req, res, next){
-
-// 	//@todo receive only update form values
-// 	// console.log(util.inspect( req.params, false, null ));	
-// 	console.log(util.inspect( req.body, false, null ));
-// 	console.log( req.body.id );
-
-// 	const id = req.body.id;
-// 	//@TODO change to bluebird version with async
-// 	// http://stackoverflow.com/questions/30915942/how-to-do-a-findoneandupdate-with-bluebird-promises-mongoose
-// 	Video.findOneAndUpdate({_id:id}, {start: req.body.start, end:req.body.end}, {}, function(err, video){
-// 		//@todo add thank you for using our service
-// 		// res.redirect("index"); //@todo test title
-// 		// res.render('index', { title: 'CutStream | Start & End point for your video' });
-// 		if (err) 
-// 			res.render('empty', { title: 'Error' });
-		
-// 	});
-
-
- 
-
-// };
 
 // @TODO remove when will be tested
 

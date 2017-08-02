@@ -6,10 +6,11 @@ module.exports = function(VideoModel) {
 
 	// this fields must be exists
 	VideoModel.validatesPresenceOf(
-		'title', 'url' 
-		// 'start', 
-		// 'end', 
-		// 'step',
+		'title', 
+		'url', 
+		'start', 
+		'end', 
+		'step'
 		// 'userId'
 	);
 
