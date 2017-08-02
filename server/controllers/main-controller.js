@@ -70,7 +70,7 @@ exports.postVideo = function(req, res, next){
     	console.log(obj);
     	console.log(obj.id);
     	var edit_link = '/edit/' + obj._id;
-    	res.render('player3', docs);
+    	res.render('player3', obj);
 
     });
 
