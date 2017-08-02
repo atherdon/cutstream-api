@@ -55,7 +55,7 @@ exports.postVideo = function(req, res, next){
     var match  = url.match(regExp);
     var slug   = (match&&match[7].length==11)? match[7] : false;
 
-	var value = new Video({
+    var data = {
 	     title : title,
 	     url   : url,
 	     desc  : desc,
@@ -63,25 +63,38 @@ exports.postVideo = function(req, res, next){
 	     end   : end,
 	     step  : step,
 	     slug  : slug,
-	});
+	};
+
+    Video.create(data, function(err, obj){
+
+    	console.log(obj);
+    	console.log(obj.id);
+    	var edit_link = '/edit/' + obj._id;
+    	res.render('player3', docs);
+
+    });
+
+	// var value = new Video();
 
 	// console.log( value );	
 	//@TODO change to bluebird version with async
 	// http://stackoverflow.com/questions/25555139/bluebird-promisies-crud-example-using-nodejs-express-and-mongoose
-	value.save().then(function(docs){
+	// value.save().then(function(docs){
 
 		// console.log( docs );
 		// console.log( docs._id );
 
-		docs.linka = '/edit/' + docs._id + ''; //@todo change this later and move to layout template
+		// docs.linka = '/edit/' + docs._id + ''; //@todo change this later and move to layout template
+		
+
 		// docs.linka = '/edit/?gid=' + docs._id + '';
 
 		// res.render('player', docs);
 
 
-		res.render('player3', docs);
+		// res.render('player3', docs);
 
-	});
+	// });
 
 
 
