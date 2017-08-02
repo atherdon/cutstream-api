@@ -3,7 +3,8 @@
         display: none;
         font-size: 80%;
     }
-    .wizard-container .form-control.focus~.hint, .wizard-container .form-control:focus~.hint {
+    .wizard-container .form-control.focus~.hint,
+    .wizard-container .form-control:focus~.hint {
         display: block;
     }
     .input-group .input-group-addon{
