@@ -16,3 +16,8 @@
 .wizard-container {
   padding-top: 0px;
 }
+
+#wizard .col-sm-12 {
+    padding-left: 65px;
+    padding-right: 65px;
+}

@@ -40,8 +40,6 @@ exports.postVideo = function(req, res, next){
 
 	// console.log(util.inspect( req.body, false, null ));
 
-	//@todo remove startB & endB from form elements
-
 	var url   = req.body.url;
 	
 	var start = req.body.start;
@@ -73,28 +71,6 @@ exports.postVideo = function(req, res, next){
     	res.render('player3', obj);
 
     });
-
-	// var value = new Video();
-
-	// console.log( value );	
-	//@TODO change to bluebird version with async
-	// http://stackoverflow.com/questions/25555139/bluebird-promisies-crud-example-using-nodejs-express-and-mongoose
-	// value.save().then(function(docs){
-
-		// console.log( docs );
-		// console.log( docs._id );
-
-		// docs.linka = '/edit/' + docs._id + ''; //@todo change this later and move to layout template
-		
-
-		// docs.linka = '/edit/?gid=' + docs._id + '';
-
-		// res.render('player', docs);
-
-
-		// res.render('player3', docs);
-
-	// });
 
 
 
@@ -149,9 +125,6 @@ exports.getExample = function(req, res, next){
     });
 
 
-
-
-	
 
 };
 
