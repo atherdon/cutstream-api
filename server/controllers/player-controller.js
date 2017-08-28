@@ -10,9 +10,6 @@ var Video  = server.models.VideoModel;
 
 exports.getVideo = function(req, res, next){
 	var videoId = req.params.id;	
-	// console.log(videoId);
-  	// console.log(req.accessToken);
-   //  console.log(req.accessToken.userId);
 	
 	Video.findById(videoId)
 		.then(function(video){
@@ -70,18 +67,18 @@ exports.update = function(req, res, next){
 	Video.findById(videoId)
 		.then(function(video){
 
-			console.log(video);
+			video.updateAttributes({
+				start: req.body.start,
+				end  : req.body.end
+			}, function(err, video){
 
-			// video.updateAttributes({
-			// 	start: req.body.start,
-			// 	end  : req.body.end
-			// }, function(err, video){
+				// console.log(req.body.start);
+				// console.log(req.body.end);
+				// console.log(video);
 
-			// 	console.log(req.body.start);
-			// 	console.log(req.body.end);
-			// 	console.log(video);
+				res.redirect('/index');
 
-			// });
+			});
 
 		}).catch(function(err){
 			throw err;
@@ -89,50 +86,8 @@ exports.update = function(req, res, next){
 			res.render('empty', { title: 'Error' });
 		});
 
-	// Video.updateAttributes({
-	// 	id   : videoId,
-	// 	start: req.body.start,
-	// 	end  : req.body.end
-	// }).then(function(video){
-
-	// 	console.log(req.body.start);
-	// 	console.log(req.body.end);
-	// 	console.log(video);
-
-	// 	// :todo add redirect to someone else page.
-
-	// }).catch(function(err){
-	// 	throw err;
-
-	// 	res.render('empty', { title: 'Error' });
-	// });
 
 };
-
-
-// @TODO remove when will be tested
-
-// exports.getVideo = function(req, res, next){
-
-//   var form = {},
-//   error = null,
-//   formFlash = req.flash('form'),
-//   errorFlash = req.flash('error');
-
-//   if (formFlash.length) {
-//     form.email = formFlash[0].email;
-//   }
-//   if (errorFlash.length) {
-//     error = errorFlash[0];
-//   }
-//   res.render(req.render, {
-//     form: form,
-//     error: error,
-//     plans: plans
-//   });
-
-// };
-
 
 
 // Fancy console.log
