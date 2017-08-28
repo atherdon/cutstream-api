@@ -3,14 +3,14 @@ extends layoutplayer1
 block content
   .row
     .col-sm-12
-      h4 #{title}
+      h4= title
       br 
 
       #hiddenPlayer
 
 
       br  
-      h3 #{desc}  
+      h3= desc
       br
       
   .row
@@ -40,19 +40,19 @@ block content
       br
 
       h3 Change Start & End points:
-      .sliders_step1(data-start="' + #{video.start} + '", data-end="#{end}", data-min="0", data-step="#{step}", data-edit="true")    
+      .sliders_step1(data-start=video.start, data-end=end, data-min="0", data-step=step, data-edit="true")    
         #slider-range
 
         
     
       form#formSubmitVideo(name="formsubmit",method="post",action="/update")
-        input#inputUrl(type="hidden", name="url", value="#{url}")        
-        input#inputStart(type="hidden", name="start", value="#{start}")
-        input#inputEnd(type="hidden", name="end", value="#{end}")
-        input#inputTitle(type="hidden", name="title", value="#{title}")
-        input#desc(type="hidden", name="desc", value="#{desc}")
-        input#slug(type="hidden", name="slug", value="#{slug}")
-        input#step(type="hidden", name="step", value="#{step}")
-        input#id(type="hidden", name="id", value="#{id}")
+        input#inputUrl(type="hidden",   name="url", value=url)        
+        input#inputStart(type="hidden", name="start", value=start)
+        input#inputEnd(type="hidden",   name="end", value=end)
+        input#inputTitle(type="hidden", name="title", value=title)
+        input#desc(type="hidden",       name="desc", value=desc)
+        input#slug(type="hidden",       name="slug", value=slug)
+        input#step(type="hidden",       name="step", value=step)
+        input#id(type="hidden",         name="id", value=id)
 
         button.btn.btn-next.btn-fill.btn-success.btn-wd.pull-right#btnSubmit(type="submit") Update

@@ -3,7 +3,7 @@ var PlayerReptiloid = '';
 $(document).ready(function(){
 
 	playerInit();
-	
+	console.log('123');
 });
 
 function playerInit(){

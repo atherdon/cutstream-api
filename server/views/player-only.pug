@@ -4,17 +4,17 @@ block content
   .row
     .col-sm-12
      
-      h2 #{title}
+      h2= title
       br
       #hiddenPlayer
       br
       br
 
-      .sliders_step1.hide(data-start="#{start}", data-end="#{end}", data-edit="false")
+      .sliders_step1.hide(data-start=start, data-end=end, data-edit="false")
 
-      h3 #{desc}  
+      h3= desc
       br
       
       //-  @todo remove this bullshit later 
       //-  @todo move slug to hiddenPlayer properties
-      input#slug(type="hidden", name="slug", value="#{slug}") 
+      input#slug(type="hidden", name="slug", value=slug) 
