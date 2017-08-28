@@ -39,13 +39,14 @@ block content
       br
       br
 
+
       h3 Change Start & End points:
-      .sliders_step1(data-start=video.start, data-end=end, data-min="0", data-step=step, data-edit="true")    
+      .sliders_step1(data-start=start, data-end=end, data-min="0", data-step=step, data-edit="true")    
         #slider-range
 
         
     
-      form#formSubmitVideo(name="formsubmit",method="post",action="/update")
+      form#formSubmitVideo(name="formsubmit", method="post", action="/player/update")
         input#inputUrl(type="hidden",   name="url", value=url)        
         input#inputStart(type="hidden", name="start", value=start)
         input#inputEnd(type="hidden",   name="end", value=end)

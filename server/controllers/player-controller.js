@@ -37,20 +37,23 @@ exports.getVideoById = function(req, res, next){
 	Video.findById(videoId)
 		.then(function(video){
 
-			console.log(video);
+			// console.log(video);
 
 			if(video){
-				//@todo change to sending maybe two objects, or calculate duration by youtube on page instead
+				//:todo change to sending maybe two objects, 
+				// or calculate duration by youtube on page instead
 				res.render('edit', video ); 	
 			}
 			
 
 
 		}).catch(function(err){
-			if(err){
-				res.render('empty', { title: 'Error' });
-				throw err;
-			}
+			// if(err){
+				res.render('empty', {
+				 	title: 'Error' 
+				});
+				// throw err;
+			// }
 
 		}); 
 
@@ -60,23 +63,49 @@ exports.getVideoById = function(req, res, next){
 
 exports.update = function(req, res, next){
 
-	console.log( req.body.id );
+	// console.log( req.body.id );
 
 	var videoId = req.body.id;
 
-	Video.upsert({
-		id   : videoId,
-		start: req.body.start,
-		end  : req.body.end
-	}).then(function(video){
+	Video.findById(videoId)
+		.then(function(video){
 
-		// @TODO add redirect to someone else page.
+			console.log(video);
 
-	}).catch(function(err){
-		throw err;
+			// video.updateAttributes({
+			// 	start: req.body.start,
+			// 	end  : req.body.end
+			// }, function(err, video){
 
-		res.render('empty', { title: 'Error' });
-	});
+			// 	console.log(req.body.start);
+			// 	console.log(req.body.end);
+			// 	console.log(video);
+
+			// });
+
+		}).catch(function(err){
+			throw err;
+
+			res.render('empty', { title: 'Error' });
+		});
+
+	// Video.updateAttributes({
+	// 	id   : videoId,
+	// 	start: req.body.start,
+	// 	end  : req.body.end
+	// }).then(function(video){
+
+	// 	console.log(req.body.start);
+	// 	console.log(req.body.end);
+	// 	console.log(video);
+
+	// 	// :todo add redirect to someone else page.
+
+	// }).catch(function(err){
+	// 	throw err;
+
+	// 	res.render('empty', { title: 'Error' });
+	// });
 
 };
 
