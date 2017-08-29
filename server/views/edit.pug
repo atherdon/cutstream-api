@@ -45,15 +45,4 @@ block content
         #slider-range
 
         
-    
-      form#formSubmitVideo(name="formsubmit", method="post", action="/player/update")
-        input#inputUrl(type="hidden",   name="url", value=url)        
-        input#inputStart(type="hidden", name="start", value=start)
-        input#inputEnd(type="hidden",   name="end", value=end)
-        input#inputTitle(type="hidden", name="title", value=title)
-        input#desc(type="hidden",       name="desc", value=desc)
-        input#slug(type="hidden",       name="slug", value=slug)
-        input#step(type="hidden",       name="step", value=step)
-        input#id(type="hidden",         name="id", value=id)
-
-        button.btn.btn-next.btn-fill.btn-success.btn-wd.pull-right#btnSubmit(type="submit") Update
+      include partials/update-video-form
