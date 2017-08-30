@@ -6,16 +6,32 @@ cd "C:\Program Files\MongoDB\Server\3.4\bin"
 mongod.exe --dbpath="f:\code\cutstream\api\1\data"
 
 
+# README #
 
-@todo
-Sometimes youtube video cannot be displayed outside the Youtube.
-Example - Rap God - Eminem. We need to cover this case too.
+This README would normally document whatever steps are necessary to get your application up and running.
 
-@todo
-Add tooltips on sliderdruggers.
+### What is this repository for? ###
 
+* Quick summary
+* Version
+* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
+### How do I get set up? ###
 
-@todo 
-npm WARN deprecated transformers@2.1.0: Deprecated, use jstransformer
+* Summary of set up
+* Configuration
+* Dependencies
+* Database configuration
+* How to run tests
+* Deployment instructions
 
+### Contribution guidelines ###
+
+* Writing tests
+* Code review
+* Other guidelines
+
+### Who do I talk to? ###
+
+* Repo owner or admin
+* Other community or team contact
