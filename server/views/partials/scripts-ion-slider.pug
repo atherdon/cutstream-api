@@ -1,0 +1,16 @@
+script.
+  $(document).ready(function(){
+
+    $("#range").ionRangeSlider({
+    min: +moment().subtract(12, "hours").format("X"),
+    max: +moment().format("X"),
+    from: +moment().subtract(6, "hours").format("X"),
+    grid: true,
+    force_edges: true,
+    prettify: function (num) {
+        var m = moment(num, "X");
+        return m.format("Do MMMM, HH:mm");
+    }
+    });
+
+  });  

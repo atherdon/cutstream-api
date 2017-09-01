@@ -65,8 +65,8 @@ exports.postVideo = function(req, res, next){
 
     Video.create(data, function(err, obj){
 
-    	console.log(obj);
-    	console.log(obj.id);
+    	// console.log(obj);
+    	// console.log(obj.id);
     	var edit_link = '/edit/' + obj._id;
     	res.render('player3', obj);
 
