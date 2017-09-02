@@ -11,63 +11,7 @@ module.exports = function(server) {
 
   var Video   = server.models.VideoModel;
   
-  // router.get('/index', function(req, res, next) {
 
-  //   res.render('index', {
-  //     loginFailed: false
-  //   });
-  // });
-
-
-  router.get('/postvideo', function(req, res, next) {
-
-    // console.log(req.accessToken);
-    // console.log(req.accessToken.userId);
-
-    res.render('postvideo', {
-      userModelId: req.accessToken.userId,
-      accessToken: req.accessToken.id
-    });
-  });
-
-  router.post('/postvideo', function(req, res, next){
-
-    // console.log( req.body );
-
-
-    var video = new Video(req.body);
-    video.isValid(function(valid){
-      if (valid) {
-        video.save();
-        // res.render({user: user});
-      } else { 
-        console.log(video.errors);
-        // res.flash('error', 'User is not valid'), console.log(user.errors), res.redirect('/users');
-      }
-    }); 
-
-
-
-
-  });
-
-
-
-
-  router.get('/videos', function(req, res, next) {
-
-    console.log(req.accessToken);
-    console.log(req.accessToken.userId);
-    // console.log( req.accessToken );
-
-    
-
-
-
-    res.render('videos', {
-
-    });   
-  });
 
 
   router.post('/profile', function(req, res, next) {
