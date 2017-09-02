@@ -1,3 +1,12 @@
+#wizard {
+  padding: 50px;
+}
+
+
+
+
+
+
 .tim-row{
     margin-bottom: 20px;
 }
@@ -13,32 +22,7 @@
 .title.text-center{
     margin-bottom: 50px;
 }
-.tim-typo{
-    padding-left: 25%;
-    margin-bottom: 40px;
-    position: relative;
-}
-.tim-typo .tim-note{
-    bottom: 10px;
-    color: #c0c1c2;
-    display: block;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 13px;
-    left: 0;
-    margin-left: 20px;
-    position: absolute;
-    width: 260px;
-}
-.tim-row{
-    padding-top: 50px;
-}
-.tim-row h3{
-    margin-top: 0;
-}
-.switch{
-    margin-right: 20px;
-}
+
 #navbar-full .navbar{
     border-radius: 0 !important;
     margin-bottom: 15px;
