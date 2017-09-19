@@ -1,7 +1,9 @@
 {
   "name": "cutstream-api",
   "version": "1.0.0",
-  "engines": { "node" : "8.1.4" },
+  "engines": {
+    "node": "8.1.4"
+  },
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -13,6 +15,7 @@
     "bluebird": "^3.5.0",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "errorhandler": "^1.5.0",
     "express-validator": "^4.0.0",
     "helmet": "^3.6.1",
     "loopback": "^3.0.0",
