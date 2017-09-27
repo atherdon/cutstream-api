@@ -11,7 +11,7 @@ var Example   = server.models.ExampleModel;
 
 exports.getHomepage = async function(req, res, next){
 
-	// @TODO change this bad hardcode. But I don't want to do it right now.
+	// :todo change this bad hardcode. But I don't want to do it right now.
 	// It will be cool, if any of this homepage samples have similar to examples data. because we need to store images, etc.
 	
 	Video.listHomeExamples(function(result){
@@ -22,7 +22,7 @@ exports.getHomepage = async function(req, res, next){
 		res.render('index', { 
 			title: 'CutStream | Start & End point for your video',
 			cases: result.cases,
-			examples: result.examples // @TODO change this
+			examples: result.examples // :todo change this
 		});
 
 	});
