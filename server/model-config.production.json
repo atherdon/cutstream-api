@@ -42,14 +42,11 @@
   },
   "UserModel": {
     "dataSource": "videoDS",
-    "public": true,
-    
-
-
+    "public": true
   },
   "ExampleModel": {
     "dataSource": "videoDS",
     "public": true
-  },
+  }
 
 }

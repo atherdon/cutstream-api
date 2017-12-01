@@ -10,7 +10,7 @@
         "credentials": true,
         "maxAge": 86400
       }
-    }
+    },
   },
   "session": {},
   "auth": {},
@@ -31,5 +31,6 @@
   },
   "final:after": {
     "strong-error-handler": {}
-  }
+  },
+  "cookie-parser": {}
 }

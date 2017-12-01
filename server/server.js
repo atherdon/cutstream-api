@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var path       = require('path');
 var express    = require('express');
 
-
 const errorhandler = require('errorhandler');
 
 var app        = module.exports = loopback();
@@ -32,14 +31,15 @@ app.use(express.static(staticDir));
 // use loopback.token middleware on all routes
 // setup gear for authentication using cookie (access_token)
 // Note: requires cookie-parser (defined in middleware.json)
-app.use(loopback.token({  
+app.use(loopback.token({
   model: app.models.accessToken,
   currentUserLiteral: 'me',
 }));
 
 
+
 if (process.env.NODE_ENV === 'development') {
-  // only use in development 
+  // only use in development
   app.use(errorhandler());
 }
 
