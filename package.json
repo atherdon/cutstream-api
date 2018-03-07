@@ -22,7 +22,7 @@
     "loopback-component-explorer": "^5.3.0",
     "loopback-connector-mailgun": "0.0.11",
     "loopback-connector-mongodb": "^3.4.1",
-    "pug": "^2.0.0-rc.2",
+    "pug": "^2.0.0",
     "request": "^2.81.0",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.3.1"
